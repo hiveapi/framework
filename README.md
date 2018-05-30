@@ -1,2 +1,2 @@
-# framework
+# HiveApi / Framework
 HiveApi Framework
