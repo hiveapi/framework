@@ -2,7 +2,7 @@
 
 namespace App\Containers\User\UI\CLI\Commands;
 
-use Apiato\Core\Foundation\Facades\Apiato;
+use HiveApi\Core\Foundation\Facades\Hive;
 use App\Ship\Parents\Commands\ConsoleCommand;
 use App\Ship\Transporters\DataTransporter;
 
@@ -14,7 +14,7 @@ use App\Ship\Transporters\DataTransporter;
 class CreateAdminCommand extends ConsoleCommand
 {
 
-    protected $signature = 'apiato:create:admin';
+    protected $signature = 'hive:create:admin';
 
     protected $description = 'Create a new User with the ADMIN role';
 
@@ -42,7 +42,7 @@ class CreateAdminCommand extends ConsoleCommand
         ]);
 
         // and then call respective Action
-        $user = Apiato::call('User@CreateAdminAction', [$dataTransporter]);
+        $user = Hive::call('User@CreateAdminAction', [$dataTransporter]);
 
         $this->info('Admin ' . $email . ' was successfully created');
     }

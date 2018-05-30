@@ -2,7 +2,7 @@
 
 namespace App\Ship\Parents\Providers;
 
-use Apiato\Core\Abstracts\Providers\MiddlewareProvider as AbstractMiddlewareProvider;
+use HiveApi\Core\Abstracts\Providers\MiddlewareProvider as AbstractMiddlewareProvider;
 
 /**
  * Class MiddlewareProvider

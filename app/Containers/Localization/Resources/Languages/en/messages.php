@@ -2,6 +2,6 @@
 
 return [
 
-    'welcome' => 'Welcome to Apiato',
+    'welcome' => 'Welcome to HiveApi',
 
 ];

@@ -2,7 +2,7 @@
 
 namespace App\Containers\User\Actions;
 
-use Apiato\Core\Foundation\Facades\Apiato;
+use HiveApi\Core\Foundation\Facades\Hive;
 use App\Containers\User\Models\User;
 use App\Ship\Exceptions\NotFoundException;
 use App\Ship\Parents\Actions\Action;
@@ -23,7 +23,7 @@ class FindUserByIdAction extends Action
      */
     public function run(DataTransporter $data): User
     {
-        $user = Apiato::call('User@FindUserByIdTask', [$data->id]);
+        $user = Hive::call('User@FindUserByIdTask', [$data->id]);
 
         if (!$user) {
             throw new NotFoundException();

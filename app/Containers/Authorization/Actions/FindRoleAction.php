@@ -2,7 +2,7 @@
 
 namespace App\Containers\Authorization\Actions;
 
-use Apiato\Core\Foundation\Facades\Apiato;
+use HiveApi\Core\Foundation\Facades\Hive;
 use App\Containers\Authorization\Exceptions\RoleNotFoundException;
 use App\Containers\Authorization\Models\Role;
 use App\Ship\Parents\Actions\Action;
@@ -24,7 +24,7 @@ class FindRoleAction extends Action
      */
     public function run(DataTransporter $data): Role
     {
-        $role = Apiato::call('Authorization@FindRoleTask', [$data->id]);
+        $role = Hive::call('Authorization@FindRoleTask', [$data->id]);
 
         if (!$role) {
             throw new RoleNotFoundException();

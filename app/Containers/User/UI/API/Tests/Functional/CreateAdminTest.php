@@ -29,7 +29,7 @@ class CreateAdminTest extends ApiTestCase
     public function testCreateAdmin_()
     {
         $data = [
-            'email'    => 'apiato@admin.dev',
+            'email'    => 'hive@admin.dev',
             'name'     => 'admin',
             'password' => 'secret',
         ];

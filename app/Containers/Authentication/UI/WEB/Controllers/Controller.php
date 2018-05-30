@@ -2,7 +2,7 @@
 
 namespace App\Containers\Authentication\UI\WEB\Controllers;
 
-use Apiato\Core\Foundation\Facades\Apiato;
+use HiveApi\Core\Foundation\Facades\Hive;
 use App\Containers\Authentication\UI\WEB\Requests\LoginRequest;
 use App\Containers\Authentication\UI\WEB\Requests\LogoutRequest;
 use App\Containers\Authentication\UI\WEB\Requests\ViewDashboardRequest;
@@ -31,7 +31,7 @@ class Controller extends WebController
      */
     public function logoutAdmin(LogoutRequest $request)
     {
-        Apiato::call('Authentication@WebLogoutAction');
+        Hive::call('Authentication@WebLogoutAction');
 
         return redirect('login');
     }
@@ -44,7 +44,7 @@ class Controller extends WebController
     public function loginAdmin(LoginRequest $request)
     {
         try {
-            $result = Apiato::call('Authentication@WebAdminLoginAction', [new DataTransporter($request)]);
+            $result = Hive::call('Authentication@WebAdminLoginAction', [new DataTransporter($request)]);
         } catch (Exception $e) {
             return redirect('login')->with('status', $e->getMessage());
         }

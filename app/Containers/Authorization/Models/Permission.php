@@ -2,8 +2,8 @@
 
 namespace App\Containers\Authorization\Models;
 
-use Apiato\Core\Traits\HashIdTrait;
-use Apiato\Core\Traits\HasResourceKeyTrait;
+use HiveApi\Core\Traits\HashIdTrait;
+use HiveApi\Core\Traits\HasResourceKeyTrait;
 use Spatie\Permission\Models\Permission as SpatiePermission;
 
 /**

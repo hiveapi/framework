@@ -2,7 +2,7 @@
 
 namespace App\Ship\Parents\Transformers;
 
-use Apiato\Core\Abstracts\Transformers\Transformer as AbstractTransformer;
+use HiveApi\Core\Abstracts\Transformers\Transformer as AbstractTransformer;
 
 /**
  * Class Transformer.

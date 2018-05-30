@@ -2,7 +2,7 @@
 
 namespace App\Ship\Parents\Providers;
 
-use Apiato\Core\Abstracts\Providers\EventsProvider as AbstractEventsProvider;
+use HiveApi\Core\Abstracts\Providers\EventsProvider as AbstractEventsProvider;
 
 /**
  * Class EventsProvider

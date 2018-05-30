@@ -1,7 +1,6 @@
 {
-  "name": "apiato/social-auth",
-  "description": "apiato Container.",
-  "type": "apiato-container",
+  "name": "hiveapi/social-auth",
+  "description": "HiveApi Container.",
   "require": {
     "laravel/socialite": "^3.0"
   }

@@ -2,7 +2,7 @@
 
 namespace App\Ship\Parents\Transporters;
 
-use Apiato\Core\Abstracts\Transporters\Transporter as AbstractTransporter;
+use HiveApi\Core\Abstracts\Transporters\Transporter as AbstractTransporter;
 
 /**
  * Class Transporter

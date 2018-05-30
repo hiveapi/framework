@@ -63,7 +63,7 @@ return [
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
-            'url' => parse_url(env('APP_URL'))['host'] .'/storage',
+            'url' => parse_url(config('app.url'))['host'] .'/storage',
             'visibility' => 'public',
         ],
 

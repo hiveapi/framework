@@ -2,7 +2,7 @@
 
 namespace App\Ship\Parents\Controllers;
 
-use Apiato\Core\Abstracts\Controllers\ApiController as AbstractApiController;
+use HiveApi\Core\Abstracts\Controllers\ApiController as AbstractApiController;
 
 /**
  * Class ApiController.

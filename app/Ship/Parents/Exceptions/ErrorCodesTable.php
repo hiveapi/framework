@@ -2,7 +2,7 @@
 
 namespace App\Ship\Parents\Exceptions;
 
-use Apiato\Core\Abstracts\Exceptions\ErrorCodesTable as AbstractErrorCodesTable;
+use HiveApi\Core\Abstracts\Exceptions\ErrorCodesTable as AbstractErrorCodesTable;
 
 /**
  * Class ErrorCodesTable

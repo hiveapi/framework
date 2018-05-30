@@ -2,7 +2,7 @@
 
 namespace App\Ship\Parents\Providers;
 
-use Apiato\Core\Abstracts\Providers\RoutesProvider as AbstractRoutesProvider;
+use HiveApi\Core\Abstracts\Providers\RoutesProvider as AbstractRoutesProvider;
 
 /**
  * Class RoutesProvider.

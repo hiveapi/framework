@@ -2,7 +2,7 @@
 
 namespace App\Ship\Parents\Requests;
 
-use Apiato\Core\Abstracts\Requests\Request as AbstractRequest;
+use HiveApi\Core\Abstracts\Requests\Request as AbstractRequest;
 use App\Ship\Transporters\DataTransporter;
 
 /**

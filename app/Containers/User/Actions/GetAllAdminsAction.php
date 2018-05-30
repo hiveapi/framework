@@ -2,7 +2,7 @@
 
 namespace App\Containers\User\Actions;
 
-use Apiato\Core\Foundation\Facades\Apiato;
+use HiveApi\Core\Foundation\Facades\Hive;
 use App\Ship\Parents\Actions\Action;
 
 /**
@@ -18,7 +18,7 @@ class GetAllAdminsAction extends Action
      */
     public function run()
     {
-        return Apiato::call('User@GetAllUsersTask',
+        return Hive::call('User@GetAllUsersTask',
             [],
             [
                 'addRequestCriteria',

@@ -2,7 +2,7 @@
 
 namespace App\Ship\Exceptions\Formatters;
 
-use Apiato\Core\Exceptions\Formatters\ExceptionsFormatter as CoreExceptionsFormatter;
+use HiveApi\Core\Exceptions\Formatters\ExceptionsFormatter as CoreExceptionsFormatter;
 use Exception;
 use Illuminate\Http\JsonResponse;
 

@@ -1,7 +1,6 @@
 {
-  "name": "apiato/debugger",
-  "description": "apiato Container.",
-  "type": "apiato-container",
+  "name": "hiveapi/debugger",
+  "description": "HiveApi Container.",
   "require": {
     "jenssegers/agent": "^2.4"
   }

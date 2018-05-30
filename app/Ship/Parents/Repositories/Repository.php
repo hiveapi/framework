@@ -2,7 +2,7 @@
 
 namespace App\Ship\Parents\Repositories;
 
-use Apiato\Core\Abstracts\Repositories\Repository as AbstractRepository;
+use HiveApi\Core\Abstracts\Repositories\Repository as AbstractRepository;
 
 /**
  * Class Repository.

@@ -1,7 +1,6 @@
 {
-  "name": "apiato/payment",
-  "description": "Payment Container for apiato.",
-  "type": "apiato-container",
+  "name": "hiveapi/payment",
+  "description": "Payment Container for HiveApi.",
   "require": {
     "johannesschobel/laravel-shoppingcart" : "^0"
   }

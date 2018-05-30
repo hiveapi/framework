@@ -2,7 +2,7 @@
 
 namespace App\Containers\Authentication\Providers;
 
-use Apiato\Core\Loaders\RoutesLoaderTrait;
+use HiveApi\Core\Loaders\RoutesLoaderTrait;
 use App\Ship\Parents\Providers\AuthProvider as ParentAuthProvider;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Config;
@@ -62,12 +62,12 @@ class AuthProvider extends ParentAuthProvider
             Passport::routes();
         });
 
-        if (Config::get('apiato.api.enabled-implicit-grant')) {
+        if (Config::get('hive.api.enabled-implicit-grant')) {
             Passport::enableImplicitGrant();
         }
 
-        Passport::tokensExpireIn(Carbon::now()->addMinutes(Config::get('apiato.api.expires-in')));
+        Passport::tokensExpireIn(Carbon::now()->addMinutes(Config::get('hive.api.expires-in')));
 
-        Passport::refreshTokensExpireIn(Carbon::now()->addMinutes(Config::get('apiato.api.refresh-expires-in')));
+        Passport::refreshTokensExpireIn(Carbon::now()->addMinutes(Config::get('hive.api.refresh-expires-in')));
     }
 }

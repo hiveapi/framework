@@ -2,7 +2,7 @@
 
 namespace App\Containers\User\Actions;
 
-use Apiato\Core\Foundation\Facades\Apiato;
+use HiveApi\Core\Foundation\Facades\Hive;
 use App\Containers\User\Events\UserRegisteredEvent;
 use App\Containers\User\Mails\UserRegisteredMail;
 use App\Containers\User\Models\User;
@@ -30,7 +30,7 @@ class RegisterUserAction extends Action
     public function run(DataTransporter $data): User
     {
         // create user record in the database and return it.
-        $user = Apiato::call('User@CreateUserByCredentialsTask', [
+        $user = Hive::call('User@CreateUserByCredentialsTask', [
             $isClient = true,
             $data->email,
             $data->password,

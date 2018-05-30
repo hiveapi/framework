@@ -2,7 +2,7 @@
 
 namespace App\Containers\Authentication\Actions;
 
-use Apiato\Core\Foundation\Facades\Apiato;
+use HiveApi\Core\Foundation\Facades\Hive;
 use App\Containers\Authorization\Exceptions\UserNotAdminException;
 use App\Ship\Parents\Actions\Action;
 use App\Ship\Transporters\DataTransporter;
@@ -23,10 +23,10 @@ class WebAdminLoginAction extends Action
      */
     public function run(DataTransporter $data) : Authenticatable
     {
-        $user = Apiato::call('Authentication@WebLoginTask',
+        $user = Hive::call('Authentication@WebLoginTask',
             [$data->email, $data->password, $data->remember_me ?? false]);
 
-        Apiato::call('Authentication@CheckIfUserIsConfirmedTask', [], [['setUser' => [$user]]]);
+        Hive::call('Authentication@CheckIfUserIsConfirmedTask', [], [['setUser' => [$user]]]);
 
         if (!$user->hasAdminRole()) {
             throw new UserNotAdminException();

@@ -29,13 +29,13 @@ class RenderTemplatesTask extends Task
         // read the template file
         $this->headerMarkdownContent = file_get_contents(app_path(self::TEMPLATE_PATH . 'header.template.md'));
 
-        $this->replace('api.domain.dev', Config::get('apiato.api.url'));
-        $this->replace('{{rate-limit-expires}}', Config::get('apiato.api.throttle.expires'));
-        $this->replace('{{rate-limit-attempts}}', Config::get('apiato.api.throttle.attempts'));
-        $this->replace('{{access-token-expires-in}}', $this->minutesToTimeDisplay(Config::get('apiato.api.expires-in')));
-        $this->replace('{{access-token-expires-in-minutes}}', Config::get('apiato.api.expires-in'));
-        $this->replace('{{refresh-token-expires-in}}', $this->minutesToTimeDisplay(Config::get('apiato.api.refresh-expires-in')));
-        $this->replace('{{refresh-token-expires-in-minutes}}', Config::get('apiato.api.refresh-expires-in'));
+        $this->replace('api.domain.dev', Config::get('hive.api.url'));
+        $this->replace('{{rate-limit-expires}}', Config::get('hive.api.throttle.expires'));
+        $this->replace('{{rate-limit-attempts}}', Config::get('hive.api.throttle.attempts'));
+        $this->replace('{{access-token-expires-in}}', $this->minutesToTimeDisplay(Config::get('hive.api.expires-in')));
+        $this->replace('{{access-token-expires-in-minutes}}', Config::get('hive.api.expires-in'));
+        $this->replace('{{refresh-token-expires-in}}', $this->minutesToTimeDisplay(Config::get('hive.api.refresh-expires-in')));
+        $this->replace('{{refresh-token-expires-in-minutes}}', Config::get('hive.api.refresh-expires-in'));
         $this->replace('{{pagination-limit}}', Config::get('repository.pagination.limit'));
 
         // this is what the apidoc.json file will point to to load the header.md

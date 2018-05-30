@@ -2,7 +2,7 @@
 
 namespace App\Containers\Authentication\Middlewares;
 
-use Apiato\Core\Foundation\Facades\Apiato;
+use HiveApi\Core\Foundation\Facades\Hive;
 use App\Ship\Parents\Middlewares\Middleware;
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
@@ -45,7 +45,7 @@ class WebAuthentication extends Middleware
     public function handle(Request $request, Closure $next)
     {
         if ($this->auth->guest()) {
-            return redirect(Apiato::getLoginWebPageName())
+            return redirect(Hive::getLoginWebPageName())
                 ->with('errorMessage', 'Credentials Incorrect.');
         }
 

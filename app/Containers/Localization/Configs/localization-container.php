@@ -12,18 +12,12 @@ return [
     | ('locale' => 'en').
     |
     */
-
     'supported_languages' => [
-        'ar',
+        'de',
         'en' => [
             'en-GB',
             'en-US',
         ],
-        'zh' => [
-            'zh-CN'
-        ],
-        'es',
-        'fr',
     ],
 
 ];

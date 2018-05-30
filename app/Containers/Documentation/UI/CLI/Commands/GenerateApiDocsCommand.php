@@ -2,7 +2,7 @@
 
 namespace App\Containers\Documentation\UI\CLI\Commands;
 
-use Apiato\Core\Foundation\Facades\Apiato;
+use HiveApi\Core\Foundation\Facades\Hive;
 use App\Ship\Parents\Commands\ConsoleCommand;
 use App\Ship\Transporters\DataTransporter;
 
@@ -19,7 +19,7 @@ class GenerateApiDocsCommand extends ConsoleCommand
      *
      * @var string
      */
-    protected $signature = "apiato:docs";
+    protected $signature = "hive:docs";
 
     /**
      * The console command description.
@@ -43,7 +43,7 @@ class GenerateApiDocsCommand extends ConsoleCommand
         $transporter = new DataTransporter();
         $transporter->setInstance("command_instance", $this);
 
-        Apiato::call('Documentation@GenerateDocumentationAction', [$transporter]);
+        Hive::call('Documentation@GenerateDocumentationAction', [$transporter]);
     }
 
 }

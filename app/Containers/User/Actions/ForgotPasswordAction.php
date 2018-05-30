@@ -2,7 +2,7 @@
 
 namespace App\Containers\User\Actions;
 
-use Apiato\Core\Foundation\Facades\Apiato;
+use HiveApi\Core\Foundation\Facades\Hive;
 use App\Containers\User\Mails\UserForgotPasswordMail;
 use App\Ship\Exceptions\NotFoundException;
 use App\Ship\Parents\Actions\Action;
@@ -23,10 +23,10 @@ class ForgotPasswordAction extends Action
      */
     public function run(DataTransporter $data): void
     {
-        $user = Apiato::call('User@FindUserByEmailTask', [$data->email]);
+        $user = Hive::call('User@FindUserByEmailTask', [$data->email]);
 
         // generate token
-        $token = Apiato::call('User@CreatePasswordResetTask', [$user]);
+        $token = Hive::call('User@CreatePasswordResetTask', [$user]);
 
         // get last segment of the URL
         $resetUrl = $data->reseturl;

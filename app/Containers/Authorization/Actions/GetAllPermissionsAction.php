@@ -2,7 +2,7 @@
 
 namespace App\Containers\Authorization\Actions;
 
-use Apiato\Core\Foundation\Facades\Apiato;
+use HiveApi\Core\Foundation\Facades\Hive;
 use App\Ship\Parents\Actions\Action;
 
 /**
@@ -18,7 +18,7 @@ class GetAllPermissionsAction extends Action
      */
     public function run()
     {
-        $permissions = Apiato::call('Authorization@GetAllPermissionsTask', [], ['addRequestCriteria']);
+        $permissions = Hive::call('Authorization@GetAllPermissionsTask', [], ['addRequestCriteria']);
 
         return $permissions;
     }

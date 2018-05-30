@@ -15,7 +15,7 @@ class CustomErrorCodesTable extends ErrorCodesTable
      * Use this class to define your own custom error code tables. Please follow the scheme defined in the other file
      * in order to make them compliant!
      *
-     * Please note that Apiato reserves the error codes 000000 - 099999 for itself. If you define your own codes,
+     * Please note that HiveApi reserves the error codes 000000 - 099999 for itself. If you define your own codes,
      * please start with 100000
      *
      * const BASE_GENERAL_ERROR = [

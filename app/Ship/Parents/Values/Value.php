@@ -2,8 +2,8 @@
 
 namespace App\Ship\Parents\Values;
 
-use Apiato\Core\Abstracts\Values\Value as AbstractValue;
-use Apiato\Core\Traits\HasResourceKeyTrait;
+use HiveApi\Core\Abstracts\Values\Value as AbstractValue;
+use HiveApi\Core\Traits\HasResourceKeyTrait;
 
 /**
  * Class Value.

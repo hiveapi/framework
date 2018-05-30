@@ -17,14 +17,14 @@ class SayWelcomeCommand extends ConsoleCommand
      *
      * @var string
      */
-    protected $signature = 'apiato:welcome';
+    protected $signature = 'hive:welcome';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Just saying Welcome.';
+    protected $description = 'Just say hi.';
 
     /**
      * Create a new command instance.
@@ -43,6 +43,6 @@ class SayWelcomeCommand extends ConsoleCommand
      */
     public function handle()
     {
-        echo "Welcome to apiato :)\n";
+        echo "Welcome to HiveApi!\n";
     }
 }

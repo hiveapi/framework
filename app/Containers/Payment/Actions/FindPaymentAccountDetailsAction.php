@@ -2,7 +2,7 @@
 
 namespace App\Containers\Payment\Actions;
 
-use Apiato\Core\Foundation\Facades\Apiato;
+use HiveApi\Core\Foundation\Facades\Hive;
 use App\Containers\Payment\Models\PaymentAccount;
 use App\Ship\Parents\Actions\Action;
 use App\Ship\Transporters\DataTransporter;
@@ -22,12 +22,12 @@ class FindPaymentAccountDetailsAction extends Action
      */
     public function run(DataTransporter $data): PaymentAccount
     {
-        $user = Apiato::call('Authentication@GetAuthenticatedUserTask');
+        $user = Hive::call('Authentication@GetAuthenticatedUserTask');
 
-        $paymentAccount = Apiato::call('Payment@FindPaymentAccountByIdTask', [$data->id]);
+        $paymentAccount = Hive::call('Payment@FindPaymentAccountByIdTask', [$data->id]);
 
         // check if this account belongs to our user
-        Apiato::call('Payment@CheckIfPaymentAccountBelongsToUserTask', [$user, $paymentAccount]);
+        Hive::call('Payment@CheckIfPaymentAccountBelongsToUserTask', [$user, $paymentAccount]);
 
         return $paymentAccount;
     }

@@ -30,8 +30,8 @@ class RegisterUserTest extends ApiTestCase
     public function testRegisterNewUserWithCredentials_()
     {
         $data = [
-            'email'    => 'apiato@mail.dev',
-            'name'     => 'Apiato',
+            'email'    => 'hive@mail.dev',
+            'name'     => 'John Doe',
             'password' => 'secretpass',
         ];
 
@@ -60,8 +60,8 @@ class RegisterUserTest extends ApiTestCase
     public function testRegisterNewUserUsingGetVerb()
     {
         $data = [
-            'email'    => 'apiato@mail.dev',
-            'name'     => 'Apiato',
+            'email'    => 'hive@mail.dev',
+            'name'     => 'John Doe',
             'password' => 'secret',
         ];
 
@@ -82,8 +82,8 @@ class RegisterUserTest extends ApiTestCase
     public function testRegisterExistingUser()
     {
         $userDetails = [
-            'email'    => 'apiato@mail.dev',
-            'name'     => 'Apiato',
+            'email'    => 'hive@mail.dev',
+            'name'     => 'John Doe',
             'password' => 'secret',
         ];
 
@@ -113,7 +113,7 @@ class RegisterUserTest extends ApiTestCase
     public function testRegisterNewUserWithoutEmail()
     {
         $data = [
-            'name'     => 'Apiato',
+            'name'     => 'John Doe',
             'password' => 'secret',
         ];
 
@@ -135,7 +135,7 @@ class RegisterUserTest extends ApiTestCase
     public function testRegisterNewUserWithoutName()
     {
         $data = [
-            'email'    => 'apiato@mail.dev',
+            'email'    => 'hive@mail.dev',
             'password' => 'secret',
         ];
 
@@ -157,8 +157,8 @@ class RegisterUserTest extends ApiTestCase
     public function testRegisterNewUserWithoutPassword()
     {
         $data = [
-            'email' => 'apiato@mail.dev',
-            'name'  => 'Apiato',
+            'email'    => 'hive@mail.dev',
+            'name'     => 'John Doe',
         ];
 
         $response = $this->makeCall($data);
@@ -178,8 +178,8 @@ class RegisterUserTest extends ApiTestCase
     public function testRegisterNewUserWithInvalidEmail()
     {
         $data = [
-            'email'    => 'missing-at.dev',
-            'name'     => 'Apiato',
+            'email'    => 'hive.mail.dev',
+            'name'     => 'John Doe',
             'password' => 'secret',
         ];
 

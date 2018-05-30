@@ -37,7 +37,7 @@ class MiddlewareServiceProvider extends MiddlewareProvider
     ];
 
     protected $routeMiddleware = [
-        // apiato User Authentication middleware for Web Pages
+        // hiveapi User Authentication middleware for Web Pages
         'auth:web' => WebAuthentication::class,
 
         // ..

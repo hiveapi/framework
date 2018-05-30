@@ -30,7 +30,7 @@ class CallOAuthServerTask extends Task
     public function run($data)
     {
         // Full url to the oauth token endpoint
-        $authFullApiUrl = Config::get('apiato.api.url') . self::AUTH_ROUTE;
+        $authFullApiUrl = Config::get('hive.api.url') . self::AUTH_ROUTE;
 
         $headers = ['HTTP_ACCEPT' => 'application/json'];
 

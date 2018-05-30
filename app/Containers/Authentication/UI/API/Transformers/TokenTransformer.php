@@ -24,7 +24,7 @@ class TokenTransformer extends Transformer
             'object'       => 'Token',
             'access_token' => $token,
             'token_type'   => 'Bearer',
-            'expires_in'   => Config::get('apiato.api.expires-in'),
+            'expires_in'   => Config::get('hive.api.expires-in'),
         ];
 
         return $response;

@@ -2,7 +2,7 @@
 
 namespace App\Containers\Authorization\Actions;
 
-use Apiato\Core\Foundation\Facades\Apiato;
+use HiveApi\Core\Foundation\Facades\Hive;
 use App\Containers\Authorization\Models\Role;
 use App\Ship\Parents\Actions\Action;
 use App\Ship\Transporters\DataTransporter;
@@ -25,7 +25,7 @@ class CreateRoleAction extends Action
     {
         $level = is_null($data->level) ? 0 : $data->level ;
 
-        $role = Apiato::call('Authorization@CreateRoleTask',
+        $role = Hive::call('Authorization@CreateRoleTask',
             [$data->name, $data->description, $data->display_name, $level]
         );
 

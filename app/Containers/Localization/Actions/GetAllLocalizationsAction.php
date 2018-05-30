@@ -3,7 +3,7 @@
 namespace App\Containers\Localization\Actions;
 
 use App\Ship\Parents\Actions\Action;
-use Apiato\Core\Foundation\Facades\Apiato;
+use HiveApi\Core\Foundation\Facades\Hive;
 use Illuminate\Support\Collection;
 
 /**
@@ -19,7 +19,7 @@ class GetAllLocalizationsAction extends Action
      */
     public function run(): Collection
     {
-        $localizations = Apiato::call('Localization@GetAllLocalizationsTask');
+        $localizations = Hive::call('Localization@GetAllLocalizationsTask');
 
         return $localizations;
     }

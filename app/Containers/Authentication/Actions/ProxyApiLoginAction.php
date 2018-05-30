@@ -2,7 +2,7 @@
 
 namespace App\Containers\Authentication\Actions;
 
-use Apiato\Core\Foundation\Facades\Apiato;
+use HiveApi\Core\Foundation\Facades\Hive;
 use App\Containers\Authentication\Data\Transporters\ProxyApiLoginTransporter;
 use App\Ship\Parents\Actions\Action;
 
@@ -52,13 +52,13 @@ class ProxyApiLoginAction extends Action
             ]
         );
 
-        $responseContent = Apiato::call('Authentication@CallOAuthServerTask', [$requestData]);
+        $responseContent = Hive::call('Authentication@CallOAuthServerTask', [$requestData]);
 
         // check if user email is confirmed only if that feature is enabled.
-        Apiato::call('Authentication@CheckIfUserIsConfirmedTask', [],
+        Hive::call('Authentication@CheckIfUserIsConfirmedTask', [],
             [['loginWithCredentials' => [$requestData['username'], $requestData['password'], $loginAttribute]]]);
 
-        $refreshCookie = Apiato::call('Authentication@MakeRefreshCookieTask', [$responseContent['refresh_token']]);
+        $refreshCookie = Hive::call('Authentication@MakeRefreshCookieTask', [$responseContent['refresh_token']]);
 
         return [
             'response_content' => $responseContent,

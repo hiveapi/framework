@@ -2,7 +2,7 @@
 
 namespace App\Containers\Authorization\Data\Seeders;
 
-use Apiato\Core\Foundation\Facades\Apiato;
+use HiveApi\Core\Foundation\Facades\Hive;
 use App\Ship\Parents\Seeders\Seeder;
 
 /**
@@ -20,10 +20,10 @@ class AuthorizationPermissionsSeeder_1 extends Seeder
     public function run()
     {
         // Default Permissions ----------------------------------------------------------
-        Apiato::call('Authorization@CreatePermissionTask', ['manage-roles', 'Create, Update, Delete, Get All, Attach/detach permissions to Roles and Get All Permissions.']);
-        Apiato::call('Authorization@CreatePermissionTask', ['create-admins', 'Create new Users (Admins) from the dashboard.']);
-        Apiato::call('Authorization@CreatePermissionTask', ['manage-admins-access', 'Assign users to Roles.']);
-        Apiato::call('Authorization@CreatePermissionTask', ['access-dashboard', 'Access the admins dashboard.']);
+        Hive::call('Authorization@CreatePermissionTask', ['manage-roles', 'Create, Update, Delete, Get All, Attach/detach permissions to Roles and Get All Permissions.']);
+        Hive::call('Authorization@CreatePermissionTask', ['create-admins', 'Create new Users (Admins) from the dashboard.']);
+        Hive::call('Authorization@CreatePermissionTask', ['manage-admins-access', 'Assign users to Roles.']);
+        Hive::call('Authorization@CreatePermissionTask', ['access-dashboard', 'Access the admins dashboard.']);
 
         // ...
 

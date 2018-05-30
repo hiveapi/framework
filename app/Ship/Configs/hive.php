@@ -184,17 +184,17 @@ return [
 
         /*
         |--------------------------------------------------------------------------
-        | Log Apiato Wrong Caller Style
+        | Log Hive Wrong Caller Style
         |--------------------------------------------------------------------------
         |
-        | This option describes, if a "wrong" Apiato Call Style should be logged.
-        | The preferred style is Apiato::call('Container@Action/Task'), however,
-        | one may use Apiato::call(Your\Full\Classname::class) as well.
+        | This option describes, if a "wrong" Hive Call Style should be logged.
+        | The preferred style is Hive::call('Container@Action/Task'), however,
+        | one may use Hive::call(Your\Full\Classname::class) as well.
         |
         | Default Value: true ("Violations" will be logged)
         |
         */
-        'log-wrong-apiato-caller-style' => true,
+        'log-wrong-hive-caller-style' => true,
 
     ]
 

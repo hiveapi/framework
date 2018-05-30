@@ -2,7 +2,7 @@
 
 namespace App\Containers\User\Actions;
 
-use Apiato\Core\Foundation\Facades\Apiato;
+use HiveApi\Core\Foundation\Facades\Hive;
 use App\Containers\User\Models\User;
 use App\Ship\Parents\Actions\Action;
 use App\Ship\Transporters\DataTransporter;
@@ -38,7 +38,7 @@ class UpdateUserAction extends Action
         // remove null values and their keys
         $userData = array_filter($userData);
 
-        $user = Apiato::call('User@UpdateUserTask', [$userData, $data->id]);
+        $user = Hive::call('User@UpdateUserTask', [$userData, $data->id]);
 
         return $user;
     }

@@ -2,7 +2,7 @@
 
 namespace App\Containers\Settings\Actions;
 
-use Apiato\Core\Foundation\Facades\Apiato;
+use HiveApi\Core\Foundation\Facades\Hive;
 use App\Ship\Parents\Actions\Action;
 use App\Ship\Transporters\DataTransporter;
 
@@ -26,7 +26,7 @@ class UpdateSettingAction extends Action
             'value'
         ]);
 
-        $setting = Apiato::call('Settings@UpdateSettingTask', [$data->id, $sanitizedData]);
+        $setting = Hive::call('Settings@UpdateSettingTask', [$data->id, $sanitizedData]);
 
         return $setting;
     }

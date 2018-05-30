@@ -1,7 +1,6 @@
 {
-  "name": "apiato/documentation",
-  "description": "apiato Container.",
-  "type": "apiato-container",
+  "name": "hiveapi/documentation",
+  "description": "HiveApi Container.",
   "require": {
 
   }

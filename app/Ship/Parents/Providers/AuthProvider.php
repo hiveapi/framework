@@ -2,7 +2,7 @@
 
 namespace App\Ship\Parents\Providers;
 
-use Apiato\Core\Abstracts\Providers\AuthProvider as AbstractAuthProvider;
+use HiveApi\Core\Abstracts\Providers\AuthProvider as AbstractAuthProvider;
 
 /**
  * Class ShipAuthServiceProvider

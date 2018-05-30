@@ -2,7 +2,7 @@
 
 namespace App\Containers\Authorization\UI\API\Controllers;
 
-use Apiato\Core\Foundation\Facades\Apiato;
+use HiveApi\Core\Foundation\Facades\Hive;
 use App\Containers\Authorization\UI\API\Requests\AssignUserToRoleRequest;
 use App\Containers\Authorization\UI\API\Requests\AttachPermissionToRoleRequest;
 use App\Containers\Authorization\UI\API\Requests\CreateRoleRequest;
@@ -36,7 +36,7 @@ class Controller extends ApiController
      */
     public function getAllPermissions(GetAllPermissionsRequest $request)
     {
-        $permissions = Apiato::call('Authorization@GetAllPermissionsAction');
+        $permissions = Hive::call('Authorization@GetAllPermissionsAction');
 
         return $this->transform($permissions, PermissionTransformer::class);
     }
@@ -48,7 +48,7 @@ class Controller extends ApiController
      */
     public function findPermission(FindPermissionRequest $request)
     {
-        $permission = Apiato::call('Authorization@FindPermissionAction', [new DataTransporter($request)]);
+        $permission = Hive::call('Authorization@FindPermissionAction', [new DataTransporter($request)]);
 
         return $this->transform($permission, PermissionTransformer::class);
     }
@@ -60,7 +60,7 @@ class Controller extends ApiController
      */
     public function getAllRoles(GetAllRolesRequest $request)
     {
-        $roles = Apiato::call('Authorization@GetAllRolesAction');
+        $roles = Hive::call('Authorization@GetAllRolesAction');
 
         return $this->transform($roles, RoleTransformer::class);
     }
@@ -72,7 +72,7 @@ class Controller extends ApiController
      */
     public function findRole(FindRoleRequest $request)
     {
-        $role = Apiato::call('Authorization@FindRoleAction', [new DataTransporter($request)]);
+        $role = Hive::call('Authorization@FindRoleAction', [new DataTransporter($request)]);
 
         return $this->transform($role, RoleTransformer::class);
     }
@@ -84,7 +84,7 @@ class Controller extends ApiController
      */
     public function assignUserToRole(AssignUserToRoleRequest $request)
     {
-        $user = Apiato::call('Authorization@AssignUserToRoleAction', [new DataTransporter($request)]);
+        $user = Hive::call('Authorization@AssignUserToRoleAction', [new DataTransporter($request)]);
 
         return $this->transform($user, UserTransformer::class);
     }
@@ -96,7 +96,7 @@ class Controller extends ApiController
      */
     public function syncUserRoles(SyncUserRolesRequest $request)
     {
-        $user = Apiato::call('Authorization@SyncUserRolesAction', [new DataTransporter($request)]);
+        $user = Hive::call('Authorization@SyncUserRolesAction', [new DataTransporter($request)]);
 
         return $this->transform($user, UserTransformer::class);
     }
@@ -108,7 +108,7 @@ class Controller extends ApiController
      */
     public function deleteRole(DeleteRoleRequest $request)
     {
-        Apiato::call('Authorization@DeleteRoleAction', [new DataTransporter($request)]);
+        Hive::call('Authorization@DeleteRoleAction', [new DataTransporter($request)]);
 
         return $this->noContent();
     }
@@ -120,7 +120,7 @@ class Controller extends ApiController
      */
     public function revokeRoleFromUser(RevokeUserFromRoleRequest $request)
     {
-        $user = Apiato::call('Authorization@RevokeUserFromRoleAction', [new DataTransporter($request)]);
+        $user = Hive::call('Authorization@RevokeUserFromRoleAction', [new DataTransporter($request)]);
 
         return $this->transform($user, UserTransformer::class);
     }
@@ -132,7 +132,7 @@ class Controller extends ApiController
      */
     public function attachPermissionToRole(AttachPermissionToRoleRequest $request)
     {
-        $role = Apiato::call('Authorization@AttachPermissionsToRoleAction', [new DataTransporter($request)]);
+        $role = Hive::call('Authorization@AttachPermissionsToRoleAction', [new DataTransporter($request)]);
 
         return $this->transform($role, RoleTransformer::class);
     }
@@ -144,7 +144,7 @@ class Controller extends ApiController
      */
     public function syncPermissionOnRole(SyncPermissionsOnRoleRequest $request)
     {
-        $role = Apiato::call('Authorization@SyncPermissionsOnRoleAction', [new DataTransporter($request)]);
+        $role = Hive::call('Authorization@SyncPermissionsOnRoleAction', [new DataTransporter($request)]);
 
         return $this->transform($role, RoleTransformer::class);
     }
@@ -156,7 +156,7 @@ class Controller extends ApiController
      */
     public function detachPermissionFromRole(DetachPermissionToRoleRequest $request)
     {
-        $role = Apiato::call('Authorization@DetachPermissionsFromRoleAction', [new DataTransporter($request)]);
+        $role = Hive::call('Authorization@DetachPermissionsFromRoleAction', [new DataTransporter($request)]);
 
         return $this->transform($role, RoleTransformer::class);
     }
@@ -168,7 +168,7 @@ class Controller extends ApiController
      */
     public function createRole(CreateRoleRequest $request)
     {
-        $role = Apiato::call('Authorization@CreateRoleAction', [new DataTransporter($request)]);
+        $role = Hive::call('Authorization@CreateRoleAction', [new DataTransporter($request)]);
 
         return $this->transform($role, RoleTransformer::class);
     }

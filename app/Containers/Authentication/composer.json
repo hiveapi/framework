@@ -1,7 +1,6 @@
 {
-  "name": "apiato/authentication",
-  "description": "apiato Container.",
-  "type": "apiato-container",
+  "name": "hiveapi/authentication",
+  "description": "HiveApi Container.",
   "require": {
     "laravel/passport": "~5.0"
   }

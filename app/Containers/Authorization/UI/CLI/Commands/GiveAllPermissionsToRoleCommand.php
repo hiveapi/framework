@@ -2,7 +2,7 @@
 
 namespace App\Containers\Authorization\UI\CLI\Commands;
 
-use Apiato\Core\Foundation\Facades\Apiato;
+use HiveApi\Core\Foundation\Facades\Hive;
 use App\Containers\Authorization\Exceptions\RoleNotFoundException;
 use App\Ship\Parents\Commands\ConsoleCommand;
 
@@ -14,7 +14,7 @@ use App\Ship\Parents\Commands\ConsoleCommand;
 class GiveAllPermissionsToRoleCommand extends ConsoleCommand
 {
 
-    protected $signature = 'apiato:permissions:toRole {role}';
+    protected $signature = 'hive:permissions:toRole {role}';
 
     protected $description = 'Give all system Permissions to a specific Role.';
 
@@ -25,9 +25,9 @@ class GiveAllPermissionsToRoleCommand extends ConsoleCommand
     {
         $roleName = $this->argument('role');
 
-        $allPermissions = Apiato::call('Authorization@GetAllPermissionsTask', [true]);
+        $allPermissions = Hive::call('Authorization@GetAllPermissionsTask', [true]);
 
-        $role = Apiato::call('Authorization@FindRoleTask', [$roleName]);
+        $role = Hive::call('Authorization@FindRoleTask', [$roleName]);
 
         if (!$role) {
             throw new RoleNotFoundException("Role $roleName is not found!");

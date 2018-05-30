@@ -2,7 +2,7 @@
 
 namespace App\Containers\Settings\Actions;
 
-use Apiato\Core\Foundation\Facades\Apiato;
+use HiveApi\Core\Foundation\Facades\Hive;
 use App\Containers\Settings\Models\Setting;
 use App\Ship\Parents\Actions\Action;
 use App\Ship\Transporters\DataTransporter;
@@ -27,7 +27,7 @@ class CreateSettingAction extends Action
             'value'
         ]);
 
-        $setting = Apiato::call('Settings@CreateSettingTask', [$data]);
+        $setting = Hive::call('Settings@CreateSettingTask', [$data]);
 
         return $setting;
     }

@@ -2,7 +2,7 @@
 
 namespace App\Ship\Parents\Notifications;
 
-use Apiato\Core\Abstracts\Notifications\Notification as AbstractNotification;
+use HiveApi\Core\Abstracts\Notifications\Notification as AbstractNotification;
 
 /**
  * Class Notification

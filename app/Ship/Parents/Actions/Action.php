@@ -2,7 +2,7 @@
 
 namespace App\Ship\Parents\Actions;
 
-use Apiato\Core\Abstracts\Actions\Action as AbstractAction;
+use HiveApi\Core\Abstracts\Actions\Action as AbstractAction;
 
 /**
  * Class Action.

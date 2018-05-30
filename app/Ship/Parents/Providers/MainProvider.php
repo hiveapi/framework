@@ -2,7 +2,7 @@
 
 namespace App\Ship\Parents\Providers;
 
-use Apiato\Core\Abstracts\Providers\MainProvider as AbstractMainProvider;
+use HiveApi\Core\Abstracts\Providers\MainProvider as AbstractMainProvider;
 
 /**
  * Class MainProvider.

@@ -2,7 +2,7 @@
 
 namespace App\Ship\Parents\Jobs;
 
-use Apiato\Core\Abstracts\Jobs\Job as AbstractJob;
+use HiveApi\Core\Abstracts\Jobs\Job as AbstractJob;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;

@@ -2,7 +2,7 @@
 
 namespace App\Ship\Parents\Mails;
 
-use Apiato\Core\Abstracts\Mails\Mail as AbstractMail;
+use HiveApi\Core\Abstracts\Mails\Mail as AbstractMail;
 use Illuminate\Queue\SerializesModels;
 
 /**

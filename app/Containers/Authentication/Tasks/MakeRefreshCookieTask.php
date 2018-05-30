@@ -24,7 +24,7 @@ class MakeRefreshCookieTask extends Task
         $refreshCookie = cookie(
             'refreshToken',
             $refreshToken,
-            Config::get('apiato.api.refresh-expires-in'),
+            Config::get('hive.api.refresh-expires-in'),
             null,
             null,
             false,

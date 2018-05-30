@@ -2,9 +2,9 @@
 
 namespace App\Ship\Parents\Models;
 
-use Apiato\Core\Abstracts\Models\UserModel as AbstractUserModel;
-use Apiato\Core\Traits\HashIdTrait;
-use Apiato\Core\Traits\HasResourceKeyTrait;
+use HiveApi\Core\Abstracts\Models\UserModel as AbstractUserModel;
+use HiveApi\Core\Traits\HashIdTrait;
+use HiveApi\Core\Traits\HasResourceKeyTrait;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;

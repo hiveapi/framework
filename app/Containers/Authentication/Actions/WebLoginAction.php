@@ -2,7 +2,7 @@
 
 namespace App\Containers\Authentication\Actions;
 
-use Apiato\Core\Foundation\Facades\Apiato;
+use HiveApi\Core\Foundation\Facades\Hive;
 use App\Ship\Parents\Actions\Action;
 use App\Ship\Transporters\DataTransporter;
 use Illuminate\Contracts\Auth\Authenticatable;
@@ -22,9 +22,9 @@ class WebLoginAction extends Action
      */
     public function run(DataTransporter $data): Authenticatable
     {
-        $user = Apiato::call('Authentication@WebLoginTask', [$data->email, $data->password, $data->remember]);
+        $user = Hive::call('Authentication@WebLoginTask', [$data->email, $data->password, $data->remember]);
 
-        Apiato::call('Authentication@CheckIfUserIsConfirmedTask', [], [['setUser' => [$user]]]);
+        Hive::call('Authentication@CheckIfUserIsConfirmedTask', [], [['setUser' => [$user]]]);
 
         return $user;
     }

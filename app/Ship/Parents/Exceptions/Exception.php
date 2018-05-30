@@ -2,7 +2,7 @@
 
 namespace App\Ship\Parents\Exceptions;
 
-use Apiato\Core\Abstracts\Exceptions\Exception as AbstractException;
+use HiveApi\Core\Abstracts\Exceptions\Exception as AbstractException;
 
 /**
  * Class Exception.

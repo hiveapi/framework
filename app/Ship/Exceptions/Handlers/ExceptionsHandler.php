@@ -2,7 +2,7 @@
 
 namespace App\Ship\Exceptions\Handlers;
 
-use Apiato\Core\Exceptions\Handlers\ExceptionsHandler as CoreExceptionsHandler;
+use HiveApi\Core\Exceptions\Handlers\ExceptionsHandler as CoreExceptionsHandler;
 use Exception;
 use Illuminate\Auth\AuthenticationException;
 

@@ -1,7 +1,6 @@
 {
-  "name": "apiato/user",
-  "description": "apiato Container for apiato.",
-  "type": "apiato-container",
+  "name": "hiveapi/user",
+  "description": "User Container for HiveApi.",
   "require": {
 
   }

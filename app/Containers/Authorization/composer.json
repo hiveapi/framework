@@ -1,7 +1,6 @@
 {
-  "name": "apiato/authorization",
-  "description": "apiato Container.",
-  "type": "apiato-container",
+  "name": "hiveapi/authorization",
+  "description": "HiveApi Container.",
   "require": {
     "spatie/laravel-permission": "^2.9"
   }

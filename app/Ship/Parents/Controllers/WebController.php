@@ -2,7 +2,7 @@
 
 namespace App\Ship\Parents\Controllers;
 
-use Apiato\Core\Abstracts\Controllers\WebController as AbstractWebController;
+use HiveApi\Core\Abstracts\Controllers\WebController as AbstractWebController;
 
 /**
  * Class WebController.

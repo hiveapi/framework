@@ -2,7 +2,7 @@
 
 namespace App\Containers\Authorization\Data\Seeders;
 
-use Apiato\Core\Foundation\Facades\Apiato;
+use HiveApi\Core\Foundation\Facades\Hive;
 use App\Ship\Parents\Seeders\Seeder;
 
 /**
@@ -21,12 +21,12 @@ class AuthorizationDefaultUsersSeeder_3 extends Seeder
     public function run()
     {
         // Default Users (with their roles) ---------------------------------------------
-        Apiato::call('User@CreateUserByCredentialsTask', [
+        Hive::call('User@CreateUserByCredentialsTask', [
             $isClient = false,
             'admin@admin.com',
             'admin',
             'Super Admin',
-        ])->assignRole(Apiato::call('Authorization@FindRoleTask', ['admin']));
+        ])->assignRole(Hive::call('Authorization@FindRoleTask', ['admin']));
 
         // ...
 

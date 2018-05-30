@@ -34,7 +34,7 @@ class ProcessETagHeadersMiddleware extends Middleware
          */
 
         // the feature is disabled - so skip everything
-        if (config('apiato.requests.use-etag', false) === false) {
+        if (config('hive.requests.use-etag', false) === false) {
             return $next($request);
         }
 

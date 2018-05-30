@@ -2,7 +2,7 @@
 
 namespace App\Containers\Stripe\Actions;
 
-use Apiato\Core\Foundation\Facades\Apiato;
+use HiveApi\Core\Foundation\Facades\Hive;
 use App\Containers\Stripe\Models\StripeAccount;
 use App\Ship\Parents\Actions\Action;
 use App\Ship\Transporters\DataTransporter;
@@ -22,12 +22,12 @@ class UpdateStripeAccountAction extends Action
      */
     public function run(DataTransporter $data): StripeAccount
     {
-        $user = Apiato::call('Authentication@GetAuthenticatedUserTask');
+        $user = Hive::call('Authentication@GetAuthenticatedUserTask');
 
         // check, if this account does - in fact - belong to our user
-        $account = Apiato::call('Stripe@FindStripeAccountByIdTask', [$data->id]);
+        $account = Hive::call('Stripe@FindStripeAccountByIdTask', [$data->id]);
         $paymentAccount = $account->paymentAccount;
-        Apiato::call('Payment@CheckIfPaymentAccountBelongsToUserTask', [$user, $paymentAccount]);
+        Hive::call('Payment@CheckIfPaymentAccountBelongsToUserTask', [$user, $paymentAccount]);
 
         // we own this account - so it is safe to update it
         $sanitizedData = $data->sanitizeInput([
@@ -38,7 +38,7 @@ class UpdateStripeAccountAction extends Action
             'card_fingerprint',
         ]);
 
-        $account = Apiato::call('Stripe@UpdateStripeAccountTask', [$account, $sanitizedData]);
+        $account = Hive::call('Stripe@UpdateStripeAccountTask', [$account, $sanitizedData]);
 
         return $account;
     }

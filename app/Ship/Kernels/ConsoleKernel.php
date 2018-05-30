@@ -45,7 +45,7 @@ class ConsoleKernel extends LaravelConsoleKernel
     protected function commands()
     {
         // NOTE: No need to load your Commands manually from here.
-        // As they are automatically registered by the Apiato Loader.
+        // As they are automatically registered by the HiveApi Loader.
 
         // $this->load(__DIR__.'/Commands');
 

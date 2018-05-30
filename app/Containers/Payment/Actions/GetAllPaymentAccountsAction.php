@@ -2,7 +2,7 @@
 
 namespace App\Containers\Payment\Actions;
 
-use Apiato\Core\Foundation\Facades\Apiato;
+use HiveApi\Core\Foundation\Facades\Hive;
 use App\Ship\Parents\Actions\Action;
 
 /**
@@ -18,9 +18,9 @@ class GetAllPaymentAccountsAction extends Action
      */
     public function run()
     {
-        $user = Apiato::call('Authentication@GetAuthenticatedUserTask');
+        $user = Hive::call('Authentication@GetAuthenticatedUserTask');
 
-        $paymentAccounts = Apiato::call('Payment@GetAllPaymentAccountsTask',
+        $paymentAccounts = Hive::call('Payment@GetAllPaymentAccountsTask',
             [],
             [
                 'addRequestCriteria',

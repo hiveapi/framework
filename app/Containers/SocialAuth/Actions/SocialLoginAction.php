@@ -2,7 +2,7 @@
 
 namespace App\Containers\SocialAuth\Actions;
 
-use Apiato\Core\Foundation\Facades\Apiato;
+use HiveApi\Core\Foundation\Facades\Hive;
 use App\Ship\Parents\Actions\Action;
 use App\Ship\Transporters\DataTransporter;
 
@@ -28,10 +28,10 @@ class SocialLoginAction extends Action
     public function run(DataTransporter $data)
     {
         // fetch the user data from the support platforms
-        $socialUserProfile = Apiato::call('SocialAuth@FindUserSocialProfileTask', [$data->provider, $data->toArray()]);
+        $socialUserProfile = Hive::call('SocialAuth@FindUserSocialProfileTask', [$data->provider, $data->toArray()]);
 
         // check if the social ID exist on any of our users, and get that user in case it was found
-        $socialUser = Apiato::call('SocialAuth@FindSocialUserTask', [$data->provider, $socialUserProfile->id]);
+        $socialUser = Hive::call('SocialAuth@FindSocialUserTask', [$data->provider, $socialUserProfile->id]);
 
         // checking if some data are available in the response
         // (these lines are written to make this function compatible with multiple providers)
@@ -46,7 +46,7 @@ class SocialLoginAction extends Action
             // DO: UPDATE THE EXISTING USER SOCIAL PROFILE.
 
             // Only update tokens and updated information. Never override the user profile.
-            $user = Apiato::call('SocialAuth@UpdateUserSocialProfileTask', [
+            $user = Hive::call('SocialAuth@UpdateUserSocialProfileTask', [
                 $socialUser->id,
                 $socialUserProfile->token,
                 $expiresIn,
@@ -60,7 +60,7 @@ class SocialLoginAction extends Action
             // THIS IS: A NEW USER
             // DO: CREATE NEW USER FROM THE SOCIAL PROFILE INFORMATION.
 
-            $user = Apiato::call('SocialAuth@CreateUserBySocialProfileTask', [
+            $user = Hive::call('SocialAuth@CreateUserBySocialProfileTask', [
                 $data->provider,
                 $socialUserProfile->token,
                 $socialUserProfile->id,
@@ -76,7 +76,7 @@ class SocialLoginAction extends Action
         }
 
         // Authenticate the user from its object
-        $personalAccessTokenResult = Apiato::call('Authentication@ApiLoginFromUserTask', [$user]);
+        $personalAccessTokenResult = Hive::call('Authentication@ApiLoginFromUserTask', [$user]);
 
         return [
             'user'  => $user,

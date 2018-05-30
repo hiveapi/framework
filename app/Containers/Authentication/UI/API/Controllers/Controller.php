@@ -2,7 +2,7 @@
 
 namespace App\Containers\Authentication\UI\API\Controllers;
 
-use Apiato\Core\Foundation\Facades\Apiato;
+use HiveApi\Core\Foundation\Facades\Hive;
 use App\Containers\Authentication\Data\Transporters\ProxyApiLoginTransporter;
 use App\Containers\Authentication\Data\Transporters\ProxyRefreshTransporter;
 use App\Containers\Authentication\UI\API\Requests\LoginRequest;
@@ -31,7 +31,7 @@ class Controller extends ApiController
         $dataTransporter = new DataTransporter($request);
         $dataTransporter->bearerToken = $request->bearerToken();
 
-        Apiato::call('Authentication@ApiLogoutAction', [$dataTransporter]);
+        Hive::call('Authentication@ApiLogoutAction', [$dataTransporter]);
 
         return $this->accepted([
             'message' => 'Token revoked successfully.',
@@ -59,7 +59,7 @@ class Controller extends ApiController
             ])
         );
 
-        $result = Apiato::call('Authentication@ProxyApiLoginAction', [$dataTransporter]);
+        $result = Hive::call('Authentication@ProxyApiLoginAction', [$dataTransporter]);
 
         return $this->json($result['response_content'])->withCookie($result['refresh_cookie']);
     }
@@ -82,7 +82,7 @@ class Controller extends ApiController
             ])
         );
 
-        $result = Apiato::call('Authentication@ProxyApiRefreshAction', [$dataTransporter]);
+        $result = Hive::call('Authentication@ProxyApiRefreshAction', [$dataTransporter]);
 
         return $this->json($result['response-content'])->withCookie($result['refresh-cookie']);
     }

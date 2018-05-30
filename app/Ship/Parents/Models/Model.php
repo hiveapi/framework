@@ -2,9 +2,9 @@
 
 namespace App\Ship\Parents\Models;
 
-use Apiato\Core\Abstracts\Models\Model as AbstractModel;
-use Apiato\Core\Traits\HashIdTrait;
-use Apiato\Core\Traits\HasResourceKeyTrait;
+use HiveApi\Core\Abstracts\Models\Model as AbstractModel;
+use HiveApi\Core\Traits\HashIdTrait;
+use HiveApi\Core\Traits\HasResourceKeyTrait;
 
 /**
  * Class Model.

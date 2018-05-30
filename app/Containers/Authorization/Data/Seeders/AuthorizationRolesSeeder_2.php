@@ -2,7 +2,7 @@
 
 namespace App\Containers\Authorization\Data\Seeders;
 
-use Apiato\Core\Foundation\Facades\Apiato;
+use HiveApi\Core\Foundation\Facades\Hive;
 use App\Ship\Parents\Seeders\Seeder;
 
 /**
@@ -21,7 +21,7 @@ class AuthorizationRolesSeeder_2 extends Seeder
     public function run()
     {
         // Default Roles ----------------------------------------------------------------
-        Apiato::call('Authorization@CreateRoleTask', ['admin', 'Administrator', 'Administrator Role', 999]);
+        Hive::call('Authorization@CreateRoleTask', ['admin', 'Administrator', 'Administrator Role', 999]);
 
         // ...
 

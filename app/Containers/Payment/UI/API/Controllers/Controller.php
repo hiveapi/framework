@@ -2,7 +2,7 @@
 
 namespace App\Containers\Payment\UI\API\Controllers;
 
-use Apiato\Core\Foundation\Facades\Apiato;
+use HiveApi\Core\Foundation\Facades\Hive;
 use App\Containers\Payment\UI\API\Requests\DeletePaymentAccountRequest;
 use App\Containers\Payment\UI\API\Requests\FindPaymentAccountRequest;
 use App\Containers\Payment\UI\API\Requests\GetAllPaymentAccountsRequest;
@@ -27,7 +27,7 @@ class Controller extends ApiController
      */
     public function getAllPaymentAccounts(GetAllPaymentAccountsRequest $request)
     {
-        $paymentAccounts = Apiato::call('Payment@GetAllPaymentAccountsAction');
+        $paymentAccounts = Hive::call('Payment@GetAllPaymentAccountsAction');
 
         return $this->transform($paymentAccounts, PaymentAccountTransformer::class);
     }
@@ -39,7 +39,7 @@ class Controller extends ApiController
      */
     public function getPaymentAccount(FindPaymentAccountRequest $request)
     {
-        $paymentAccount = Apiato::call('Payment@FindPaymentAccountDetailsAction', [new DataTransporter($request)]);
+        $paymentAccount = Hive::call('Payment@FindPaymentAccountDetailsAction', [new DataTransporter($request)]);
 
         return $this->transform($paymentAccount, PaymentAccountTransformer::class);
     }
@@ -51,7 +51,7 @@ class Controller extends ApiController
      */
     public function updatePaymentAccount(UpdatePaymentAccountRequest $request)
     {
-        $paymentAccount = Apiato::call('Payment@UpdatePaymentAccountAction', [new DataTransporter($request)]);
+        $paymentAccount = Hive::call('Payment@UpdatePaymentAccountAction', [new DataTransporter($request)]);
 
         return $this->transform($paymentAccount, PaymentAccountTransformer::class);
     }
@@ -63,7 +63,7 @@ class Controller extends ApiController
      */
     public function deletePaymentAccount(DeletePaymentAccountRequest $request)
     {
-        Apiato::call('Payment@DeletePaymentAccountAction', [new DataTransporter($request)]);
+        Hive::call('Payment@DeletePaymentAccountAction', [new DataTransporter($request)]);
 
         return $this->noContent();
     }

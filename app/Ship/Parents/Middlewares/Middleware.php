@@ -2,7 +2,7 @@
 
 namespace App\Ship\Parents\Middlewares;
 
-use Apiato\Core\Abstracts\Middlewares\Middleware as AbstractMiddleware;
+use HiveApi\Core\Abstracts\Middlewares\Middleware as AbstractMiddleware;
 
 /**
  * Class Middleware

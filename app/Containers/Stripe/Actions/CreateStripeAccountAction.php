@@ -2,7 +2,7 @@
 
 namespace App\Containers\Stripe\Actions;
 
-use Apiato\Core\Foundation\Facades\Apiato;
+use HiveApi\Core\Foundation\Facades\Hive;
 use App\Ship\Parents\Actions\Action;
 use App\Ship\Transporters\DataTransporter;
 
@@ -21,7 +21,7 @@ class CreateStripeAccountAction extends Action
      */
     public function run(DataTransporter $data)
     {
-        $user = Apiato::call('Authentication@GetAuthenticatedUserTask');
+        $user = Hive::call('Authentication@GetAuthenticatedUserTask');
 
         $sanitizedData = $data->sanitizeInput([
             'customer_id',
@@ -32,9 +32,9 @@ class CreateStripeAccountAction extends Action
             'nickname',
         ]);
 
-        $account = Apiato::call('Stripe@CreateStripeAccountTask', [$sanitizedData]);
+        $account = Hive::call('Stripe@CreateStripeAccountTask', [$sanitizedData]);
 
-        $result = Apiato::call('Payment@AssignPaymentAccountToUserTask', [$account, $user, $sanitizedData['nickname']]);
+        $result = Hive::call('Payment@AssignPaymentAccountToUserTask', [$account, $user, $sanitizedData['nickname']]);
 
         return $result;
     }

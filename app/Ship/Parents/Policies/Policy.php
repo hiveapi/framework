@@ -2,7 +2,7 @@
 
 namespace App\Ship\Parents\Policies;
 
-use Apiato\Core\Abstracts\Policies\Policy as AbstractPolicy;
+use HiveApi\Core\Abstracts\Policies\Policy as AbstractPolicy;
 
 /**
  * Class Policy.

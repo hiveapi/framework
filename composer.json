@@ -1,28 +1,25 @@
 {
-  "name": "apiato/apiato",
+  "name": "hiveapi/framework",
   "description": "A flawless framework for building scalable and testable API-Centric Apps with PHP and Laravel.",
-  "homepage": "http://apiato.io/",
+  "homepage": "https://www.hiveapi.org",
   "support": {
-    "issues": "https://github.com/apiato/apiato/issues",
-    "source": "https://github.com/apiato/apiato"
+    "issues": "https://github.com/hiveapi/framework/issues",
+    "source": "https://github.com/hiveapi/framework"
   },
   "authors": [
     {
-      "name": "Mahmoud Zalt",
-      "email": "mahmoud@zalt.me"
+      "name": "Johannes Schobel",
+      "email": "johannes.schobel@googlemail.com"
     }
   ],
   "keywords": [
-    "Apiato",
+    "HiveApi",
     "API",
     "Framework",
     "API framework",
     "API Starter",
     "Laravel API",
-    "PHP",
-    "Hello API",
-    "Porto",
-    "Porto SAP"
+    "PHP"
   ],
   "license": "MIT",
   "type": "project",

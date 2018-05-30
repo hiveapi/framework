@@ -2,7 +2,7 @@
 
 namespace App\Ship\Parents\Criterias;
 
-use Apiato\Core\Abstracts\Criterias\Criteria as AbstractCriteria;
+use HiveApi\Core\Abstracts\Criterias\Criteria as AbstractCriteria;
 
 /**
  * Class Criteria.

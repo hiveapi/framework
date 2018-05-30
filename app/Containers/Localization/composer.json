@@ -1,7 +1,6 @@
 {
-  "name": "apiato/localization",
-  "description": "apiato Container.",
-  "type": "apiato-container",
+  "name": "hiveapi/localization",
+  "description": "HiveApi Container.",
   "require": {
     "ext-intl": "*"
   }

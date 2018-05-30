@@ -2,7 +2,7 @@
 
 namespace App\Containers\Authentication\Actions;
 
-use Apiato\Core\Foundation\Facades\Apiato;
+use HiveApi\Core\Foundation\Facades\Hive;
 use App\Containers\Authentication\Data\Transporters\ProxyRefreshTransporter;
 use App\Containers\Authentication\Exceptions\RefreshTokenMissedException;
 use App\Ship\Parents\Actions\Action;
@@ -32,9 +32,9 @@ class ProxyApiRefreshAction extends Action
             'scope'         => $data->scope ?? '',
         ];
 
-        $responseContent = Apiato::call('Authentication@CallOAuthServerTask', [$requestData]);
+        $responseContent = Hive::call('Authentication@CallOAuthServerTask', [$requestData]);
 
-        $refreshCookie = Apiato::call('Authentication@MakeRefreshCookieTask', [$responseContent['refresh_token']]);
+        $refreshCookie = Hive::call('Authentication@MakeRefreshCookieTask', [$responseContent['refresh_token']]);
 
         return [
             'response-content' => $responseContent,

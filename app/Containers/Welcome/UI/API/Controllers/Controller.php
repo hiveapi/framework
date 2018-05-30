@@ -2,7 +2,7 @@
 
 namespace App\Containers\Welcome\UI\API\Controllers;
 
-use Apiato\Core\Foundation\Facades\Apiato;
+use HiveApi\Core\Foundation\Facades\Hive;
 use App\Ship\Parents\Controllers\ApiController;
 
 /**
@@ -18,7 +18,7 @@ class Controller extends ApiController
      */
     public function apiRoot()
     {
-        $message = Apiato::call('Welcome@FindMessageForApiRootVisitorAction');
+        $message = Hive::call('Welcome@FindMessageForApiRootVisitorAction');
 
         return response()->json($message);
     }
@@ -28,7 +28,7 @@ class Controller extends ApiController
      */
     public function v1ApiLandingPage()
     {
-        $message = Apiato::call('Welcome@FindMessageForApiV1VisitorAction');
+        $message = Hive::call('Welcome@FindMessageForApiV1VisitorAction');
 
         return response()->json($message);
     }

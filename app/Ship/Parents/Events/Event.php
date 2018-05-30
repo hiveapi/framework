@@ -2,7 +2,7 @@
 
 namespace App\Ship\Parents\Events;
 
-use Apiato\Core\Abstracts\Events\Event as AbstractEvent;
+use HiveApi\Core\Abstracts\Events\Event as AbstractEvent;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;

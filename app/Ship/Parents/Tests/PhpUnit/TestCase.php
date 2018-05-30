@@ -2,9 +2,9 @@
 
 namespace App\Ship\Parents\Tests\PhpUnit;
 
-use Apiato\Core\Abstracts\Tests\PhpUnit\TestCase as AbstractTestCase;
+use HiveApi\Core\Abstracts\Tests\PhpUnit\TestCase as AbstractTestCase;
 use Faker\Generator;
-use Illuminate\Contracts\Console\Kernel as ApiatoConsoleKernel;
+use Illuminate\Contracts\Console\Kernel as LaravelConsoleKernel;
 
 /**
  * Class TestCase
@@ -46,7 +46,7 @@ abstract class TestCase extends AbstractTestCase
 
         $app = require __DIR__ . '/../../../../../bootstrap/app.php';
 
-        $app->make(ApiatoConsoleKernel::class)->bootstrap();
+        $app->make(LaravelConsoleKernel::class)->bootstrap();
 
         // create instance of faker and make it available in all tests
         $this->faker = $app->make(Generator::class);

@@ -2,7 +2,7 @@
 
 namespace App\Containers\Settings\Actions;
 
-use Apiato\Core\Foundation\Facades\Apiato;
+use HiveApi\Core\Foundation\Facades\Hive;
 use App\Ship\Parents\Actions\Action;
 
 /**
@@ -18,7 +18,7 @@ class GetAllSettingsAction extends Action
      */
     public function run()
     {
-        $settings = Apiato::call('Settings@GetAllSettingsTask', [], ['addRequestCriteria', 'ordered']);
+        $settings = Hive::call('Settings@GetAllSettingsTask', [], ['addRequestCriteria', 'ordered']);
 
         return $settings;
     }

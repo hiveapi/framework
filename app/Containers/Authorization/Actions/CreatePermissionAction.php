@@ -2,7 +2,7 @@
 
 namespace App\Containers\Authorization\Actions;
 
-use Apiato\Core\Foundation\Facades\Apiato;
+use HiveApi\Core\Foundation\Facades\Hive;
 use App\Containers\Authorization\Models\Permission;
 use App\Ship\Parents\Actions\Action;
 use App\Ship\Transporters\DataTransporter;
@@ -22,7 +22,7 @@ class CreatePermissionAction extends Action
      */
     public function run(DataTransporter $data): Permission
     {
-        $permission = Apiato::call('Authorization@CreatePermissionTask',
+        $permission = Hive::call('Authorization@CreatePermissionTask',
             [$data->name, $data->description, $data->display_name]
         );
 

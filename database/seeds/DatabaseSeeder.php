@@ -1,6 +1,6 @@
 <?php
 
-use Apiato\Core\Loaders\SeederLoaderTrait;
+use HiveApi\Core\Loaders\SeederLoaderTrait;
 use Illuminate\Database\Seeder as LaravelSeeder;
 
 /**

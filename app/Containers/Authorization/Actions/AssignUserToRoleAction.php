@@ -2,7 +2,7 @@
 
 namespace App\Containers\Authorization\Actions;
 
-use Apiato\Core\Foundation\Facades\Apiato;
+use HiveApi\Core\Foundation\Facades\Hive;
 use App\Containers\User\Models\User;
 use App\Ship\Parents\Actions\Action;
 use App\Ship\Transporters\DataTransporter;
@@ -22,16 +22,16 @@ class AssignUserToRoleAction extends Action
      */
     public function run(DataTransporter $data): User
     {
-        $user = Apiato::call('User@FindUserByIdTask', [$data->user_id]);
+        $user = Hive::call('User@FindUserByIdTask', [$data->user_id]);
 
         // convert to array in case single ID was passed
         $rolesIds = (array)$data->roles_ids;
 
         $roles = array_map(function ($roleId) {
-            return Apiato::call('Authorization@FindRoleTask', [$roleId]);
+            return Hive::call('Authorization@FindRoleTask', [$roleId]);
         }, $rolesIds);
 
-        $user = Apiato::call('Authorization@AssignUserToRoleTask', [$user, $roles]);
+        $user = Hive::call('Authorization@AssignUserToRoleTask', [$user, $roles]);
 
         return $user;
     }

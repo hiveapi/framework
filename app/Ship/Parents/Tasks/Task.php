@@ -2,7 +2,7 @@
 
 namespace App\Ship\Parents\Tasks;
 
-use Apiato\Core\Abstracts\Tasks\Task as AbstractTask;
+use HiveApi\Core\Abstracts\Tasks\Task as AbstractTask;
 
 /**
  * Class Task.

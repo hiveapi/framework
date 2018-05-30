@@ -2,7 +2,7 @@
 
 namespace App\Ship\Parents\Providers;
 
-use Apiato\Core\Abstracts\Providers\BroadcastsProvider as AbstractBroadcastsProvider;
+use HiveApi\Core\Abstracts\Providers\BroadcastsProvider as AbstractBroadcastsProvider;
 use Illuminate\Support\Facades\Broadcast;
 use function app_path;
 

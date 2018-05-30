@@ -2,7 +2,7 @@
 
 namespace App\Containers\Authorization\Actions;
 
-use Apiato\Core\Foundation\Facades\Apiato;
+use HiveApi\Core\Foundation\Facades\Hive;
 use App\Containers\Authorization\Exceptions\PermissionNotFoundException;
 use App\Containers\Authorization\Models\Permission;
 use App\Ship\Parents\Actions\Action;
@@ -24,7 +24,7 @@ class FindPermissionAction extends Action
      */
     public function run(DataTransporter $data): Permission
     {
-        $permission = Apiato::call('Authorization@FindPermissionTask', [$data->id]);
+        $permission = Hive::call('Authorization@FindPermissionTask', [$data->id]);
 
         if (!$permission) {
             throw new PermissionNotFoundException();
