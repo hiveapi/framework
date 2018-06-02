@@ -35,22 +35,30 @@ class GetLocalizationsTest extends TestCase
 
     public function test_if_specific_locale_is_returned()
     {
+        $supportedLocales = Config::get('localization-container.supported_languages', ['en']);
+        $supportedLocales[] = 'fr';
+
+        Config::set('localization-container.supported_languages', $supportedLocales);
+
         $class = App::make(GetAllLocalizationsTask::class);
         $localizations = $class->run();
 
-        $unsupportedLocale = new Localization('fr');
+        $supportedLocale = new Localization('fr');
 
-        $this->assertContains($unsupportedLocale, $localizations, '', false, false, false);
+        $this->assertContains($supportedLocale, $localizations, '', false, false, false);
     }
 
     public function test_if_specific_locale_with_regions_is_returned()
     {
+        $supportedLocales = Config::get('localization-container.supported_languages', ['en']);
+        $supportedLocales['en'] = ['en-GB', 'en-US'];
+
         $class = App::make(GetAllLocalizationsTask::class);
         $localizations = $class->run();
 
-        $unsupportedLocale = new Localization('en', ['en-GB', 'en-US']);
+        $supportedLocale = new Localization('en', ['en-GB', 'en-US']);
 
-        $this->assertContains($unsupportedLocale, $localizations, '', false, false, false);
+        $this->assertContains($supportedLocale, $localizations, '', false, false, false);
     }
 
     public function test_if_wrong_locale_is_not_returned()

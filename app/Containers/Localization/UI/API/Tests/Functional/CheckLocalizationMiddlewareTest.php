@@ -45,7 +45,7 @@ class CheckLocalizationMiddlewareTest extends ApiTestCase
 
     public function test_if_middleware_sets_custom_language()
     {
-        $language = 'fr';
+        $language = 'en-GB';
 
         $data = [];
         $requestHeaders = [
