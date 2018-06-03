@@ -1,29 +1,29 @@
 # this will read all codeception.yml files from the containers.
 # respective codeception file must be placed in the top level of the container
 include:
-  - app/Containers/*/Tests
+    - app/Containers/*/Tests
 
 # paths for the main codeception project!
 paths:
-  tests: tests              # Path to your test folder
-  output: tests/_output     # Reports will be generated here in this folder e.g., for code coverage
-  data: tests/_data         # Add your fixture in this directory that can be used in tests (e.g., SQL file to bootstrap the database)
-  support: tests/_support   # Directory used for custom code (e.g., to support your tester)
-  envs: tests/_envs         # Directory for environment configuration
+    tests: tests              # Path to your test folder
+    output: tests/_output     # Reports will be generated here in this folder e.g., for code coverage
+    data: tests/_data         # Add your fixture in this directory that can be used in tests (e.g., SQL file to bootstrap the database)
+    support: tests/_support   # Directory used for custom code (e.g., to support your tester)
+    envs: tests/_envs         # Directory for environment configuration
 
 #actor_suffix: Tester          # Name (Suffix) for your testers (e.g., AcceptanceXXX, FunctionalXXX, ApiXXX, ...)
 
 #settings:
-#  colors: true
-#  memory_limit: 1024M
+#    colors: false
+#    memory_limit: 1024M
 
 #coverage:
-#  enabled: true
-#  include:
-#   - app/Containers/*
-#  exclude:
-#   - app/Containers/*/UI/API/Routes/*.php
-#   - app/Containers/*/UI/WEB/Routes/*.php
+#     enabled: true
+#     include:
+#         - app/Containers/*
+#     exclude:
+#         - app/Containers/*/UI/API/Routes/*.php
+#         - app/Containers/*/UI/WEB/Routes/*.php
 
 #extensions:
 #  enabled:
