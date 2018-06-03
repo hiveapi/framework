@@ -7,6 +7,9 @@ Homestead.yaml
 npm-debug.log
 yarn-error.log
 
+# Container
+/app/Containers/*/Tests/Tests/_output/*
+
 # vendors
 /node_modules
 /vendor
