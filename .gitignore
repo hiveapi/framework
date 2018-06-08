@@ -31,3 +31,7 @@ yarn-error.log
 /laradock*/
 _ide_helper*.php
 .phpstorm.meta.php
+
+# testing
+app/Containers/*/Tests/Tests/_output
+app/Containers/*/Tests/Tests/_support/_generated
