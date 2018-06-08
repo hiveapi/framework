@@ -2,13 +2,13 @@
 
 namespace App\Containers\Welcome\Tests\Tests;
 
+use App\Containers\Welcome\Tests\Tests\_generated\ApiTesterActions as ContainerApiTesterActions;
 use App\Ship\Parents\Tests\Tester\Tester;
 use App\Ship\Parents\Tests\Traits\ApiTesterActions as ShipApiTesterActions;
-use HiveApi\Core\Abstracts\Tests\Traits\ApiTesterActions as CoreApiTesterActions;
 
 class ApiTester extends Tester
 {
-    use CoreApiTesterActions;
+    use ContainerApiTesterActions;
     use ShipApiTesterActions;
 
    /**

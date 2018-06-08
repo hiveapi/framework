@@ -2,13 +2,13 @@
 
 namespace App\Containers\Welcome\Tests\Tests;
 
+use App\Containers\Welcome\Tests\Tests\_generated\AcceptanceTesterActions as ContainerAcceptanceTesterActions;
 use App\Ship\Parents\Tests\Tester\Tester;
 use App\Ship\Parents\Tests\Traits\AcceptanceTesterActions as ShipAcceptanceTesterActions;
-use HiveApi\Core\Abstracts\Tests\Traits\AcceptanceTesterActions as CoreAcceptanceTesterActions;
 
 class AcceptanceTester extends Tester
 {
-    use CoreAcceptanceTesterActions;
+    use ContainerAcceptanceTesterActions;
     use ShipAcceptanceTesterActions;
 
    /**
