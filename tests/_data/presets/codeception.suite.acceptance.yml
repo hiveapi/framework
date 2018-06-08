@@ -1,0 +1,4 @@
+modules:
+    enabled:
+        - PhpBrowser:
+            url: 'http://www.hive.local'

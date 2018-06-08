@@ -6,7 +6,6 @@ modules:
             url: 'http://api.hive.local'
         - REST:
             depends: Laravel5
-            #depends: PhpBrowser
 
     config:
         - Laravel5:
@@ -14,6 +13,5 @@ modules:
             environment_file: .env.testing
             run_database_migrations: true
             database_seeder_class: DatabaseSeeder
-            #url: 'http://api.hive.local'
         - REST:
             url: 'http://api.hive.local'
