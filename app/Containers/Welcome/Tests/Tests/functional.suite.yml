@@ -1,0 +1,5 @@
+actor: FunctionalTester
+extends: ../../../../../tests/_data/presets/codeception.suite.functional.yml
+modules:
+    enabled:
+        - \App\Ship\Parents\Tests\Helper\Functional
