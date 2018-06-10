@@ -3,12 +3,13 @@
 namespace App\Containers\Welcome\Tests\Tests;
 
 use App\Containers\Welcome\Tests\Tests\AcceptanceTester;
+use App\Ship\Parents\Tests\Cests\BaseCest;
 
 /**
  * @group   welcome
  * @group   acceptance
  */
-class WelcomeWebRoutesTestCest
+class WelcomeWebRoutesTestCest extends BaseCest
 {
     public function _before(AcceptanceTester $I)
     {

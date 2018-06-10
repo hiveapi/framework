@@ -2,6 +2,7 @@
 
 namespace App\Containers\Welcome\Tests\Tests;
 
+use App\Ship\Parents\Tests\Cests\BaseCest;
 use Codeception\Example;
 use Illuminate\Support\Str;
 
@@ -9,7 +10,7 @@ use Illuminate\Support\Str;
  * @group   welcome
  * @group   api
  */
-class WelcomeApiRoutesTestCest
+class WelcomeApiRoutesTestCest extends BaseCest
 {
     protected function _before()
     {
