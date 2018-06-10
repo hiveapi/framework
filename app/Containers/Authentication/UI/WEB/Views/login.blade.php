@@ -123,7 +123,7 @@
                 <input type="password" placeholder="password" id="password" name="password"/>
                 <span class="text-red">{{ $errors->first('password') }}</span>
 
-                <button>login</button>
+                <button id="login">login</button>
             </form>
         </div>
     </div>
