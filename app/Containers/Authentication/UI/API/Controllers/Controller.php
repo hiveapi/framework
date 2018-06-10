@@ -33,9 +33,9 @@ class Controller extends ApiController
 
         Hive::call('Authentication@ApiLogoutAction', [$dataTransporter]);
 
-        return $this->accepted([
-            'message' => 'Token revoked successfully.',
-        ])->withCookie(Cookie::forget('refreshToken'));
+        Cookie::forget('refreshToken');
+
+        return $this->noContent();
     }
 
     /**

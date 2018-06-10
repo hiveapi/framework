@@ -1,0 +1,46 @@
+<?php
+
+namespace App\Containers\Authentication\Tests\Tests;
+
+use App\Containers\Authentication\Tests\Tests\ApiTester;
+use App\Containers\User\Models\User;
+use App\Ship\Parents\Tests\Cests\BaseCest;
+
+/**
+ * @group   authentication
+ * @group   api
+ */
+class ApiProxyLogoutTestCest extends BaseCest
+{
+    protected function _before()
+    {
+    }
+
+    protected function _after()
+    {
+    }
+
+    /**
+     * @test
+     *
+     * @param ApiTester $I
+     */
+    public function test_logout(ApiTester $I)
+    {
+        $endpoint = 'v1/logout';
+
+        $userdata = [
+            'email' => 'testuser@example.com',
+            'password' => 'password',
+        ];
+
+        $user = $this->getTestingUser($userdata);
+
+        $I->amBearerAuthenticated($this->getAuthenticationTokenForUser($user));
+        $I->haveHttpHeader('accept', 'application/json');
+        $I->sendDELETE($endpoint);
+
+        $I->seeResponseCodeIs(204);
+    }
+
+}
