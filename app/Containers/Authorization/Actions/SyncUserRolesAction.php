@@ -2,6 +2,8 @@
 
 namespace App\Containers\Authorization\Actions;
 
+use App\Containers\Authorization\Tasks\FindRoleTask;
+use App\Containers\User\Tasks\FindUserByIdTask;
 use HiveApi\Core\Foundation\Facades\Hive;
 use App\Containers\User\Models\User;
 use App\Ship\Parents\Actions\Action;
@@ -22,13 +24,13 @@ class SyncUserRolesAction extends Action
      */
     public function run(DataTransporter $data): User
     {
-        $user = Hive::call('User@FindUserByIdTask', [$data->user_id]);
+        $user = Hive::call(FindUserByIdTask::class, [$data->user_id]);
 
         // convert roles IDs to array (in case single id passed)
         $rolesIds = (array)$data->roles_ids;
 
         $roles = array_map(function ($roleId) {
-            return Hive::call('Authorization@FindRoleTask', [$roleId]);
+            return Hive::call(FindRoleTask::class, [$roleId]);
         }, $rolesIds);
 
         $user->syncRoles($roles);

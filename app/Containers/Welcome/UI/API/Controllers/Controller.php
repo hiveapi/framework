@@ -2,6 +2,8 @@
 
 namespace App\Containers\Welcome\UI\API\Controllers;
 
+use App\Containers\Welcome\Actions\FindMessageForApiRootVisitorAction;
+use App\Containers\Welcome\Actions\FindMessageForApiV1VisitorAction;
 use HiveApi\Core\Foundation\Facades\Hive;
 use App\Ship\Parents\Controllers\ApiController;
 
@@ -18,7 +20,7 @@ class Controller extends ApiController
      */
     public function apiRoot()
     {
-        $message = Hive::call('Welcome@FindMessageForApiRootVisitorAction');
+        $message = Hive::call(FindMessageForApiRootVisitorAction::class);
 
         return response()->json($message);
     }
@@ -28,7 +30,7 @@ class Controller extends ApiController
      */
     public function v1ApiLandingPage()
     {
-        $message = Hive::call('Welcome@FindMessageForApiV1VisitorAction');
+        $message = Hive::call(FindMessageForApiV1VisitorAction::class);
 
         return response()->json($message);
     }

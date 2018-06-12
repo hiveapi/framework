@@ -2,6 +2,7 @@
 
 namespace App\Containers\Settings\Actions;
 
+use App\Containers\Settings\Tasks\UpdateSettingTask;
 use HiveApi\Core\Foundation\Facades\Hive;
 use App\Ship\Parents\Actions\Action;
 use App\Ship\Transporters\DataTransporter;
@@ -26,7 +27,7 @@ class UpdateSettingAction extends Action
             'value'
         ]);
 
-        $setting = Hive::call('Settings@UpdateSettingTask', [$data->id, $sanitizedData]);
+        $setting = Hive::call(UpdateSettingTask::class, [$data->id, $sanitizedData]);
 
         return $setting;
     }

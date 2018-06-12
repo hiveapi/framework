@@ -28,7 +28,7 @@ class DetachPermissionsFromRoleTask extends Task
 
         // remove each permission ID found in the array from that role.
         array_map(function ($permissionId) use ($role) {
-            $permission = Hive::call('Authorization@FindPermissionTask', [$permissionId]);
+            $permission = Hive::call(FindPermissionTask::class, [$permissionId]);
             $role->revokePermissionTo($permission);
         }, $singleOrMultiplePermissionIds);
 

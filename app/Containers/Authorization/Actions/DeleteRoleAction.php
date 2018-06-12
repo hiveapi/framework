@@ -2,6 +2,8 @@
 
 namespace App\Containers\Authorization\Actions;
 
+use App\Containers\Authorization\Tasks\DeleteRoleTask;
+use App\Containers\Authorization\Tasks\FindRoleTask;
 use HiveApi\Core\Foundation\Facades\Hive;
 use App\Ship\Parents\Actions\Action;
 use App\Ship\Transporters\DataTransporter;
@@ -22,9 +24,9 @@ class DeleteRoleAction extends Action
      */
     public function run(DataTransporter $data): Role
     {
-        $role = Hive::call('Authorization@FindRoleTask', [$data->id]);
+        $role = Hive::call(FindRoleTask::class, [$data->id]);
 
-        Hive::call('Authorization@DeleteRoleTask', [$role]);
+        Hive::call(DeleteRoleTask::class, [$role]);
 
         return $role;
     }

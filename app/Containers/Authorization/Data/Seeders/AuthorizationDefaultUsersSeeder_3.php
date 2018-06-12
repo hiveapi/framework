@@ -2,6 +2,8 @@
 
 namespace App\Containers\Authorization\Data\Seeders;
 
+use App\Containers\Authorization\Tasks\FindRoleTask;
+use App\Containers\User\Tasks\CreateUserByCredentialsTask;
 use HiveApi\Core\Foundation\Facades\Hive;
 use App\Ship\Parents\Seeders\Seeder;
 
@@ -21,12 +23,12 @@ class AuthorizationDefaultUsersSeeder_3 extends Seeder
     public function run()
     {
         // Default Users (with their roles) ---------------------------------------------
-        Hive::call('User@CreateUserByCredentialsTask', [
+        Hive::call(CreateUserByCredentialsTask::class, [
             $isClient = false,
             'admin@admin.com',
             'admin',
             'Super Admin',
-        ])->assignRole(Hive::call('Authorization@FindRoleTask', ['admin']));
+        ])->assignRole(Hive::call(FindRoleTask::class, ['admin']));
 
         // ...
 

@@ -2,6 +2,8 @@
 
 namespace App\Containers\Payment\Actions;
 
+use App\Containers\Authentication\Tasks\GetAuthenticatedUserTask;
+use App\Containers\Payment\Tasks\GetAllPaymentAccountsTask;
 use HiveApi\Core\Foundation\Facades\Hive;
 use App\Ship\Parents\Actions\Action;
 
@@ -18,9 +20,9 @@ class GetAllPaymentAccountsAction extends Action
      */
     public function run()
     {
-        $user = Hive::call('Authentication@GetAuthenticatedUserTask');
+        $user = Hive::call(GetAuthenticatedUserTask::class);
 
-        $paymentAccounts = Hive::call('Payment@GetAllPaymentAccountsTask',
+        $paymentAccounts = Hive::call(GetAllPaymentAccountsTask::class,
             [],
             [
                 'addRequestCriteria',

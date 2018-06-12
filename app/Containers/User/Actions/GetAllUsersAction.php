@@ -2,6 +2,7 @@
 
 namespace App\Containers\User\Actions;
 
+use App\Containers\User\Tasks\GetAllUsersTask;
 use HiveApi\Core\Foundation\Facades\Hive;
 use App\Ship\Parents\Actions\Action;
 
@@ -18,7 +19,7 @@ class GetAllUsersAction extends Action
      */
     public function run()
     {
-        return Hive::call('User@GetAllUsersTask',
+        return Hive::call(GetAllUsersTask::class,
             [],
             [
                 'addRequestCriteria',

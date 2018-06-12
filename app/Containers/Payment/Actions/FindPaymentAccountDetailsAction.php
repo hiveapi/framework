@@ -2,6 +2,9 @@
 
 namespace App\Containers\Payment\Actions;
 
+use App\Containers\Authentication\Tasks\GetAuthenticatedUserTask;
+use App\Containers\Payment\Tasks\CheckIfPaymentAccountBelongsToUserTask;
+use App\Containers\Payment\Tasks\FindPaymentAccountByIdTask;
 use HiveApi\Core\Foundation\Facades\Hive;
 use App\Containers\Payment\Models\PaymentAccount;
 use App\Ship\Parents\Actions\Action;
@@ -22,12 +25,12 @@ class FindPaymentAccountDetailsAction extends Action
      */
     public function run(DataTransporter $data): PaymentAccount
     {
-        $user = Hive::call('Authentication@GetAuthenticatedUserTask');
+        $user = Hive::call(GetAuthenticatedUserTask::class);
 
-        $paymentAccount = Hive::call('Payment@FindPaymentAccountByIdTask', [$data->id]);
+        $paymentAccount = Hive::call(FindPaymentAccountByIdTask::class, [$data->id]);
 
         // check if this account belongs to our user
-        Hive::call('Payment@CheckIfPaymentAccountBelongsToUserTask', [$user, $paymentAccount]);
+        Hive::call(CheckIfPaymentAccountBelongsToUserTask::class, [$user, $paymentAccount]);
 
         return $paymentAccount;
     }

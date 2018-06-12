@@ -2,6 +2,18 @@
 
 namespace App\Containers\Authorization\UI\API\Controllers;
 
+use App\Containers\Authorization\Actions\AssignUserToRoleAction;
+use App\Containers\Authorization\Actions\AttachPermissionsToRoleAction;
+use App\Containers\Authorization\Actions\CreateRoleAction;
+use App\Containers\Authorization\Actions\DeleteRoleAction;
+use App\Containers\Authorization\Actions\DetachPermissionsFromRoleAction;
+use App\Containers\Authorization\Actions\FindPermissionAction;
+use App\Containers\Authorization\Actions\FindRoleAction;
+use App\Containers\Authorization\Actions\GetAllPermissionsAction;
+use App\Containers\Authorization\Actions\GetAllRolesAction;
+use App\Containers\Authorization\Actions\RevokeUserFromRoleAction;
+use App\Containers\Authorization\Actions\SyncPermissionsOnRoleAction;
+use App\Containers\Authorization\Actions\SyncUserRolesAction;
 use HiveApi\Core\Foundation\Facades\Hive;
 use App\Containers\Authorization\UI\API\Requests\AssignUserToRoleRequest;
 use App\Containers\Authorization\UI\API\Requests\AttachPermissionToRoleRequest;
@@ -36,7 +48,7 @@ class Controller extends ApiController
      */
     public function getAllPermissions(GetAllPermissionsRequest $request)
     {
-        $permissions = Hive::call('Authorization@GetAllPermissionsAction');
+        $permissions = Hive::call(GetAllPermissionsAction::class);
 
         return $this->transform($permissions, PermissionTransformer::class);
     }
@@ -48,7 +60,7 @@ class Controller extends ApiController
      */
     public function findPermission(FindPermissionRequest $request)
     {
-        $permission = Hive::call('Authorization@FindPermissionAction', [new DataTransporter($request)]);
+        $permission = Hive::call(FindPermissionAction::class, [new DataTransporter($request)]);
 
         return $this->transform($permission, PermissionTransformer::class);
     }
@@ -60,7 +72,7 @@ class Controller extends ApiController
      */
     public function getAllRoles(GetAllRolesRequest $request)
     {
-        $roles = Hive::call('Authorization@GetAllRolesAction');
+        $roles = Hive::call(GetAllRolesAction::class);
 
         return $this->transform($roles, RoleTransformer::class);
     }
@@ -72,7 +84,7 @@ class Controller extends ApiController
      */
     public function findRole(FindRoleRequest $request)
     {
-        $role = Hive::call('Authorization@FindRoleAction', [new DataTransporter($request)]);
+        $role = Hive::call(FindRoleAction::class, [new DataTransporter($request)]);
 
         return $this->transform($role, RoleTransformer::class);
     }
@@ -84,7 +96,7 @@ class Controller extends ApiController
      */
     public function assignUserToRole(AssignUserToRoleRequest $request)
     {
-        $user = Hive::call('Authorization@AssignUserToRoleAction', [new DataTransporter($request)]);
+        $user = Hive::call(AssignUserToRoleAction::class, [new DataTransporter($request)]);
 
         return $this->transform($user, UserTransformer::class);
     }
@@ -96,7 +108,7 @@ class Controller extends ApiController
      */
     public function syncUserRoles(SyncUserRolesRequest $request)
     {
-        $user = Hive::call('Authorization@SyncUserRolesAction', [new DataTransporter($request)]);
+        $user = Hive::call(SyncUserRolesAction::class, [new DataTransporter($request)]);
 
         return $this->transform($user, UserTransformer::class);
     }
@@ -108,7 +120,7 @@ class Controller extends ApiController
      */
     public function deleteRole(DeleteRoleRequest $request)
     {
-        Hive::call('Authorization@DeleteRoleAction', [new DataTransporter($request)]);
+        Hive::call(DeleteRoleAction::class, [new DataTransporter($request)]);
 
         return $this->noContent();
     }
@@ -120,7 +132,7 @@ class Controller extends ApiController
      */
     public function revokeRoleFromUser(RevokeUserFromRoleRequest $request)
     {
-        $user = Hive::call('Authorization@RevokeUserFromRoleAction', [new DataTransporter($request)]);
+        $user = Hive::call(RevokeUserFromRoleAction::class, [new DataTransporter($request)]);
 
         return $this->transform($user, UserTransformer::class);
     }
@@ -132,7 +144,7 @@ class Controller extends ApiController
      */
     public function attachPermissionToRole(AttachPermissionToRoleRequest $request)
     {
-        $role = Hive::call('Authorization@AttachPermissionsToRoleAction', [new DataTransporter($request)]);
+        $role = Hive::call(AttachPermissionsToRoleAction::class, [new DataTransporter($request)]);
 
         return $this->transform($role, RoleTransformer::class);
     }
@@ -144,7 +156,7 @@ class Controller extends ApiController
      */
     public function syncPermissionOnRole(SyncPermissionsOnRoleRequest $request)
     {
-        $role = Hive::call('Authorization@SyncPermissionsOnRoleAction', [new DataTransporter($request)]);
+        $role = Hive::call(SyncPermissionsOnRoleAction::class, [new DataTransporter($request)]);
 
         return $this->transform($role, RoleTransformer::class);
     }
@@ -156,7 +168,7 @@ class Controller extends ApiController
      */
     public function detachPermissionFromRole(DetachPermissionToRoleRequest $request)
     {
-        $role = Hive::call('Authorization@DetachPermissionsFromRoleAction', [new DataTransporter($request)]);
+        $role = Hive::call(DetachPermissionsFromRoleAction::class, [new DataTransporter($request)]);
 
         return $this->transform($role, RoleTransformer::class);
     }
@@ -168,7 +180,7 @@ class Controller extends ApiController
      */
     public function createRole(CreateRoleRequest $request)
     {
-        $role = Hive::call('Authorization@CreateRoleAction', [new DataTransporter($request)]);
+        $role = Hive::call(CreateRoleAction::class, [new DataTransporter($request)]);
 
         return $this->transform($role, RoleTransformer::class);
     }

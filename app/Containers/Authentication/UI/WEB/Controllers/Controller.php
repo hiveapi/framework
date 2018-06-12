@@ -2,6 +2,8 @@
 
 namespace App\Containers\Authentication\UI\WEB\Controllers;
 
+use App\Containers\Authentication\Actions\WebAdminLoginAction;
+use App\Containers\Authentication\Actions\WebLogoutAction;
 use HiveApi\Core\Foundation\Facades\Hive;
 use App\Containers\Authentication\UI\WEB\Requests\LoginRequest;
 use App\Containers\Authentication\UI\WEB\Requests\LogoutRequest;
@@ -31,7 +33,7 @@ class Controller extends WebController
      */
     public function logoutAdmin(LogoutRequest $request)
     {
-        Hive::call('Authentication@WebLogoutAction');
+        Hive::call(WebLogoutAction::class);
 
         return redirect('login');
     }
@@ -44,7 +46,7 @@ class Controller extends WebController
     public function loginAdmin(LoginRequest $request)
     {
         try {
-            $result = Hive::call('Authentication@WebAdminLoginAction', [new DataTransporter($request)]);
+            $result = Hive::call(WebAdminLoginAction::class, [new DataTransporter($request)]);
         } catch (Exception $e) {
             return redirect('login')->with('status', $e->getMessage());
         }

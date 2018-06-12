@@ -2,6 +2,7 @@
 
 namespace App\Containers\Authorization\Actions;
 
+use App\Containers\Authorization\Tasks\FindRoleTask;
 use HiveApi\Core\Foundation\Facades\Hive;
 use App\Containers\Authorization\Exceptions\RoleNotFoundException;
 use App\Containers\Authorization\Models\Role;
@@ -24,7 +25,7 @@ class FindRoleAction extends Action
      */
     public function run(DataTransporter $data): Role
     {
-        $role = Hive::call('Authorization@FindRoleTask', [$data->id]);
+        $role = Hive::call(FindRoleTask::class, [$data->id]);
 
         if (!$role) {
             throw new RoleNotFoundException();

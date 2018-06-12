@@ -2,6 +2,10 @@
 
 namespace App\Containers\Stripe\Actions;
 
+use App\Containers\Authentication\Tasks\GetAuthenticatedUserTask;
+use App\Containers\Payment\Tasks\CheckIfPaymentAccountBelongsToUserTask;
+use App\Containers\Stripe\Tasks\FindStripeAccountByIdTask;
+use App\Containers\Stripe\Tasks\UpdateStripeAccountTask;
 use HiveApi\Core\Foundation\Facades\Hive;
 use App\Containers\Stripe\Models\StripeAccount;
 use App\Ship\Parents\Actions\Action;
@@ -22,12 +26,12 @@ class UpdateStripeAccountAction extends Action
      */
     public function run(DataTransporter $data): StripeAccount
     {
-        $user = Hive::call('Authentication@GetAuthenticatedUserTask');
+        $user = Hive::call(GetAuthenticatedUserTask::class);
 
         // check, if this account does - in fact - belong to our user
-        $account = Hive::call('Stripe@FindStripeAccountByIdTask', [$data->id]);
+        $account = Hive::call(FindStripeAccountByIdTask::class, [$data->id]);
         $paymentAccount = $account->paymentAccount;
-        Hive::call('Payment@CheckIfPaymentAccountBelongsToUserTask', [$user, $paymentAccount]);
+        Hive::call(CheckIfPaymentAccountBelongsToUserTask::class, [$user, $paymentAccount]);
 
         // we own this account - so it is safe to update it
         $sanitizedData = $data->sanitizeInput([
@@ -38,7 +42,7 @@ class UpdateStripeAccountAction extends Action
             'card_fingerprint',
         ]);
 
-        $account = Hive::call('Stripe@UpdateStripeAccountTask', [$account, $sanitizedData]);
+        $account = Hive::call(UpdateStripeAccountTask::class, [$account, $sanitizedData]);
 
         return $account;
     }

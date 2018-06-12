@@ -2,6 +2,8 @@
 
 namespace App\Containers\Authorization\UI\CLI\Commands;
 
+use App\Containers\Authorization\Tasks\FindRoleTask;
+use App\Containers\Authorization\Tasks\GetAllPermissionsTask;
 use HiveApi\Core\Foundation\Facades\Hive;
 use App\Containers\Authorization\Exceptions\RoleNotFoundException;
 use App\Ship\Parents\Commands\ConsoleCommand;
@@ -25,9 +27,9 @@ class GiveAllPermissionsToRoleCommand extends ConsoleCommand
     {
         $roleName = $this->argument('role');
 
-        $allPermissions = Hive::call('Authorization@GetAllPermissionsTask', [true]);
+        $allPermissions = Hive::call(GetAllPermissionsTask::class, [true]);
 
-        $role = Hive::call('Authorization@FindRoleTask', [$roleName]);
+        $role = Hive::call(FindRoleTask::class, [$roleName]);
 
         if (!$role) {
             throw new RoleNotFoundException("Role $roleName is not found!");

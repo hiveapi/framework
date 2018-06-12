@@ -2,6 +2,7 @@
 
 namespace App\Containers\User\Actions;
 
+use App\Containers\Authentication\Tasks\GetAuthenticatedUserTask;
 use HiveApi\Core\Foundation\Facades\Hive;
 use App\Containers\User\Models\User;
 use App\Ship\Exceptions\NotFoundException;
@@ -21,7 +22,7 @@ class GetAuthenticatedUserAction extends Action
      */
     public function run(): User
     {
-        $user = Hive::call('Authentication@GetAuthenticatedUserTask');
+        $user = Hive::call(GetAuthenticatedUserTask::class);
 
         if (!$user) {
             throw new NotFoundException();

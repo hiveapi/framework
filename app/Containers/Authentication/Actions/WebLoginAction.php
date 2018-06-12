@@ -2,6 +2,8 @@
 
 namespace App\Containers\Authentication\Actions;
 
+use App\Containers\Authentication\Tasks\CheckIfUserIsConfirmedTask;
+use App\Containers\Authentication\Tasks\WebLoginTask;
 use HiveApi\Core\Foundation\Facades\Hive;
 use App\Ship\Parents\Actions\Action;
 use App\Ship\Transporters\DataTransporter;
@@ -22,9 +24,9 @@ class WebLoginAction extends Action
      */
     public function run(DataTransporter $data): Authenticatable
     {
-        $user = Hive::call('Authentication@WebLoginTask', [$data->email, $data->password, $data->remember]);
+        $user = Hive::call(WebLoginTask::class, [$data->email, $data->password, $data->remember]);
 
-        Hive::call('Authentication@CheckIfUserIsConfirmedTask', [], [['setUser' => [$user]]]);
+        Hive::call(CheckIfUserIsConfirmedTask::class, [], [['setUser' => [$user]]]);
 
         return $user;
     }

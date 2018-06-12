@@ -2,6 +2,9 @@
 
 namespace App\Containers\User\Actions;
 
+use App\Containers\Authentication\Tasks\GetAuthenticatedUserTask;
+use App\Containers\User\Tasks\DeleteUserTask;
+use App\Containers\User\Tasks\FindUserByIdTask;
 use HiveApi\Core\Foundation\Facades\Hive;
 use App\Ship\Parents\Actions\Action;
 use App\Ship\Transporters\DataTransporter;
@@ -20,9 +23,9 @@ class DeleteUserAction extends Action
     public function run(DataTransporter $data): void
     {
         $user = $data->id ?
-            Hive::call('User@FindUserByIdTask',
-                [$data->id]) : Hive::call('Authentication@GetAuthenticatedUserTask');
+            Hive::call(FindUserByIdTask::class,
+                [$data->id]) : Hive::call(GetAuthenticatedUserTask::class);
 
-        Hive::call('User@DeleteUserTask', [$user]);
+        Hive::call(DeleteUserTask::class, [$user]);
     }
 }

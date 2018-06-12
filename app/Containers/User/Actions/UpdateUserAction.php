@@ -2,6 +2,7 @@
 
 namespace App\Containers\User\Actions;
 
+use App\Containers\User\Tasks\UpdateUserTask;
 use HiveApi\Core\Foundation\Facades\Hive;
 use App\Containers\User\Models\User;
 use App\Ship\Parents\Actions\Action;
@@ -38,7 +39,7 @@ class UpdateUserAction extends Action
         // remove null values and their keys
         $userData = array_filter($userData);
 
-        $user = Hive::call('User@UpdateUserTask', [$userData, $data->id]);
+        $user = Hive::call(UpdateUserTask::class, [$userData, $data->id]);
 
         return $user;
     }

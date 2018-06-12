@@ -2,6 +2,9 @@
 
 namespace App\Containers\Stripe\Actions;
 
+use App\Containers\Authentication\Tasks\GetAuthenticatedUserTask;
+use App\Containers\Payment\Tasks\AssignPaymentAccountToUserTask;
+use App\Containers\Stripe\Tasks\CreateStripeAccountTask;
 use HiveApi\Core\Foundation\Facades\Hive;
 use App\Ship\Parents\Actions\Action;
 use App\Ship\Transporters\DataTransporter;
@@ -21,7 +24,7 @@ class CreateStripeAccountAction extends Action
      */
     public function run(DataTransporter $data)
     {
-        $user = Hive::call('Authentication@GetAuthenticatedUserTask');
+        $user = Hive::call(GetAuthenticatedUserTask::class);
 
         $sanitizedData = $data->sanitizeInput([
             'customer_id',
@@ -32,9 +35,9 @@ class CreateStripeAccountAction extends Action
             'nickname',
         ]);
 
-        $account = Hive::call('Stripe@CreateStripeAccountTask', [$sanitizedData]);
+        $account = Hive::call(CreateStripeAccountTask::class, [$sanitizedData]);
 
-        $result = Hive::call('Payment@AssignPaymentAccountToUserTask', [$account, $user, $sanitizedData['nickname']]);
+        $result = Hive::call(AssignPaymentAccountToUserTask::class, [$account, $user, $sanitizedData['nickname']]);
 
         return $result;
     }

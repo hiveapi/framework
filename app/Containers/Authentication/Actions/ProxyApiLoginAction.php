@@ -2,6 +2,9 @@
 
 namespace App\Containers\Authentication\Actions;
 
+use App\Containers\Authentication\Tasks\CallOAuthServerTask;
+use App\Containers\Authentication\Tasks\CheckIfUserIsConfirmedTask;
+use App\Containers\Authentication\Tasks\MakeRefreshCookieTask;
 use HiveApi\Core\Foundation\Facades\Hive;
 use App\Containers\Authentication\Data\Transporters\ProxyApiLoginTransporter;
 use App\Ship\Parents\Actions\Action;
@@ -52,13 +55,13 @@ class ProxyApiLoginAction extends Action
             ]
         );
 
-        $responseContent = Hive::call('Authentication@CallOAuthServerTask', [$requestData]);
+        $responseContent = Hive::call(CallOAuthServerTask::class, [$requestData]);
 
         // check if user email is confirmed only if that feature is enabled.
-        Hive::call('Authentication@CheckIfUserIsConfirmedTask', [],
+        Hive::call(CheckIfUserIsConfirmedTask::class, [],
             [['loginWithCredentials' => [$requestData['username'], $requestData['password'], $loginAttribute]]]);
 
-        $refreshCookie = Hive::call('Authentication@MakeRefreshCookieTask', [$responseContent['refresh_token']]);
+        $refreshCookie = Hive::call(MakeRefreshCookieTask::class, [$responseContent['refresh_token']]);
 
         return [
             'response_content' => $responseContent,

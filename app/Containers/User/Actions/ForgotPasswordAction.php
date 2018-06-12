@@ -2,6 +2,8 @@
 
 namespace App\Containers\User\Actions;
 
+use App\Containers\User\Tasks\CreatePasswordResetTask;
+use App\Containers\User\Tasks\FindUserByEmailTask;
 use HiveApi\Core\Foundation\Facades\Hive;
 use App\Containers\User\Mails\UserForgotPasswordMail;
 use App\Ship\Exceptions\NotFoundException;
@@ -23,10 +25,10 @@ class ForgotPasswordAction extends Action
      */
     public function run(DataTransporter $data): void
     {
-        $user = Hive::call('User@FindUserByEmailTask', [$data->email]);
+        $user = Hive::call(FindUserByEmailTask::class, [$data->email]);
 
         // generate token
-        $token = Hive::call('User@CreatePasswordResetTask', [$user]);
+        $token = Hive::call(CreatePasswordResetTask::class, [$user]);
 
         // get last segment of the URL
         $resetUrl = $data->reseturl;

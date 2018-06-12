@@ -2,6 +2,8 @@
 
 namespace App\Containers\Stripe\UI\API\Controllers;
 
+use App\Containers\Stripe\Actions\CreateStripeAccountAction;
+use App\Containers\Stripe\Actions\UpdateStripeAccountAction;
 use HiveApi\Core\Foundation\Facades\Hive;
 use App\Containers\Stripe\UI\API\Requests\CreateStripeAccountRequest;
 use App\Containers\Stripe\UI\API\Requests\UpdateStripeAccountRequest;
@@ -23,7 +25,7 @@ class Controller extends ApiController
      */
     public function createStripeAccount(CreateStripeAccountRequest $request)
     {
-        $stripeAccount = Hive::call('Stripe@CreateStripeAccountAction', [new DataTransporter($request)]);
+        $stripeAccount = Hive::call(CreateStripeAccountAction::class, [new DataTransporter($request)]);
 
         return $this->accepted([
             'message'           => 'Stripe account created successfully.',
@@ -38,7 +40,7 @@ class Controller extends ApiController
      */
     public function updateStripeAccount(UpdateStripeAccountRequest $request)
     {
-        $stripeAccount = Hive::call('Stripe@UpdateStripeAccountAction', [new DataTransporter($request)]);
+        $stripeAccount = Hive::call(UpdateStripeAccountAction::class, [new DataTransporter($request)]);
 
         return $this->accepted([
             'message'           => 'Stripe account updated successfully.',

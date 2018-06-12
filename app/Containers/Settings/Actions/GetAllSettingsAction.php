@@ -2,6 +2,7 @@
 
 namespace App\Containers\Settings\Actions;
 
+use App\Containers\Settings\Tasks\GetAllSettingsTask;
 use HiveApi\Core\Foundation\Facades\Hive;
 use App\Ship\Parents\Actions\Action;
 
@@ -18,7 +19,7 @@ class GetAllSettingsAction extends Action
      */
     public function run()
     {
-        $settings = Hive::call('Settings@GetAllSettingsTask', [], ['addRequestCriteria', 'ordered']);
+        $settings = Hive::call(GetAllSettingsTask::class, [], ['addRequestCriteria', 'ordered']);
 
         return $settings;
     }

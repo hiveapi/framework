@@ -2,6 +2,7 @@
 
 namespace App\Containers\Localization\Actions;
 
+use App\Containers\Localization\Tasks\GetAllLocalizationsTask;
 use App\Ship\Parents\Actions\Action;
 use HiveApi\Core\Foundation\Facades\Hive;
 use Illuminate\Support\Collection;
@@ -19,7 +20,7 @@ class GetAllLocalizationsAction extends Action
      */
     public function run(): Collection
     {
-        $localizations = Hive::call('Localization@GetAllLocalizationsTask');
+        $localizations = Hive::call(GetAllLocalizationsTask::class);
 
         return $localizations;
     }

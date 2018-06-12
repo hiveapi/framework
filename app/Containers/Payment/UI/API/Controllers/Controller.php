@@ -2,6 +2,10 @@
 
 namespace App\Containers\Payment\UI\API\Controllers;
 
+use App\Containers\Payment\Actions\DeletePaymentAccountAction;
+use App\Containers\Payment\Actions\FindPaymentAccountDetailsAction;
+use App\Containers\Payment\Actions\GetAllPaymentAccountsAction;
+use App\Containers\Payment\Actions\UpdatePaymentAccountAction;
 use HiveApi\Core\Foundation\Facades\Hive;
 use App\Containers\Payment\UI\API\Requests\DeletePaymentAccountRequest;
 use App\Containers\Payment\UI\API\Requests\FindPaymentAccountRequest;
@@ -27,7 +31,7 @@ class Controller extends ApiController
      */
     public function getAllPaymentAccounts(GetAllPaymentAccountsRequest $request)
     {
-        $paymentAccounts = Hive::call('Payment@GetAllPaymentAccountsAction');
+        $paymentAccounts = Hive::call(GetAllPaymentAccountsAction::class);
 
         return $this->transform($paymentAccounts, PaymentAccountTransformer::class);
     }
@@ -39,7 +43,7 @@ class Controller extends ApiController
      */
     public function getPaymentAccount(FindPaymentAccountRequest $request)
     {
-        $paymentAccount = Hive::call('Payment@FindPaymentAccountDetailsAction', [new DataTransporter($request)]);
+        $paymentAccount = Hive::call(FindPaymentAccountDetailsAction::class, [new DataTransporter($request)]);
 
         return $this->transform($paymentAccount, PaymentAccountTransformer::class);
     }
@@ -51,7 +55,7 @@ class Controller extends ApiController
      */
     public function updatePaymentAccount(UpdatePaymentAccountRequest $request)
     {
-        $paymentAccount = Hive::call('Payment@UpdatePaymentAccountAction', [new DataTransporter($request)]);
+        $paymentAccount = Hive::call(UpdatePaymentAccountAction::class, [new DataTransporter($request)]);
 
         return $this->transform($paymentAccount, PaymentAccountTransformer::class);
     }
@@ -63,7 +67,7 @@ class Controller extends ApiController
      */
     public function deletePaymentAccount(DeletePaymentAccountRequest $request)
     {
-        Hive::call('Payment@DeletePaymentAccountAction', [new DataTransporter($request)]);
+        Hive::call(DeletePaymentAccountAction::class, [new DataTransporter($request)]);
 
         return $this->noContent();
     }

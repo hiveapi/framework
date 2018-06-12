@@ -2,6 +2,9 @@
 
 namespace App\Containers\Authentication\UI\API\Controllers;
 
+use App\Containers\Authentication\Actions\ApiLogoutAction;
+use App\Containers\Authentication\Actions\ProxyApiLoginAction;
+use App\Containers\Authentication\Actions\ProxyApiRefreshAction;
 use HiveApi\Core\Foundation\Facades\Hive;
 use App\Containers\Authentication\Data\Transporters\ProxyApiLoginTransporter;
 use App\Containers\Authentication\Data\Transporters\ProxyRefreshTransporter;
@@ -31,7 +34,7 @@ class Controller extends ApiController
         $dataTransporter = new DataTransporter($request);
         $dataTransporter->bearerToken = $request->bearerToken();
 
-        Hive::call('Authentication@ApiLogoutAction', [$dataTransporter]);
+        Hive::call(ApiLogoutAction::class, [$dataTransporter]);
 
         Cookie::forget('refreshToken');
 
@@ -59,7 +62,7 @@ class Controller extends ApiController
             ])
         );
 
-        $result = Hive::call('Authentication@ProxyApiLoginAction', [$dataTransporter]);
+        $result = Hive::call(ProxyApiLoginAction::class, [$dataTransporter]);
 
         return $this->json($result['response_content'])->withCookie($result['refresh_cookie']);
     }
@@ -82,7 +85,7 @@ class Controller extends ApiController
             ])
         );
 
-        $result = Hive::call('Authentication@ProxyApiRefreshAction', [$dataTransporter]);
+        $result = Hive::call(ProxyApiRefreshAction::class, [$dataTransporter]);
 
         return $this->json($result['response-content'])->withCookie($result['refresh-cookie']);
     }
