@@ -1,0 +1,2 @@
+namespace: App\Containers\Authorization\Tests\Tests
+extends: ../../../../tests/_data/presets/codeception.container.yml

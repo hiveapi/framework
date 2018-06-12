@@ -1,0 +1,5 @@
+actor: AcceptanceTester
+extends: ../../../../../tests/_data/presets/codeception.suite.acceptance.yml
+modules:
+    enabled:
+        - \App\Ship\Parents\Tests\Helper\Acceptance

@@ -1,0 +1,2 @@
+namespace: App\Containers\Payment\Tests\Tests
+extends: ../../../../tests/_data/presets/codeception.container.yml
