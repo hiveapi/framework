@@ -144,28 +144,4 @@ class Controller extends ApiController
         return $this->transform($user, UserPrivateProfileTransformer::class);
     }
 
-    /**
-     * @param \App\Containers\User\UI\API\Requests\ResetPasswordRequest $request
-     *
-     * @return  \Illuminate\Http\JsonResponse
-     */
-    public function resetPassword(ResetPasswordRequest $request)
-    {
-        Hive::call(ResetPasswordAction::class, [new DataTransporter($request)]);
-
-        return $this->noContent(204);
-    }
-
-    /**
-     * @param \App\Containers\User\UI\API\Requests\ForgotPasswordRequest $request
-     *
-     * @return  \Illuminate\Http\JsonResponse
-     */
-    public function forgotPassword(ForgotPasswordRequest $request)
-    {
-        Hive::call(ForgotPasswordAction::class, [new DataTransporter($request)]);
-
-        return $this->noContent(202);
-    }
-
 }
