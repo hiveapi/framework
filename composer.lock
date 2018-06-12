@@ -1469,32 +1469,32 @@
         },
         {
             "name": "hashids/hashids",
-            "version": "3.0.0",
+            "version": "2.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ivanakimov/hashids.php.git",
-                "reference": "b6c61142bfe36d43740a5419d11c351dddac0458"
+                "reference": "7a945a5192d4a5c8888364970feece9bc26179df"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ivanakimov/hashids.php/zipball/b6c61142bfe36d43740a5419d11c351dddac0458",
-                "reference": "b6c61142bfe36d43740a5419d11c351dddac0458",
+                "url": "https://api.github.com/repos/ivanakimov/hashids.php/zipball/7a945a5192d4a5c8888364970feece9bc26179df",
+                "reference": "7a945a5192d4a5c8888364970feece9bc26179df",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.1.3"
+                "php": "^5.6.4 || ^7.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^7.0"
+                "phpunit/phpunit": "^5.7 || ^6.3"
             },
             "suggest": {
-                "ext-bcmath": "Required to use BC Math arbitrary precision mathematics (*).",
+                "ext-bcmatch": "Required to use BC Math arbitrary precision mathematics (*).",
                 "ext-gmp": "Required to use GNU multiple precision mathematics (*)."
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.0-dev"
+                    "dev-master": "2.1-dev"
                 }
             },
             "autoload": {
@@ -1531,20 +1531,20 @@
                 "obfuscate",
                 "youtube"
             ],
-            "time": "2018-03-12T16:30:09+00:00"
+            "time": "2017-10-28T11:24:20+00:00"
         },
         {
             "name": "hiveapi/core",
-            "version": "dev-develop",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hiveapi/core.git",
-                "reference": "f2ab042a40a4c621651fe79f551f7faee1f87a0e"
+                "reference": "7ead566e34f911996fa2ad0920d401d9758d7e61"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hiveapi/core/zipball/f2ab042a40a4c621651fe79f551f7faee1f87a0e",
-                "reference": "f2ab042a40a4c621651fe79f551f7faee1f87a0e",
+                "url": "https://api.github.com/repos/hiveapi/core/zipball/7ead566e34f911996fa2ad0920d401d9758d7e61",
+                "reference": "7ead566e34f911996fa2ad0920d401d9758d7e61",
                 "shasum": ""
             },
             "require": {
@@ -1554,7 +1554,7 @@
                 "optimus/heimdal": "~1.5",
                 "prettus/l5-repository": "^2.6",
                 "spatie/laravel-fractal": "5.3.*",
-                "vinkla/hashids": "^5.0"
+                "vinkla/hashids": "^4.0"
             },
             "require-dev": {
                 "codeception/codeception": "2.4.*",
@@ -1584,7 +1584,7 @@
                 "hiveapi core",
                 "laravel"
             ],
-            "time": "2018-06-12T11:38:50+00:00"
+            "time": "2018-06-02T15:48:04+00:00"
         },
         {
             "name": "jakub-onderka/php-console-color",
@@ -4826,21 +4826,21 @@
         },
         {
             "name": "vinkla/hashids",
-            "version": "5.0.0",
+            "version": "4.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vinkla/laravel-hashids.git",
-                "reference": "038e6bd44ce07225e89fee1cd52c00316bc4fec8"
+                "reference": "b289c500c04750fd4086aa89099e360975299e9e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vinkla/laravel-hashids/zipball/038e6bd44ce07225e89fee1cd52c00316bc4fec8",
-                "reference": "038e6bd44ce07225e89fee1cd52c00316bc4fec8",
+                "url": "https://api.github.com/repos/vinkla/laravel-hashids/zipball/b289c500c04750fd4086aa89099e360975299e9e",
+                "reference": "b289c500c04750fd4086aa89099e360975299e9e",
                 "shasum": ""
             },
             "require": {
                 "graham-campbell/manager": "^4.0",
-                "hashids/hashids": "^3.0",
+                "hashids/hashids": "^2.0",
                 "illuminate/contracts": "5.6.*",
                 "illuminate/support": "5.6.*",
                 "php": "^7.1.3"
@@ -4854,7 +4854,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "5.0-dev"
+                    "dev-master": "4.0-dev"
                 },
                 "laravel": {
                     "providers": [
@@ -4894,7 +4894,7 @@
                 "obfuscate",
                 "youtube"
             ],
-            "time": "2018-03-12T16:38:13+00:00"
+            "time": "2018-02-11T15:46:59+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
