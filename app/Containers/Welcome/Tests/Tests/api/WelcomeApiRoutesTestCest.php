@@ -31,7 +31,7 @@ class WelcomeApiRoutesTestCest extends BaseCest
         $I->sendGET('/');
 
         $I->seeResponseCodeIs(200);
-        $I->seeResponseContains(trans('localization::messages.welcome'));
+        $I->seeResponseContains(trans('welcome::messages.welcome'));
     }
 
     /**
@@ -49,7 +49,7 @@ class WelcomeApiRoutesTestCest extends BaseCest
         $I->sendGET('/' . $example['version']);
 
         $I->seeResponseCodeIs(200);
-        $I->seeResponseContains(trans('localization::messages.welcome'));
+        $I->seeResponseContains(trans('welcome::messages.welcome'));
         $I->seeResponseContains(Str::upper($example["version"]));
     }
 

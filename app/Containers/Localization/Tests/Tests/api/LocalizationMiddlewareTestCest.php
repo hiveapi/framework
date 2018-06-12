@@ -51,7 +51,7 @@ class LocalizationMiddlewareTestCest extends BaseCest
 
         $I->seeResponseCodeIs(200);
         $I->seeHttpHeader('content-language', $custom_locale);
-        $I->seeResponseContains(trans('localization::messages.welcome'));
+        $I->seeResponseContains(trans('welcome::messages.welcome'));
     }
 
     /**
