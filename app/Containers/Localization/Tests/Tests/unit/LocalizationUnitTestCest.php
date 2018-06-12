@@ -3,7 +3,6 @@
 namespace App\Containers\Localization\Tests\Tests;
 
 use App\Containers\Localization\Tasks\GetAllLocalizationsTask;
-use App\Containers\Localization\Tests\Tests\UnitTester;
 use App\Containers\Localization\Values\Localization;
 use App\Ship\Parents\Tests\Cests\BaseCest;
 use Illuminate\Support\Facades\App;

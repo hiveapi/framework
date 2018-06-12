@@ -2,7 +2,6 @@
 
 namespace App\Containers\Authentication\Tests\Tests;
 
-use App\Containers\Authentication\Tests\Tests\AcceptanceTester;
 use App\Ship\Parents\Tests\Cests\BaseCest;
 
 /**

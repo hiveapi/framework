@@ -4,7 +4,6 @@ namespace App\Containers\User\Tests\Tests;
 
 use App\Containers\User\Actions\RegisterUserAction;
 use App\Containers\User\Models\User;
-use App\Containers\User\Tests\Tests\UnitTester;
 use App\Ship\Parents\Tests\Cests\BaseCest;
 use App\Ship\Transporters\DataTransporter;
 use Illuminate\Support\Facades\App;

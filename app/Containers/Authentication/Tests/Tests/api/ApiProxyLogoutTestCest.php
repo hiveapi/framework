@@ -2,8 +2,6 @@
 
 namespace App\Containers\Authentication\Tests\Tests;
 
-use App\Containers\Authentication\Tests\Tests\ApiTester;
-use App\Containers\User\Models\User;
 use App\Ship\Parents\Tests\Cests\BaseCest;
 
 /**

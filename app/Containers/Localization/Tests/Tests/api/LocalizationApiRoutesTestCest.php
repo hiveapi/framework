@@ -2,7 +2,6 @@
 
 namespace App\Containers\Localization\Tests\Tests;
 
-use App\Containers\Localization\Tests\Tests\ApiTester;
 use App\Containers\User\Models\User;
 use App\Ship\Parents\Tests\Cests\BaseCest;
 use Illuminate\Support\Facades\Config;
