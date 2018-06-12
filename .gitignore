@@ -7,6 +7,9 @@ Homestead.yaml
 npm-debug.log
 yarn-error.log
 
+# Container
+/app/Containers/*/Tests/Tests/_output/*
+
 # vendors
 /node_modules
 /vendor
@@ -28,3 +31,7 @@ yarn-error.log
 /laradock*/
 _ide_helper*.php
 .phpstorm.meta.php
+
+# testing
+app/Containers/*/Tests/Tests/_output
+app/Containers/*/Tests/Tests/_support/_generated

@@ -2,6 +2,8 @@
 
 namespace App\Containers\Settings\Actions;
 
+use App\Containers\Settings\Tasks\DeleteSettingTask;
+use App\Containers\Settings\Tasks\FindSettingByIdTask;
 use HiveApi\Core\Foundation\Facades\Hive;
 use App\Ship\Parents\Actions\Action;
 use App\Ship\Transporters\DataTransporter;
@@ -19,8 +21,8 @@ class DeleteSettingAction extends Action
      */
     public function run(DataTransporter $data): void
     {
-        $setting = Hive::call('Settings@FindSettingByIdTask', [$data->id]);
+        $setting = Hive::call(FindSettingByIdTask::class, [$data->id]);
 
-        Hive::call('Settings@DeleteSettingTask', [$setting]);
+        Hive::call(DeleteSettingTask::class, [$setting]);
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Containers\Authorization\Actions;
 
+use App\Containers\Authorization\Tasks\CreatePermissionTask;
 use HiveApi\Core\Foundation\Facades\Hive;
 use App\Containers\Authorization\Models\Permission;
 use App\Ship\Parents\Actions\Action;
@@ -22,7 +23,7 @@ class CreatePermissionAction extends Action
      */
     public function run(DataTransporter $data): Permission
     {
-        $permission = Hive::call('Authorization@CreatePermissionTask',
+        $permission = Hive::call(CreatePermissionTask::class,
             [$data->name, $data->description, $data->display_name]
         );
 

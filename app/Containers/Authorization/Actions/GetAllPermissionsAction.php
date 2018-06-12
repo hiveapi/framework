@@ -2,6 +2,7 @@
 
 namespace App\Containers\Authorization\Actions;
 
+use App\Containers\Authorization\Tasks\GetAllPermissionsTask;
 use HiveApi\Core\Foundation\Facades\Hive;
 use App\Ship\Parents\Actions\Action;
 
@@ -18,7 +19,7 @@ class GetAllPermissionsAction extends Action
      */
     public function run()
     {
-        $permissions = Hive::call('Authorization@GetAllPermissionsTask', [], ['addRequestCriteria']);
+        $permissions = Hive::call(GetAllPermissionsTask::class, [], ['addRequestCriteria']);
 
         return $permissions;
     }

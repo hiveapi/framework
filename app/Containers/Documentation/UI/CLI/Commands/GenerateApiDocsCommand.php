@@ -2,6 +2,7 @@
 
 namespace App\Containers\Documentation\UI\CLI\Commands;
 
+use App\Containers\Documentation\Actions\GenerateDocumentationAction;
 use HiveApi\Core\Foundation\Facades\Hive;
 use App\Ship\Parents\Commands\ConsoleCommand;
 use App\Ship\Transporters\DataTransporter;
@@ -43,7 +44,7 @@ class GenerateApiDocsCommand extends ConsoleCommand
         $transporter = new DataTransporter();
         $transporter->setInstance("command_instance", $this);
 
-        Hive::call('Documentation@GenerateDocumentationAction', [$transporter]);
+        Hive::call(GenerateDocumentationAction::class, [$transporter]);
     }
 
 }

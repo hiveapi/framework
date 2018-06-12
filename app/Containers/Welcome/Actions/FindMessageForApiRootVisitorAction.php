@@ -17,6 +17,6 @@ class FindMessageForApiRootVisitorAction extends Action
      */
     public function run()
     {
-        return [trans('localization::messages.welcome')];
+        return [trans('welcome::messages.welcome')];
     }
 }

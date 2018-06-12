@@ -2,6 +2,8 @@
 
 namespace App\Containers\Authentication\Actions;
 
+use App\Containers\Authentication\Tasks\CallOAuthServerTask;
+use App\Containers\Authentication\Tasks\MakeRefreshCookieTask;
 use HiveApi\Core\Foundation\Facades\Hive;
 use App\Containers\Authentication\Data\Transporters\ProxyRefreshTransporter;
 use App\Containers\Authentication\Exceptions\RefreshTokenMissedException;
@@ -16,11 +18,12 @@ class ProxyApiRefreshAction extends Action
     /**
      * @param \App\Containers\Authentication\Data\Transporters\ProxyRefreshTransporter $data
      *
-     * @return  array
+     * @return array
+     * @throws RefreshTokenMissedException
      */
     public function run(ProxyRefreshTransporter $data): array
     {
-        if(!$data->refresh_token){
+        if (!$data->refresh_token){
             throw new RefreshTokenMissedException();
         }
 
@@ -32,9 +35,9 @@ class ProxyApiRefreshAction extends Action
             'scope'         => $data->scope ?? '',
         ];
 
-        $responseContent = Hive::call('Authentication@CallOAuthServerTask', [$requestData]);
+        $responseContent = Hive::call(CallOAuthServerTask::class, [$requestData]);
 
-        $refreshCookie = Hive::call('Authentication@MakeRefreshCookieTask', [$responseContent['refresh_token']]);
+        $refreshCookie = Hive::call(MakeRefreshCookieTask::class, [$responseContent['refresh_token']]);
 
         return [
             'response-content' => $responseContent,

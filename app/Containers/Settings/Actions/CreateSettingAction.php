@@ -2,6 +2,7 @@
 
 namespace App\Containers\Settings\Actions;
 
+use App\Containers\Settings\Tasks\CreateSettingTask;
 use HiveApi\Core\Foundation\Facades\Hive;
 use App\Containers\Settings\Models\Setting;
 use App\Ship\Parents\Actions\Action;
@@ -27,7 +28,7 @@ class CreateSettingAction extends Action
             'value'
         ]);
 
-        $setting = Hive::call('Settings@CreateSettingTask', [$data]);
+        $setting = Hive::call(CreateSettingTask::class, [$data]);
 
         return $setting;
     }

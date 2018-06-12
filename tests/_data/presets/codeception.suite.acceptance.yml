@@ -1,0 +1,26 @@
+modules:
+    enabled:
+        - PhpBrowser:
+            url: 'http://www.hive.local'
+        - Laravel5:
+            root: ../../../../
+            url: 'http://api.hive.local'
+            part: ORM
+
+    config:
+        - Laravel5:
+            environment_file: .env.testing
+            run_database_migrations: true
+            database_seeder_class: DatabaseSeeder
+
+env:
+    admin:
+        modules:
+            config:
+                PhpBrowser:
+                    url: 'http://admin.hive.local'
+    www:
+        modules:
+            config:
+                PhpBrowser:
+                    url: 'http://www.hive.local'

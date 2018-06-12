@@ -2,6 +2,17 @@
 
 namespace App\Containers\User\UI\API\Controllers;
 
+use App\Containers\User\Actions\CreateAdminAction;
+use App\Containers\User\Actions\DeleteUserAction;
+use App\Containers\User\Actions\FindUserByIdAction;
+use App\Containers\User\Actions\ForgotPasswordAction;
+use App\Containers\User\Actions\GetAllAdminsAction;
+use App\Containers\User\Actions\GetAllClientsAction;
+use App\Containers\User\Actions\GetAllUsersAction;
+use App\Containers\User\Actions\GetAuthenticatedUserAction;
+use App\Containers\User\Actions\RegisterUserAction;
+use App\Containers\User\Actions\ResetPasswordAction;
+use App\Containers\User\Actions\UpdateUserAction;
 use HiveApi\Core\Foundation\Facades\Hive;
 use App\Containers\User\UI\API\Requests\CreateAdminRequest;
 use App\Containers\User\UI\API\Requests\DeleteUserRequest;
@@ -32,7 +43,7 @@ class Controller extends ApiController
      */
     public function registerUser(RegisterUserRequest $request)
     {
-        $user = Hive::call('User@RegisterUserAction', [new DataTransporter($request)]);
+        $user = Hive::call(RegisterUserAction::class, [new DataTransporter($request)]);
 
         return $this->transform($user, UserTransformer::class);
     }
@@ -44,7 +55,7 @@ class Controller extends ApiController
      */
     public function createAdmin(CreateAdminRequest $request)
     {
-        $admin = Hive::call('User@CreateAdminAction', [new DataTransporter($request)]);
+        $admin = Hive::call(CreateAdminAction::class, [new DataTransporter($request)]);
 
         return $this->transform($admin, UserTransformer::class);
     }
@@ -56,7 +67,7 @@ class Controller extends ApiController
      */
     public function updateUser(UpdateUserRequest $request)
     {
-        $user = Hive::call('User@UpdateUserAction', [new DataTransporter($request)]);
+        $user = Hive::call(UpdateUserAction::class, [new DataTransporter($request)]);
 
         return $this->transform($user, UserTransformer::class);
     }
@@ -68,7 +79,7 @@ class Controller extends ApiController
      */
     public function deleteUser(DeleteUserRequest $request)
     {
-        Hive::call('User@DeleteUserAction', [new DataTransporter($request)]);
+        Hive::call(DeleteUserAction::class, [new DataTransporter($request)]);
 
         return $this->noContent();
     }
@@ -80,7 +91,7 @@ class Controller extends ApiController
      */
     public function getAllUsers(GetAllUsersRequest $request)
     {
-        $users = Hive::call('User@GetAllUsersAction');
+        $users = Hive::call(GetAllUsersAction::class);
 
         return $this->transform($users, UserTransformer::class);
     }
@@ -92,7 +103,7 @@ class Controller extends ApiController
      */
     public function getAllClients(GetAllUsersRequest $request)
     {
-        $users = Hive::call('User@GetAllClientsAction');
+        $users = Hive::call(GetAllClientsAction::class);
 
         return $this->transform($users, UserTransformer::class);
     }
@@ -104,7 +115,7 @@ class Controller extends ApiController
      */
     public function getAllAdmins(GetAllUsersRequest $request)
     {
-        $users = Hive::call('User@GetAllAdminsAction');
+        $users = Hive::call(GetAllAdminsAction::class);
 
         return $this->transform($users, UserTransformer::class);
     }
@@ -116,7 +127,7 @@ class Controller extends ApiController
      */
     public function findUserById(FindUserByIdRequest $request)
     {
-        $user = Hive::call('User@FindUserByIdAction', [new DataTransporter($request)]);
+        $user = Hive::call(FindUserByIdAction::class, [new DataTransporter($request)]);
 
         return $this->transform($user, UserTransformer::class);
     }
@@ -128,33 +139,9 @@ class Controller extends ApiController
      */
     public function getAuthenticatedUser(GetAuthenticatedUserRequest $request)
     {
-        $user = Hive::call('User@GetAuthenticatedUserAction');
+        $user = Hive::call(GetAuthenticatedUserAction::class);
 
         return $this->transform($user, UserPrivateProfileTransformer::class);
-    }
-
-    /**
-     * @param \App\Containers\User\UI\API\Requests\ResetPasswordRequest $request
-     *
-     * @return  \Illuminate\Http\JsonResponse
-     */
-    public function resetPassword(ResetPasswordRequest $request)
-    {
-        Hive::call('User@ResetPasswordAction', [new DataTransporter($request)]);
-
-        return $this->noContent(204);
-    }
-
-    /**
-     * @param \App\Containers\User\UI\API\Requests\ForgotPasswordRequest $request
-     *
-     * @return  \Illuminate\Http\JsonResponse
-     */
-    public function forgotPassword(ForgotPasswordRequest $request)
-    {
-        Hive::call('User@ForgotPasswordAction', [new DataTransporter($request)]);
-
-        return $this->noContent(202);
     }
 
 }

@@ -2,6 +2,7 @@
 
 namespace App\Containers\User\Data\Seeders;
 
+use App\Containers\Authorization\Tasks\CreatePermissionTask;
 use HiveApi\Core\Foundation\Facades\Hive;
 use App\Ship\Parents\Seeders\Seeder;
 
@@ -20,11 +21,11 @@ class UserPermissionsSeeder_1 extends Seeder
     public function run()
     {
         // Default Permissions ----------------------------------------------------------
-        Hive::call('Authorization@CreatePermissionTask', ['search-users', 'Find a User in the DB.']);
-        Hive::call('Authorization@CreatePermissionTask', ['list-users', 'Get All Users.']);
-        Hive::call('Authorization@CreatePermissionTask', ['update-users', 'Update a User.']);
-        Hive::call('Authorization@CreatePermissionTask', ['delete-users', 'Delete a User.']);
-        Hive::call('Authorization@CreatePermissionTask', ['refresh-users', 'Refresh User data.']);
+        Hive::call(CreatePermissionTask::class, ['search-users', 'Find a User in the DB.']);
+        Hive::call(CreatePermissionTask::class, ['list-users', 'Get All Users.']);
+        Hive::call(CreatePermissionTask::class, ['update-users', 'Update a User.']);
+        Hive::call(CreatePermissionTask::class, ['delete-users', 'Delete a User.']);
+        Hive::call(CreatePermissionTask::class, ['refresh-users', 'Refresh User data.']);
 
         // ...
 

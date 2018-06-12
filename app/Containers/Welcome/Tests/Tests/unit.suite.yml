@@ -1,0 +1,5 @@
+actor: UnitTester
+extends: ../../../../../tests/_data/presets/codeception.suite.unit.yml
+modules:
+    enabled:
+        - \App\Ship\Parents\Tests\Helper\Unit

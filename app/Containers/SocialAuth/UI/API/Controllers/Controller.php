@@ -2,6 +2,7 @@
 
 namespace App\Containers\SocialAuth\UI\API\Controllers;
 
+use App\Containers\SocialAuth\Actions\SocialLoginAction;
 use HiveApi\Core\Foundation\Facades\Hive;
 use App\Containers\SocialAuth\UI\API\Requests\ApiAuthenticateRequest;
 use App\Containers\User\UI\API\Transformers\UserTransformer;
@@ -27,7 +28,7 @@ class Controller extends ApiController
         $dataTransporter = new DataTransporter($request);
         $dataTransporter->provider = $providerUrlInput;
 
-        $data = Hive::call('Socialauth@SocialLoginAction', [$dataTransporter]);
+        $data = Hive::call(SocialLoginAction::class, [$dataTransporter]);
 
         return $this->transform($data['user'], UserTransformer::class, [], [
             'token_type'   => 'personal',

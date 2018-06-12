@@ -2,6 +2,7 @@
 
 namespace App\Containers\User\UI\CLI\Commands;
 
+use App\Containers\User\Actions\CreateAdminAction;
 use HiveApi\Core\Foundation\Facades\Hive;
 use App\Ship\Parents\Commands\ConsoleCommand;
 use App\Ship\Transporters\DataTransporter;
@@ -42,7 +43,7 @@ class CreateAdminCommand extends ConsoleCommand
         ]);
 
         // and then call respective Action
-        $user = Hive::call('User@CreateAdminAction', [$dataTransporter]);
+        $user = Hive::call(CreateAdminAction::class, [$dataTransporter]);
 
         $this->info('Admin ' . $email . ' was successfully created');
     }

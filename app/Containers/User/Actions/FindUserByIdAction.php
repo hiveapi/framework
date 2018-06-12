@@ -2,6 +2,7 @@
 
 namespace App\Containers\User\Actions;
 
+use App\Containers\User\Tasks\FindUserByIdTask;
 use HiveApi\Core\Foundation\Facades\Hive;
 use App\Containers\User\Models\User;
 use App\Ship\Exceptions\NotFoundException;
@@ -19,11 +20,12 @@ class FindUserByIdAction extends Action
     /**
      * @param \App\Ship\Transporters\DataTransporter $data
      *
-     * @return  \App\Containers\User\Models\User
+     * @return User
+     * @throws NotFoundException
      */
     public function run(DataTransporter $data): User
     {
-        $user = Hive::call('User@FindUserByIdTask', [$data->id]);
+        $user = Hive::call(FindUserByIdTask::class, [$data->id]);
 
         if (!$user) {
             throw new NotFoundException();

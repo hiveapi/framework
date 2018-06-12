@@ -2,6 +2,11 @@
 
 namespace App\Containers\SocialAuth\Actions;
 
+use App\Containers\Authentication\Tasks\ApiLoginFromUserTask;
+use App\Containers\SocialAuth\Tasks\CreateUserBySocialProfileTask;
+use App\Containers\SocialAuth\Tasks\FindSocialUserTask;
+use App\Containers\SocialAuth\Tasks\FindUserSocialProfileTask;
+use App\Containers\SocialAuth\Tasks\UpdateUserSocialProfileTask;
 use HiveApi\Core\Foundation\Facades\Hive;
 use App\Ship\Parents\Actions\Action;
 use App\Ship\Transporters\DataTransporter;
@@ -28,10 +33,10 @@ class SocialLoginAction extends Action
     public function run(DataTransporter $data)
     {
         // fetch the user data from the support platforms
-        $socialUserProfile = Hive::call('SocialAuth@FindUserSocialProfileTask', [$data->provider, $data->toArray()]);
+        $socialUserProfile = Hive::call(FindUserSocialProfileTask::class, [$data->provider, $data->toArray()]);
 
         // check if the social ID exist on any of our users, and get that user in case it was found
-        $socialUser = Hive::call('SocialAuth@FindSocialUserTask', [$data->provider, $socialUserProfile->id]);
+        $socialUser = Hive::call(FindSocialUserTask::class, [$data->provider, $socialUserProfile->id]);
 
         // checking if some data are available in the response
         // (these lines are written to make this function compatible with multiple providers)
@@ -46,7 +51,7 @@ class SocialLoginAction extends Action
             // DO: UPDATE THE EXISTING USER SOCIAL PROFILE.
 
             // Only update tokens and updated information. Never override the user profile.
-            $user = Hive::call('SocialAuth@UpdateUserSocialProfileTask', [
+            $user = Hive::call(UpdateUserSocialProfileTask::class, [
                 $socialUser->id,
                 $socialUserProfile->token,
                 $expiresIn,
@@ -60,7 +65,7 @@ class SocialLoginAction extends Action
             // THIS IS: A NEW USER
             // DO: CREATE NEW USER FROM THE SOCIAL PROFILE INFORMATION.
 
-            $user = Hive::call('SocialAuth@CreateUserBySocialProfileTask', [
+            $user = Hive::call(CreateUserBySocialProfileTask::class, [
                 $data->provider,
                 $socialUserProfile->token,
                 $socialUserProfile->id,
@@ -76,7 +81,7 @@ class SocialLoginAction extends Action
         }
 
         // Authenticate the user from its object
-        $personalAccessTokenResult = Hive::call('Authentication@ApiLoginFromUserTask', [$user]);
+        $personalAccessTokenResult = Hive::call(ApiLoginFromUserTask::class, [$user]);
 
         return [
             'user'  => $user,

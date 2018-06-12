@@ -2,6 +2,7 @@
 
 namespace App\Containers\Authorization\Data\Seeders;
 
+use App\Containers\Authorization\Tasks\CreateRoleTask;
 use HiveApi\Core\Foundation\Facades\Hive;
 use App\Ship\Parents\Seeders\Seeder;
 
@@ -21,7 +22,7 @@ class AuthorizationRolesSeeder_2 extends Seeder
     public function run()
     {
         // Default Roles ----------------------------------------------------------------
-        Hive::call('Authorization@CreateRoleTask', ['admin', 'Administrator', 'Administrator Role', 999]);
+        Hive::call(CreateRoleTask::class, ['admin', 'Administrator', 'Administrator Role', 999]);
 
         // ...
 

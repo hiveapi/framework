@@ -2,6 +2,10 @@
 
 namespace App\Containers\Settings\UI\API\Controllers;
 
+use App\Containers\Settings\Actions\CreateSettingAction;
+use App\Containers\Settings\Actions\DeleteSettingAction;
+use App\Containers\Settings\Actions\GetAllSettingsAction;
+use App\Containers\Settings\Actions\UpdateSettingAction;
 use HiveApi\Core\Foundation\Facades\Hive;
 use App\Containers\Settings\UI\API\Requests\CreateSettingRequest;
 use App\Containers\Settings\UI\API\Requests\DeleteSettingRequest;
@@ -28,7 +32,7 @@ class Controller extends ApiController
      */
     public function getAllSettings(GetAllSettingsRequest $request)
     {
-        $settings = Hive::call('Settings@GetAllSettingsAction');
+        $settings = Hive::call(GetAllSettingsAction::class);
 
         return $this->transform($settings, SettingTransformer::class);
     }
@@ -42,7 +46,7 @@ class Controller extends ApiController
      */
     public function createSetting(CreateSettingRequest $request)
     {
-        $setting = Hive::call('Settings@CreateSettingAction', [new DataTransporter($request)]);
+        $setting = Hive::call(CreateSettingAction::class, [new DataTransporter($request)]);
 
         return $this->transform($setting, SettingTransformer::class);
     }
@@ -56,7 +60,7 @@ class Controller extends ApiController
      */
     public function updateSetting(UpdateSettingRequest $request)
     {
-        $setting = Hive::call('Settings@UpdateSettingAction', [new DataTransporter($request)]);
+        $setting = Hive::call(UpdateSettingAction::class, [new DataTransporter($request)]);
 
         return $this->transform($setting, SettingTransformer::class);
     }
@@ -70,7 +74,7 @@ class Controller extends ApiController
      */
     public function deleteSetting(DeleteSettingRequest $request)
     {
-        Hive::call('Settings@DeleteSettingAction', [new DataTransporter($request)]);
+        Hive::call(DeleteSettingAction::class, [new DataTransporter($request)]);
 
         return $this->noContent();
     }

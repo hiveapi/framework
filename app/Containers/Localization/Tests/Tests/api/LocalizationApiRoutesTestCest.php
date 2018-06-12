@@ -1,0 +1,77 @@
+<?php
+
+namespace App\Containers\Localization\Tests\Tests;
+
+use App\Containers\User\Models\User;
+use App\Ship\Parents\Tests\Cests\BaseCest;
+use Illuminate\Support\Facades\Config;
+
+/**
+ * @group   localization
+ * @group   api
+ */
+class LocalizationApiRoutesTestCest extends BaseCest
+{
+    protected function _before()
+    {
+    }
+
+    protected function _after()
+    {
+    }
+
+    /**
+     * @test
+     * @param ApiTester $I
+     */
+    public function test_if_api_returns_all_locales(ApiTester $I)
+    {
+        $defined_locales = Config::get('localization-container.supported_languages', []);
+
+        /** @var User $user */
+        $user = User::find(1);
+        $token = $user->createToken('test');
+
+        $I->amBearerAuthenticated($token->accessToken);
+        $I->haveHttpHeader('accept', 'application/json');
+        $I->sendGET('/v1/localizations');
+
+        $I->seeResponseCodeIs(200);
+        $I->canSeeResponseIsJson();
+
+        $response = json_decode($I->grabResponse());
+        $data = $response->data;
+
+        $I->assertEquals(count($data), count($defined_locales));
+        foreach ($defined_locales as $key => $value) {
+            if (! is_array($value)) {
+                $I->seeResponseContainsJson(['code' => $value]);
+            }
+            else {
+                $I->seeResponseContainsJson(['code' => $key]);
+                foreach ($value as $region) {
+                    $I->seeResponseContainsJson(['code' => $region]);
+                }
+            }
+        }
+    }
+
+    /**
+     * @test
+     *
+     * @param ApiTester $I
+     */
+    public function test_if_api_does_not_return_unknown_locale(ApiTester $I)
+    {
+        /** @var User $user */
+        $user = User::find(1);
+        $token = $user->createToken('test');
+
+        $I->amBearerAuthenticated($token->accessToken);
+        $I->haveHttpHeader('accept', 'application/json');
+        $I->sendGET('/v1/localizations');
+
+        $I->dontSeeResponseContainsJson(['code' => 'xxx']);
+    }
+
+}

@@ -132,7 +132,7 @@ return [
         | When set to false, the header will contain a warning message.
         |
         */
-        'force-accept-header' => false,
+        'force-accept-header' => true,
 
         /*
         |--------------------------------------------------------------------------
@@ -177,7 +177,7 @@ return [
         | Default Value: true (it is automatically applied to ALL Repositories)
         |
         */
-        'automatically-apply-request-criteria' => env('API_REQUEST_APPLY_REQUEST_CRITERIA', true),
+        'automatically-apply-request-criteria' => env('API_REQUEST_APPLY_REQUEST_CRITERIA', false),
     ],
 
     'logging' => [
@@ -194,7 +194,7 @@ return [
         | Default Value: true ("Violations" will be logged)
         |
         */
-        'log-wrong-hive-caller-style' => true,
+        'log-wrong-hive-caller-style' => false,
 
     ]
 

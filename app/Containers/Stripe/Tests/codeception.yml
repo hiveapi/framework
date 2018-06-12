@@ -1,0 +1,2 @@
+namespace: App\Containers\Stripe\Tests\Tests
+extends: ../../../../tests/_data/presets/codeception.container.yml

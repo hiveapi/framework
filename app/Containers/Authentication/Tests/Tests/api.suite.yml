@@ -1,0 +1,5 @@
+actor: ApiTester
+extends: ../../../../../tests/_data/presets/codeception.suite.api.yml
+modules:
+    enabled:
+        - \App\Ship\Parents\Tests\Helper\Api

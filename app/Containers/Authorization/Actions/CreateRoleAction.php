@@ -2,6 +2,7 @@
 
 namespace App\Containers\Authorization\Actions;
 
+use App\Containers\Authorization\Tasks\CreateRoleTask;
 use HiveApi\Core\Foundation\Facades\Hive;
 use App\Containers\Authorization\Models\Role;
 use App\Ship\Parents\Actions\Action;
@@ -25,7 +26,7 @@ class CreateRoleAction extends Action
     {
         $level = is_null($data->level) ? 0 : $data->level ;
 
-        $role = Hive::call('Authorization@CreateRoleTask',
+        $role = Hive::call(CreateRoleTask::class,
             [$data->name, $data->description, $data->display_name, $level]
         );
 

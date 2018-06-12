@@ -2,6 +2,7 @@
 
 namespace App\Containers\User\Actions;
 
+use App\Containers\User\Tasks\CreateUserByCredentialsTask;
 use HiveApi\Core\Foundation\Facades\Hive;
 use App\Containers\User\Events\UserRegisteredEvent;
 use App\Containers\User\Mails\UserRegisteredMail;
@@ -30,7 +31,7 @@ class RegisterUserAction extends Action
     public function run(DataTransporter $data): User
     {
         // create user record in the database and return it.
-        $user = Hive::call('User@CreateUserByCredentialsTask', [
+        $user = Hive::call(CreateUserByCredentialsTask::class, [
             $isClient = true,
             $data->email,
             $data->password,
