@@ -2,11 +2,11 @@
 
 namespace App\Containers\Settings\Actions;
 
-use App\Containers\Settings\Tasks\CreateSettingTask;
-use HiveApi\Core\Foundation\Facades\Hive;
 use App\Containers\Settings\Models\Setting;
+use App\Containers\Settings\Tasks\CreateSettingTask;
 use App\Ship\Parents\Actions\Action;
 use App\Ship\Transporters\DataTransporter;
+use HiveApi\Core\Foundation\Facades\Hive;
 
 /**
  * Class CreateSettingAction

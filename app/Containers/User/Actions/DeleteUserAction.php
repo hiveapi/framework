@@ -5,9 +5,9 @@ namespace App\Containers\User\Actions;
 use App\Containers\Authentication\Tasks\GetAuthenticatedUserTask;
 use App\Containers\User\Tasks\DeleteUserTask;
 use App\Containers\User\Tasks\FindUserByIdTask;
-use HiveApi\Core\Foundation\Facades\Hive;
 use App\Ship\Parents\Actions\Action;
 use App\Ship\Transporters\DataTransporter;
+use HiveApi\Core\Foundation\Facades\Hive;
 
 /**
  * Class DeleteUserAction.

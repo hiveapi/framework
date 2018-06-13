@@ -5,9 +5,9 @@ namespace App\Containers\Documentation\Actions;
 use App\Containers\Documentation\Tasks\GenerateAPIDocsTask;
 use App\Containers\Documentation\Tasks\GetAllDocsTypesTask;
 use App\Containers\Documentation\Tasks\RenderTemplatesTask;
-use HiveApi\Core\Foundation\Facades\Hive;
 use App\Ship\Parents\Actions\Action;
 use App\Ship\Transporters\DataTransporter;
+use HiveApi\Core\Foundation\Facades\Hive;
 
 /**
  * Class GenerateDocumentationAction.

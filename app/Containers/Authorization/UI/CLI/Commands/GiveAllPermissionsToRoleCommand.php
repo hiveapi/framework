@@ -2,11 +2,11 @@
 
 namespace App\Containers\Authorization\UI\CLI\Commands;
 
+use App\Containers\Authorization\Exceptions\RoleNotFoundException;
 use App\Containers\Authorization\Tasks\FindRoleTask;
 use App\Containers\Authorization\Tasks\GetAllPermissionsTask;
-use HiveApi\Core\Foundation\Facades\Hive;
-use App\Containers\Authorization\Exceptions\RoleNotFoundException;
 use App\Ship\Parents\Commands\ConsoleCommand;
+use HiveApi\Core\Foundation\Facades\Hive;
 
 /**
  * Class GiveAllPermissionsToRoleCommand

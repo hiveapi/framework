@@ -2,11 +2,11 @@
 
 namespace App\Containers\User\Actions;
 
-use App\Containers\User\Tasks\UpdateUserTask;
-use HiveApi\Core\Foundation\Facades\Hive;
 use App\Containers\User\Models\User;
+use App\Containers\User\Tasks\UpdateUserTask;
 use App\Ship\Parents\Actions\Action;
 use App\Ship\Transporters\DataTransporter;
+use HiveApi\Core\Foundation\Facades\Hive;
 use Illuminate\Support\Facades\Hash;
 
 /**

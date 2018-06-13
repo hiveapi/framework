@@ -14,7 +14,6 @@ use App\Containers\Authorization\Actions\GetAllRolesAction;
 use App\Containers\Authorization\Actions\RevokeUserFromRoleAction;
 use App\Containers\Authorization\Actions\SyncPermissionsOnRoleAction;
 use App\Containers\Authorization\Actions\SyncUserRolesAction;
-use HiveApi\Core\Foundation\Facades\Hive;
 use App\Containers\Authorization\UI\API\Requests\AssignUserToRoleRequest;
 use App\Containers\Authorization\UI\API\Requests\AttachPermissionToRoleRequest;
 use App\Containers\Authorization\UI\API\Requests\CreateRoleRequest;
@@ -32,6 +31,7 @@ use App\Containers\Authorization\UI\API\Transformers\RoleTransformer;
 use App\Containers\User\UI\API\Transformers\UserTransformer;
 use App\Ship\Parents\Controllers\ApiController;
 use App\Ship\Transporters\DataTransporter;
+use HiveApi\Core\Foundation\Facades\Hive;
 
 /**
  * Class Controller.

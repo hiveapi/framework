@@ -2,8 +2,8 @@
 
 namespace App\Ship\Exceptions\Handlers;
 
-use HiveApi\Core\Exceptions\Handlers\ExceptionsHandler as CoreExceptionsHandler;
 use Exception;
+use HiveApi\Core\Exceptions\Handlers\ExceptionsHandler as CoreExceptionsHandler;
 use Illuminate\Auth\AuthenticationException;
 
 /**

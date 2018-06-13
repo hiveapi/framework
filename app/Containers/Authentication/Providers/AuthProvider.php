@@ -2,9 +2,9 @@
 
 namespace App\Containers\Authentication\Providers;
 
-use HiveApi\Core\Loaders\RoutesLoaderTrait;
 use App\Ship\Parents\Providers\AuthProvider as ParentAuthProvider;
 use Carbon\Carbon;
+use HiveApi\Core\Loaders\RoutesLoaderTrait;
 use Illuminate\Support\Facades\Config;
 use Laravel\Passport\Passport;
 use Route;

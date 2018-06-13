@@ -2,14 +2,14 @@
 
 namespace App\Containers\User\Actions;
 
-use App\Containers\User\Tasks\CreateUserByCredentialsTask;
-use HiveApi\Core\Foundation\Facades\Hive;
 use App\Containers\User\Events\UserRegisteredEvent;
 use App\Containers\User\Mails\UserRegisteredMail;
 use App\Containers\User\Models\User;
 use App\Containers\User\Notifications\UserRegisteredNotification;
+use App\Containers\User\Tasks\CreateUserByCredentialsTask;
 use App\Ship\Parents\Actions\Action;
 use App\Ship\Transporters\DataTransporter;
+use HiveApi\Core\Foundation\Facades\Hive;
 use Illuminate\Contracts\Bus\Dispatcher;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Mail;

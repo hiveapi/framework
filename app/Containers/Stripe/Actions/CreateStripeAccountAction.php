@@ -5,9 +5,9 @@ namespace App\Containers\Stripe\Actions;
 use App\Containers\Authentication\Tasks\GetAuthenticatedUserTask;
 use App\Containers\Payment\Tasks\AssignPaymentAccountToUserTask;
 use App\Containers\Stripe\Tasks\CreateStripeAccountTask;
-use HiveApi\Core\Foundation\Facades\Hive;
 use App\Ship\Parents\Actions\Action;
 use App\Ship\Transporters\DataTransporter;
+use HiveApi\Core\Foundation\Facades\Hive;
 
 /**
  * Class CreateStripeAccountAction.

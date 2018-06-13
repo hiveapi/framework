@@ -2,8 +2,8 @@
 
 namespace App\Ship\Parents\Requests;
 
-use HiveApi\Core\Abstracts\Requests\Request as AbstractRequest;
 use App\Ship\Transporters\DataTransporter;
+use HiveApi\Core\Abstracts\Requests\Request as AbstractRequest;
 
 /**
  * Class Request

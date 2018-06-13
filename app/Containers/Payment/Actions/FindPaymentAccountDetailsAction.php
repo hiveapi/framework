@@ -3,12 +3,12 @@
 namespace App\Containers\Payment\Actions;
 
 use App\Containers\Authentication\Tasks\GetAuthenticatedUserTask;
+use App\Containers\Payment\Models\PaymentAccount;
 use App\Containers\Payment\Tasks\CheckIfPaymentAccountBelongsToUserTask;
 use App\Containers\Payment\Tasks\FindPaymentAccountByIdTask;
-use HiveApi\Core\Foundation\Facades\Hive;
-use App\Containers\Payment\Models\PaymentAccount;
 use App\Ship\Parents\Actions\Action;
 use App\Ship\Transporters\DataTransporter;
+use HiveApi\Core\Foundation\Facades\Hive;
 
 /**
  * Class FindPaymentAccountDetailsAction

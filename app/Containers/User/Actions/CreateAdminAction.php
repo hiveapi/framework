@@ -3,11 +3,11 @@
 namespace App\Containers\User\Actions;
 
 use App\Containers\Authorization\Tasks\AssignUserToRoleTask;
-use App\Containers\User\Tasks\CreateUserByCredentialsTask;
-use HiveApi\Core\Foundation\Facades\Hive;
 use App\Containers\User\Models\User;
+use App\Containers\User\Tasks\CreateUserByCredentialsTask;
 use App\Ship\Parents\Actions\Action;
 use App\Ship\Transporters\DataTransporter;
+use HiveApi\Core\Foundation\Facades\Hive;
 
 /**
  * Class CreateAdminAction.

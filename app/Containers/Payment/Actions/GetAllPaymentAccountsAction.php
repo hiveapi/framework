@@ -4,8 +4,8 @@ namespace App\Containers\Payment\Actions;
 
 use App\Containers\Authentication\Tasks\GetAuthenticatedUserTask;
 use App\Containers\Payment\Tasks\GetAllPaymentAccountsTask;
-use HiveApi\Core\Foundation\Facades\Hive;
 use App\Ship\Parents\Actions\Action;
+use HiveApi\Core\Foundation\Facades\Hive;
 
 /**
  * Class GetAllPaymentAccountsAction

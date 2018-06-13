@@ -3,11 +3,11 @@
 namespace App\Containers\SocialAuth\UI\API\Controllers;
 
 use App\Containers\SocialAuth\Actions\SocialLoginAction;
-use HiveApi\Core\Foundation\Facades\Hive;
 use App\Containers\SocialAuth\UI\API\Requests\ApiAuthenticateRequest;
 use App\Containers\User\UI\API\Transformers\UserTransformer;
 use App\Ship\Parents\Controllers\ApiController;
 use App\Ship\Transporters\DataTransporter;
+use HiveApi\Core\Foundation\Facades\Hive;
 
 /**
  * Class Controller.

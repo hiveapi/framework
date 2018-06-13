@@ -4,8 +4,8 @@ namespace App\Containers\Welcome\UI\API\Controllers;
 
 use App\Containers\Welcome\Actions\FindMessageForApiRootVisitorAction;
 use App\Containers\Welcome\Actions\FindMessageForApiV1VisitorAction;
-use HiveApi\Core\Foundation\Facades\Hive;
 use App\Ship\Parents\Controllers\ApiController;
+use HiveApi\Core\Foundation\Facades\Hive;
 
 /**
  * Class Controller.

@@ -2,12 +2,12 @@
 
 namespace App\Containers\Authorization\Actions;
 
+use App\Containers\Authorization\Models\Role;
 use App\Containers\Authorization\Tasks\FindPermissionTask;
 use App\Containers\Authorization\Tasks\FindRoleTask;
-use HiveApi\Core\Foundation\Facades\Hive;
-use App\Containers\Authorization\Models\Role;
 use App\Ship\Parents\Actions\Action;
 use App\Ship\Transporters\DataTransporter;
+use HiveApi\Core\Foundation\Facades\Hive;
 
 /**
  * Class SyncPermissionsOnRoleAction.

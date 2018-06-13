@@ -3,9 +3,9 @@
 namespace App\Containers\Settings\Actions;
 
 use App\Containers\Settings\Tasks\UpdateSettingTask;
-use HiveApi\Core\Foundation\Facades\Hive;
 use App\Ship\Parents\Actions\Action;
 use App\Ship\Transporters\DataTransporter;
+use HiveApi\Core\Foundation\Facades\Hive;
 
 /**
  * Class UpdateSettingAction

@@ -2,9 +2,9 @@
 
 namespace App\Containers\Authorization\Tasks;
 
-use HiveApi\Core\Foundation\Facades\Hive;
 use App\Containers\Authorization\Models\Role;
 use App\Ship\Parents\Tasks\Task;
+use HiveApi\Core\Foundation\Facades\Hive;
 
 /**
  * Class DetachPermissionsFromRoleTask.

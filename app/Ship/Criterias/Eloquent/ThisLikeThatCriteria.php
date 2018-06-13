@@ -3,8 +3,8 @@
 namespace App\Ship\Criterias\Eloquent;
 
 use App\Ship\Parents\Criterias\Criteria;
-use Prettus\Repository\Contracts\RepositoryInterface as PrettusRepositoryInterface;
 use Illuminate\Database\Query\Builder;
+use Prettus\Repository\Contracts\RepositoryInterface as PrettusRepositoryInterface;
 
 /**
  * Class ThisLikeThatCriteria

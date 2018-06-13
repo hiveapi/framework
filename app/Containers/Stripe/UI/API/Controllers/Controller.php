@@ -4,11 +4,11 @@ namespace App\Containers\Stripe\UI\API\Controllers;
 
 use App\Containers\Stripe\Actions\CreateStripeAccountAction;
 use App\Containers\Stripe\Actions\UpdateStripeAccountAction;
-use HiveApi\Core\Foundation\Facades\Hive;
 use App\Containers\Stripe\UI\API\Requests\CreateStripeAccountRequest;
 use App\Containers\Stripe\UI\API\Requests\UpdateStripeAccountRequest;
 use App\Ship\Parents\Controllers\ApiController;
 use App\Ship\Transporters\DataTransporter;
+use HiveApi\Core\Foundation\Facades\Hive;
 
 /**
  * Class Controller.

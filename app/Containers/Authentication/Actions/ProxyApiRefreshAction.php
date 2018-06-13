@@ -2,12 +2,12 @@
 
 namespace App\Containers\Authentication\Actions;
 
-use App\Containers\Authentication\Tasks\CallOAuthServerTask;
-use App\Containers\Authentication\Tasks\MakeRefreshCookieTask;
-use HiveApi\Core\Foundation\Facades\Hive;
 use App\Containers\Authentication\Data\Transporters\ProxyRefreshTransporter;
 use App\Containers\Authentication\Exceptions\RefreshTokenMissedException;
+use App\Containers\Authentication\Tasks\CallOAuthServerTask;
+use App\Containers\Authentication\Tasks\MakeRefreshCookieTask;
 use App\Ship\Parents\Actions\Action;
+use HiveApi\Core\Foundation\Facades\Hive;
 
 /**
  * Class ProxyApiRefreshAction.

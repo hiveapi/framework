@@ -2,9 +2,9 @@
 
 namespace App\Containers\Authentication\Middlewares;
 
-use HiveApi\Core\Foundation\Facades\Hive;
 use App\Ship\Parents\Middlewares\Middleware;
 use Closure;
+use HiveApi\Core\Foundation\Facades\Hive;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Http\Request;
 

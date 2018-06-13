@@ -4,9 +4,9 @@ namespace App\Containers\Authorization\Actions;
 
 use App\Containers\Authorization\Tasks\DeleteRoleTask;
 use App\Containers\Authorization\Tasks\FindRoleTask;
-use HiveApi\Core\Foundation\Facades\Hive;
 use App\Ship\Parents\Actions\Action;
 use App\Ship\Transporters\DataTransporter;
+use HiveApi\Core\Foundation\Facades\Hive;
 use Spatie\Permission\Contracts\Role;
 
 /**

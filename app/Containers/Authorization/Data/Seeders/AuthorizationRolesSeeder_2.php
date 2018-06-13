@@ -3,8 +3,8 @@
 namespace App\Containers\Authorization\Data\Seeders;
 
 use App\Containers\Authorization\Tasks\CreateRoleTask;
-use HiveApi\Core\Foundation\Facades\Hive;
 use App\Ship\Parents\Seeders\Seeder;
+use HiveApi\Core\Foundation\Facades\Hive;
 
 /**
  * Class AuthorizationRolesSeeder_2

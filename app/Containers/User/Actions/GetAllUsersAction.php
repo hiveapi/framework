@@ -3,8 +3,8 @@
 namespace App\Containers\User\Actions;
 
 use App\Containers\User\Tasks\GetAllUsersTask;
-use HiveApi\Core\Foundation\Facades\Hive;
 use App\Ship\Parents\Actions\Action;
+use HiveApi\Core\Foundation\Facades\Hive;
 
 /**
  * Class GetAllUsersAction.

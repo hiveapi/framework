@@ -5,7 +5,6 @@ namespace App\Containers\Authentication\UI\API\Controllers;
 use App\Containers\Authentication\Actions\ApiLogoutAction;
 use App\Containers\Authentication\Actions\ProxyApiLoginAction;
 use App\Containers\Authentication\Actions\ProxyApiRefreshAction;
-use HiveApi\Core\Foundation\Facades\Hive;
 use App\Containers\Authentication\Data\Transporters\ProxyApiLoginTransporter;
 use App\Containers\Authentication\Data\Transporters\ProxyRefreshTransporter;
 use App\Containers\Authentication\UI\API\Requests\LoginRequest;
@@ -13,6 +12,7 @@ use App\Containers\Authentication\UI\API\Requests\LogoutRequest;
 use App\Containers\Authentication\UI\API\Requests\RefreshRequest;
 use App\Ship\Parents\Controllers\ApiController;
 use App\Ship\Transporters\DataTransporter;
+use HiveApi\Core\Foundation\Facades\Hive;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Cookie;
 

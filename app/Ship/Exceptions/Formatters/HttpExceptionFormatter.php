@@ -2,8 +2,8 @@
 
 namespace App\Ship\Exceptions\Formatters;
 
-use HiveApi\Core\Exceptions\Formatters\ExceptionsFormatter as CoreExceptionsFormatter;
 use Exception;
+use HiveApi\Core\Exceptions\Formatters\ExceptionsFormatter as CoreExceptionsFormatter;
 use Illuminate\Http\JsonResponse;
 
 /**

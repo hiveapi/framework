@@ -4,9 +4,9 @@ namespace App\Containers\Authentication\Actions;
 
 use App\Containers\Authentication\Tasks\CheckIfUserIsConfirmedTask;
 use App\Containers\Authentication\Tasks\WebLoginTask;
-use HiveApi\Core\Foundation\Facades\Hive;
 use App\Ship\Parents\Actions\Action;
 use App\Ship\Transporters\DataTransporter;
+use HiveApi\Core\Foundation\Facades\Hive;
 use Illuminate\Contracts\Auth\Authenticatable;
 
 /**

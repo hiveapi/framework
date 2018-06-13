@@ -7,9 +7,9 @@ use App\Containers\SocialAuth\Tasks\CreateUserBySocialProfileTask;
 use App\Containers\SocialAuth\Tasks\FindSocialUserTask;
 use App\Containers\SocialAuth\Tasks\FindUserSocialProfileTask;
 use App\Containers\SocialAuth\Tasks\UpdateUserSocialProfileTask;
-use HiveApi\Core\Foundation\Facades\Hive;
 use App\Ship\Parents\Actions\Action;
 use App\Ship\Transporters\DataTransporter;
+use HiveApi\Core\Foundation\Facades\Hive;
 
 /**
  * Class SocialLoginAction.

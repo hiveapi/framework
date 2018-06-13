@@ -4,12 +4,12 @@ namespace App\Containers\Stripe\Actions;
 
 use App\Containers\Authentication\Tasks\GetAuthenticatedUserTask;
 use App\Containers\Payment\Tasks\CheckIfPaymentAccountBelongsToUserTask;
+use App\Containers\Stripe\Models\StripeAccount;
 use App\Containers\Stripe\Tasks\FindStripeAccountByIdTask;
 use App\Containers\Stripe\Tasks\UpdateStripeAccountTask;
-use HiveApi\Core\Foundation\Facades\Hive;
-use App\Containers\Stripe\Models\StripeAccount;
 use App\Ship\Parents\Actions\Action;
 use App\Ship\Transporters\DataTransporter;
+use HiveApi\Core\Foundation\Facades\Hive;
 
 /**
  * Class UpdateStripeAccountAction

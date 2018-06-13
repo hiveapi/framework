@@ -6,7 +6,6 @@ use App\Containers\Settings\Actions\CreateSettingAction;
 use App\Containers\Settings\Actions\DeleteSettingAction;
 use App\Containers\Settings\Actions\GetAllSettingsAction;
 use App\Containers\Settings\Actions\UpdateSettingAction;
-use HiveApi\Core\Foundation\Facades\Hive;
 use App\Containers\Settings\UI\API\Requests\CreateSettingRequest;
 use App\Containers\Settings\UI\API\Requests\DeleteSettingRequest;
 use App\Containers\Settings\UI\API\Requests\GetAllSettingsRequest;
@@ -14,6 +13,7 @@ use App\Containers\Settings\UI\API\Requests\UpdateSettingRequest;
 use App\Containers\Settings\UI\API\Transformers\SettingTransformer;
 use App\Ship\Parents\Controllers\ApiController;
 use App\Ship\Transporters\DataTransporter;
+use HiveApi\Core\Foundation\Facades\Hive;
 
 /**
  * Class Controller

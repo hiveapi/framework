@@ -4,8 +4,8 @@ namespace App\Containers\Authorization\Data\Seeders;
 
 use App\Containers\Authorization\Tasks\FindRoleTask;
 use App\Containers\User\Tasks\CreateUserByCredentialsTask;
-use HiveApi\Core\Foundation\Facades\Hive;
 use App\Ship\Parents\Seeders\Seeder;
+use HiveApi\Core\Foundation\Facades\Hive;
 
 /**
  * Class AuthorizationDefaultUsersSeeder_3

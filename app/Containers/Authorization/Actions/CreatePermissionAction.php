@@ -2,11 +2,11 @@
 
 namespace App\Containers\Authorization\Actions;
 
-use App\Containers\Authorization\Tasks\CreatePermissionTask;
-use HiveApi\Core\Foundation\Facades\Hive;
 use App\Containers\Authorization\Models\Permission;
+use App\Containers\Authorization\Tasks\CreatePermissionTask;
 use App\Ship\Parents\Actions\Action;
 use App\Ship\Transporters\DataTransporter;
+use HiveApi\Core\Foundation\Facades\Hive;
 
 /**
  * Class CreatePermissionAction

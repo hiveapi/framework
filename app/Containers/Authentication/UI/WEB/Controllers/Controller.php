@@ -4,13 +4,13 @@ namespace App\Containers\Authentication\UI\WEB\Controllers;
 
 use App\Containers\Authentication\Actions\WebAdminLoginAction;
 use App\Containers\Authentication\Actions\WebLogoutAction;
-use HiveApi\Core\Foundation\Facades\Hive;
 use App\Containers\Authentication\UI\WEB\Requests\LoginRequest;
 use App\Containers\Authentication\UI\WEB\Requests\LogoutRequest;
 use App\Containers\Authentication\UI\WEB\Requests\ViewDashboardRequest;
 use App\Ship\Parents\Controllers\WebController;
 use App\Ship\Transporters\DataTransporter;
 use Exception;
+use HiveApi\Core\Foundation\Facades\Hive;
 
 /**
  * Class Controller

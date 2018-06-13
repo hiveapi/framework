@@ -13,7 +13,6 @@ use App\Containers\User\Actions\GetAuthenticatedUserAction;
 use App\Containers\User\Actions\RegisterUserAction;
 use App\Containers\User\Actions\ResetPasswordAction;
 use App\Containers\User\Actions\UpdateUserAction;
-use HiveApi\Core\Foundation\Facades\Hive;
 use App\Containers\User\UI\API\Requests\CreateAdminRequest;
 use App\Containers\User\UI\API\Requests\DeleteUserRequest;
 use App\Containers\User\UI\API\Requests\FindUserByIdRequest;
@@ -27,6 +26,7 @@ use App\Containers\User\UI\API\Transformers\UserPrivateProfileTransformer;
 use App\Containers\User\UI\API\Transformers\UserTransformer;
 use App\Ship\Parents\Controllers\ApiController;
 use App\Ship\Transporters\DataTransporter;
+use HiveApi\Core\Foundation\Facades\Hive;
 
 /**
  * Class Controller.

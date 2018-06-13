@@ -4,9 +4,9 @@ namespace App\Containers\Settings\Actions;
 
 use App\Containers\Settings\Tasks\DeleteSettingTask;
 use App\Containers\Settings\Tasks\FindSettingByIdTask;
-use HiveApi\Core\Foundation\Facades\Hive;
 use App\Ship\Parents\Actions\Action;
 use App\Ship\Transporters\DataTransporter;
+use HiveApi\Core\Foundation\Facades\Hive;
 
 /**
  * Class DeleteSettingAction

@@ -3,9 +3,9 @@
 namespace App\Containers\Documentation\UI\CLI\Commands;
 
 use App\Containers\Documentation\Actions\GenerateDocumentationAction;
-use HiveApi\Core\Foundation\Facades\Hive;
 use App\Ship\Parents\Commands\ConsoleCommand;
 use App\Ship\Transporters\DataTransporter;
+use HiveApi\Core\Foundation\Facades\Hive;
 
 /**
  * Class GenerateApiDocsCommand

@@ -3,8 +3,8 @@
 namespace App\Containers\Authorization\Actions;
 
 use App\Containers\Authorization\Tasks\GetAllRolesTask;
-use HiveApi\Core\Foundation\Facades\Hive;
 use App\Ship\Parents\Actions\Action;
+use HiveApi\Core\Foundation\Facades\Hive;
 
 /**
  * Class GetAllRolesAction.

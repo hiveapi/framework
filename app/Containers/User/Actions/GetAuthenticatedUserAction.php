@@ -3,10 +3,10 @@
 namespace App\Containers\User\Actions;
 
 use App\Containers\Authentication\Tasks\GetAuthenticatedUserTask;
-use HiveApi\Core\Foundation\Facades\Hive;
 use App\Containers\User\Models\User;
 use App\Ship\Exceptions\NotFoundException;
 use App\Ship\Parents\Actions\Action;
+use HiveApi\Core\Foundation\Facades\Hive;
 
 /**
  * Class GetAuthenticatedUserAction

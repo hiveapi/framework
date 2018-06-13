@@ -2,12 +2,12 @@
 
 namespace App\Containers\User\Actions;
 
-use App\Containers\User\Tasks\FindUserByIdTask;
-use HiveApi\Core\Foundation\Facades\Hive;
 use App\Containers\User\Models\User;
+use App\Containers\User\Tasks\FindUserByIdTask;
 use App\Ship\Exceptions\NotFoundException;
 use App\Ship\Parents\Actions\Action;
 use App\Ship\Transporters\DataTransporter;
+use HiveApi\Core\Foundation\Facades\Hive;
 
 /**
  * Class FindUserByIdAction.
