@@ -6,12 +6,10 @@ modules:
             root: ../../../../
             url: 'http://api.hive.local'
             part: ORM
-            environment_file: .env.testing
-
-    config:
-        - Laravel5:
             run_database_migrations: true
-            database_seeder_class: DatabaseSeeder
+            run_database_seeder: true
+            database_seeder_class: \App\Ship\Seeders\SeedTestingData
+            environment_file: .env.testing
 
 env:
     admin:

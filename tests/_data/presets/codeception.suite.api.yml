@@ -6,7 +6,8 @@ modules:
             url: 'http://api.hive.local'
             part: ORM
             run_database_migrations: true
-            database_seeder_class: DatabaseSeeder
+            run_database_seeder: true
+            database_seeder_class: \App\Ship\Seeders\SeedTestingData
             environment_file: .env.testing
         - REST:
             depends: Laravel5
@@ -14,7 +15,5 @@ modules:
     config:
         - Laravel5:
             part: ORM
-            run_database_migrations: true
-            database_seeder_class: DatabaseSeeder
         - REST:
             url: 'http://api.hive.local'
