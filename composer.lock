@@ -1539,12 +1539,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/hiveapi/core.git",
-                "reference": "f2ab042a40a4c621651fe79f551f7faee1f87a0e"
+                "reference": "4ce61ef907dbff6c47c10472166845b82eb2358c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hiveapi/core/zipball/f2ab042a40a4c621651fe79f551f7faee1f87a0e",
-                "reference": "f2ab042a40a4c621651fe79f551f7faee1f87a0e",
+                "url": "https://api.github.com/repos/hiveapi/core/zipball/4ce61ef907dbff6c47c10472166845b82eb2358c",
+                "reference": "4ce61ef907dbff6c47c10472166845b82eb2358c",
                 "shasum": ""
             },
             "require": {
@@ -1555,10 +1555,6 @@
                 "prettus/l5-repository": "^2.6",
                 "spatie/laravel-fractal": "5.3.*",
                 "vinkla/hashids": "^5.0"
-            },
-            "require-dev": {
-                "codeception/codeception": "2.4.*",
-                "laravel/framework": "5.6.*"
             },
             "type": "library",
             "autoload": {
@@ -1584,7 +1580,7 @@
                 "hiveapi core",
                 "laravel"
             ],
-            "time": "2018-06-12T11:38:50+00:00"
+            "time": "2018-06-15T14:21:57+00:00"
         },
         {
             "name": "jakub-onderka/php-console-color",
@@ -1835,16 +1831,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.6.24",
+            "version": "v5.6.25",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "56290edeb0d8051826d40b4cbd8ed3c30348b2b5"
+                "reference": "a15efe4fbcd6b38ea76edc5c8939ffde4f4c7b7f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/56290edeb0d8051826d40b4cbd8ed3c30348b2b5",
-                "reference": "56290edeb0d8051826d40b4cbd8ed3c30348b2b5",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/a15efe4fbcd6b38ea76edc5c8939ffde4f4c7b7f",
+                "reference": "a15efe4fbcd6b38ea76edc5c8939ffde4f4c7b7f",
                 "shasum": ""
             },
             "require": {
@@ -1970,7 +1966,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2018-06-04T14:51:03+00:00"
+            "time": "2018-06-12T14:39:24+00:00"
         },
         {
             "name": "laravel/passport",
@@ -3662,16 +3658,16 @@
         },
         {
             "name": "spatie/laravel-fractal",
-            "version": "5.3.1",
+            "version": "5.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-fractal.git",
-                "reference": "e39e0865b66ca541337b45fed4ad6c22200b85d0"
+                "reference": "a0db87cf01593cc2cfe7aec3f82ce57c83566f3b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-fractal/zipball/e39e0865b66ca541337b45fed4ad6c22200b85d0",
-                "reference": "e39e0865b66ca541337b45fed4ad6c22200b85d0",
+                "url": "https://api.github.com/repos/spatie/laravel-fractal/zipball/a0db87cf01593cc2cfe7aec3f82ce57c83566f3b",
+                "reference": "a0db87cf01593cc2cfe7aec3f82ce57c83566f3b",
                 "shasum": ""
             },
             "require": {
@@ -3726,20 +3722,20 @@
                 "spatie",
                 "transform"
             ],
-            "time": "2018-02-07T23:06:44+00:00"
+            "time": "2018-06-13T20:45:45+00:00"
         },
         {
             "name": "spatie/laravel-permission",
-            "version": "2.12.1",
+            "version": "2.12.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-permission.git",
-                "reference": "c352d83ecb5efb2d68169a1de7b7e263135ad807"
+                "reference": "2affce0021cb9b6f4e249f7c5d94eb68039ffccc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-permission/zipball/c352d83ecb5efb2d68169a1de7b7e263135ad807",
-                "reference": "c352d83ecb5efb2d68169a1de7b7e263135ad807",
+                "url": "https://api.github.com/repos/spatie/laravel-permission/zipball/2affce0021cb9b6f4e249f7c5d94eb68039ffccc",
+                "reference": "2affce0021cb9b6f4e249f7c5d94eb68039ffccc",
                 "shasum": ""
             },
             "require": {
@@ -3790,7 +3786,7 @@
                 "security",
                 "spatie"
             ],
-            "time": "2018-04-23T19:06:39+00:00"
+            "time": "2018-06-14T02:52:40+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6697,16 +6693,16 @@
         },
         {
             "name": "sebastian/comparator",
-            "version": "3.0.0",
+            "version": "3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/comparator.git",
-                "reference": "ed5fd2281113729f1ebcc64d101ad66028aeb3d5"
+                "reference": "591a30922f54656695e59b1f39501aec513403da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/ed5fd2281113729f1ebcc64d101ad66028aeb3d5",
-                "reference": "ed5fd2281113729f1ebcc64d101ad66028aeb3d5",
+                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/591a30922f54656695e59b1f39501aec513403da",
+                "reference": "591a30922f54656695e59b1f39501aec513403da",
                 "shasum": ""
             },
             "require": {
@@ -6757,7 +6753,7 @@
                 "compare",
                 "equality"
             ],
-            "time": "2018-04-18T13:33:00+00:00"
+            "time": "2018-06-14T15:05:28+00:00"
         },
         {
             "name": "sebastian/diff",

@@ -4,6 +4,6 @@ modules:
       - Laravel5:
           root: ../../../../
           part: ORM
-          environment_file: .env.testing
           run_database_migrations: true
           database_seeder_class: DatabaseSeeder
+          environment_file: .env.testing
