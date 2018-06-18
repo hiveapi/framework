@@ -12,30 +12,26 @@ use Illuminate\Support\Facades\DB;
  */
 class ApiProxyLoginTestCest extends BaseCest
 {
-    protected function _before()
+    public function _before()
     {
-        $clientId = '100';
-        $clientSecret = 'XXp8x4QK7d3J9R7OVRXWrhc19XPRroHTTKIbY8XX';
+        $clientId = Config::get('authentication-container.clients.web.admin.id');
+        $clientSecret = Config::get('authentication-container.clients.web.admin.secret');
 
         // create client
         DB::table('oauth_clients')->insert([
             [
                 'id'                     => $clientId,
+                'name'                   => 'testing',
                 'secret'                 => $clientSecret,
-                'name'                   => 'Testing',
                 'redirect'               => 'http://localhost',
                 'password_client'        => '1',
                 'personal_access_client' => '0',
                 'revoked'                => '0',
             ],
         ]);
-
-        // make the clients credentials available as env variables
-        Config::set('authentication-container.clients.web.admin.id', $clientId);
-        Config::set('authentication-container.clients.web.admin.secret', $clientSecret);
     }
 
-    protected function _after()
+    public function _after()
     {
     }
 
@@ -96,8 +92,15 @@ class ApiProxyLoginTestCest extends BaseCest
     {
         $endpoint = 'v1/clients/web/admin/login';
 
+        $userdata = [
+            'email' => 'confirmed@user.com',
+            'password' => 'password',
+        ];
+
+        $user = $this->getTestingUser($userdata);
+
         $data = [
-            'email'     => 'admin@admin.com',
+            'email'     => 'confirmed@user.com',
             'password'  => 'wrongpassword'
         ];
 

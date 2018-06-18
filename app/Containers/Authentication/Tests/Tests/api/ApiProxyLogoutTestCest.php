@@ -10,11 +10,11 @@ use App\Ship\Parents\Tests\Cests\BaseCest;
  */
 class ApiProxyLogoutTestCest extends BaseCest
 {
-    protected function _before()
+    public function _before()
     {
     }
 
-    protected function _after()
+    public function _after()
     {
     }
 

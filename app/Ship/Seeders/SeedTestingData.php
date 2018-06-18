@@ -3,6 +3,7 @@
 namespace App\Ship\Seeders;
 
 use App\Ship\Parents\Seeders\Seeder;
+use HiveApi\Core\Traits\Tests\SetupPassportOAuth2Trait;
 
 /**
  * Class SeedTestingData
@@ -12,6 +13,8 @@ use App\Ship\Parents\Seeders\Seeder;
 class SeedTestingData extends Seeder
 {
 
+    use SetupPassportOAuth2Trait;
+
     /**
      * Run the database seeds.
      *
@@ -20,6 +23,11 @@ class SeedTestingData extends Seeder
     public function run()
     {
         // Create Testing data for live tests
+        $this->call(\DatabaseSeeder::class);
+
+        // set setup passport for testing purposes manually!
+        // caution: this should not be used in production mode
+        $this->setupPassportOAuth2();
     }
 
 }

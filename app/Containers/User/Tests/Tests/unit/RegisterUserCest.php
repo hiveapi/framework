@@ -14,11 +14,11 @@ use Illuminate\Support\Facades\App;
  */
 class RegisterUserCest extends BaseCest
 {
-    protected function _before()
+    public function _before()
     {
     }
 
-    protected function _after()
+    public function _after()
     {
     }
 

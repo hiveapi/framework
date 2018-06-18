@@ -12,11 +12,11 @@ use Illuminate\Support\Str;
  */
 class WelcomeApiRoutesTestCest extends BaseCest
 {
-    protected function _before()
+    public function _before()
     {
     }
 
-    protected function _after()
+    public function _after()
     {
     }
 

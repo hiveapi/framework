@@ -12,11 +12,11 @@ use Illuminate\Support\Facades\Config;
  */
 class LocalizationApiRoutesTestCest extends BaseCest
 {
-    protected function _before()
+    public function _before()
     {
     }
 
-    protected function _after()
+    public function _after()
     {
     }
 
@@ -29,12 +29,14 @@ class LocalizationApiRoutesTestCest extends BaseCest
         $defined_locales = Config::get('localization-container.supported_languages', []);
 
         /** @var User $user */
-        $user = User::find(1);
-        $token = $user->createToken('test');
+        $user = $this->getTestingUser([
+            'email' => 'user@user.com',
+        ]);
 
-        $I->amBearerAuthenticated($token->accessToken);
+        $I->amBearerAuthenticated($this->getAuthenticationTokenForUser($user));
         $I->haveHttpHeader('accept', 'application/json');
-        $I->sendGET('/v1/localizations');
+
+        $I->sendGET('v1/localizations');
 
         $I->seeResponseCodeIs(200);
         $I->canSeeResponseIsJson();
@@ -64,12 +66,14 @@ class LocalizationApiRoutesTestCest extends BaseCest
     public function test_if_api_does_not_return_unknown_locale(ApiTester $I)
     {
         /** @var User $user */
-        $user = User::find(1);
-        $token = $user->createToken('test');
+        $user = $this->getTestingUser([
+            'email' => 'user@user.com',
+        ]);
 
-        $I->amBearerAuthenticated($token->accessToken);
+        $I->amBearerAuthenticated($this->getAuthenticationTokenForUser($user));
         $I->haveHttpHeader('accept', 'application/json');
-        $I->sendGET('/v1/localizations');
+
+        $I->sendGET('v1/localizations');
 
         $I->dontSeeResponseContainsJson(['code' => 'xxx']);
     }

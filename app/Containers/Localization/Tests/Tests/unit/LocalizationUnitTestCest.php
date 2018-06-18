@@ -14,11 +14,11 @@ use Illuminate\Support\Facades\Config;
  */
 class LocalizationUnitTestCest extends BaseCest
 {
-    protected function _before()
+    public function _before()
     {
     }
 
-    protected function _after()
+    public function _after()
     {
     }
 
