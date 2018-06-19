@@ -1539,12 +1539,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/hiveapi/core.git",
-                "reference": "4ce61ef907dbff6c47c10472166845b82eb2358c"
+                "reference": "a33137a67a08515a8e416ddc1a464522cd21c539"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hiveapi/core/zipball/4ce61ef907dbff6c47c10472166845b82eb2358c",
-                "reference": "4ce61ef907dbff6c47c10472166845b82eb2358c",
+                "url": "https://api.github.com/repos/hiveapi/core/zipball/a33137a67a08515a8e416ddc1a464522cd21c539",
+                "reference": "a33137a67a08515a8e416ddc1a464522cd21c539",
                 "shasum": ""
             },
             "require": {
@@ -1580,7 +1580,7 @@
                 "hiveapi core",
                 "laravel"
             ],
-            "time": "2018-06-15T14:21:57+00:00"
+            "time": "2018-06-19T07:31:48+00:00"
         },
         {
             "name": "jakub-onderka/php-console-color",

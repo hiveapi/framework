@@ -40,7 +40,7 @@ class RegisterUserCest extends BaseCest
         $user = $action->run($transporter);
 
         // asset the returned object is an instance of the User
-        $I->usePHPUnitTo->assertInstanceOf(User::class, $user);
+        $I->usePHPUnitTo::assertInstanceOf(User::class, $user);
         $I->assertEquals($user->name, $data['name']);
     }
 

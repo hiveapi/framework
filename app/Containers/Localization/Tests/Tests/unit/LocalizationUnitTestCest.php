@@ -47,7 +47,7 @@ class LocalizationUnitTestCest extends BaseCest
 
         $supportedLocale = new Localization('de');
 
-        $I->usePHPUnitTo->assertContains($supportedLocale, $localizations, '', false, false, false);
+        $I->usePHPUnitTo::assertContains($supportedLocale, $localizations, '', false, false, false);
     }
 
     /**
@@ -61,7 +61,7 @@ class LocalizationUnitTestCest extends BaseCest
 
         $supportedLocaleWithRegion = new Localization('en', ['en-GB', 'en-US']);
 
-        $I->usePHPUnitTo->assertContains($supportedLocaleWithRegion, $localizations, '', false, false, false);
+        $I->usePHPUnitTo::assertContains($supportedLocaleWithRegion, $localizations, '', false, false, false);
     }
 
     /**
@@ -75,7 +75,7 @@ class LocalizationUnitTestCest extends BaseCest
 
         $unsupportedLocale = new Localization('xxx');
 
-        $I->usePHPUnitTo->assertNotContains($unsupportedLocale, $localizations, '', false, false, false);
+        $I->usePHPUnitTo::assertNotContains($unsupportedLocale, $localizations, '', false, false, false);
     }
 
     private function getAllLocalizations()

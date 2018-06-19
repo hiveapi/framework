@@ -1,6 +1,7 @@
 modules:
     enabled:
         - Asserts
+        - Filesystem
         - Laravel5:
             root: ../../../../
             part: ORM
