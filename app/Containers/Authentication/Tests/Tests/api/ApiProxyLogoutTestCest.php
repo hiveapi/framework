@@ -39,7 +39,6 @@ class ApiProxyLogoutTestCest extends BaseCest
         $I->sendDELETE($endpoint);
 
         $I->seeResponseCodeIs(204);
-        $I->seeResponseIsJson();
     }
 
 }
