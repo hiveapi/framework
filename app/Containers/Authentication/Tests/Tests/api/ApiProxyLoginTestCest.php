@@ -81,6 +81,7 @@ class ApiProxyLoginTestCest extends BaseCest
         $I->sendPOST($endpoint, $data);
 
         $I->seeResponseCodeIs(422);
+        $I->seeResponseIsJson();
     }
 
     /**
@@ -109,6 +110,7 @@ class ApiProxyLoginTestCest extends BaseCest
         $I->sendPOST($endpoint, $data);
 
         $I->seeResponseCodeIs(401);
+        $I->seeResponseIsJson();
     }
 
     /**
@@ -140,6 +142,7 @@ class ApiProxyLoginTestCest extends BaseCest
         $I->sendPOST($endpoint, $data);
 
         $I->seeResponseCodeIs(409);
+        $I->seeResponseIsJson();
     }
 
 }

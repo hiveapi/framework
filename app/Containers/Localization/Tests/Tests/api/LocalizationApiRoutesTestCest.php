@@ -76,6 +76,7 @@ class LocalizationApiRoutesTestCest extends BaseCest
         $I->sendGET('v1/localizations');
 
         $I->dontSeeResponseContainsJson(['code' => 'xxx']);
+        $I->seeResponseIsJson();
     }
 
 }
