@@ -3,6 +3,7 @@
 namespace App\Containers\Authentication\Tests\Tests;
 
 use App\Ship\Parents\Tests\Cests\BaseCest;
+use Codeception\Util\HttpCode;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\DB;
 
@@ -55,7 +56,7 @@ class ApiProxyLoginTestCest extends BaseCest
         $I->haveHttpHeader('content-type', 'application/json');
         $I->sendPOST($endpoint, $userdata);
 
-        $I->seeResponseCodeIs(200);
+        $I->seeResponseCodeIs(HttpCode::OK);
         $I->seeResponseIsJson();
 
         $I->seeResponseContainsJson(['token_type' => 'Bearer']);
@@ -80,7 +81,7 @@ class ApiProxyLoginTestCest extends BaseCest
         $I->haveHttpHeader('content-type', 'application/json');
         $I->sendPOST($endpoint, $data);
 
-        $I->seeResponseCodeIs(422);
+        $I->seeResponseCodeIs(HttpCode::UNPROCESSABLE_ENTITY);
         $I->seeResponseIsJson();
     }
 
@@ -109,7 +110,7 @@ class ApiProxyLoginTestCest extends BaseCest
         $I->haveHttpHeader('content-type', 'application/json');
         $I->sendPOST($endpoint, $data);
 
-        $I->seeResponseCodeIs(401);
+        $I->seeResponseCodeIs(HttpCode::UNAUTHORIZED);
         $I->seeResponseIsJson();
     }
 
@@ -141,7 +142,7 @@ class ApiProxyLoginTestCest extends BaseCest
         $I->haveHttpHeader('content-type', 'application/json');
         $I->sendPOST($endpoint, $data);
 
-        $I->seeResponseCodeIs(409);
+        $I->seeResponseCodeIs(HttpCode::CONFLICT);
         $I->seeResponseIsJson();
     }
 

@@ -3,6 +3,7 @@
 namespace App\Containers\Localization\Tests\Tests;
 
 use App\Ship\Parents\Tests\Cests\BaseCest;
+use Codeception\Util\HttpCode;
 use Illuminate\Support\Facades\Config;
 
 /**
@@ -31,7 +32,7 @@ class LocalizationMiddlewareTestCest extends BaseCest
         $I->haveHttpHeader('accept', 'application/json');
         $I->sendGET('/');
 
-        $I->seeResponseCodeIs(200);
+        $I->seeResponseCodeIs(HttpCode::OK);
         $I->seeHttpHeader('content-language', $default_locale);
     }
 
@@ -48,7 +49,7 @@ class LocalizationMiddlewareTestCest extends BaseCest
         $I->haveHttpHeader('accept-language', $custom_locale);
         $I->sendGET('/');
 
-        $I->seeResponseCodeIs(200);
+        $I->seeResponseCodeIs(HttpCode::OK);
         $I->seeHttpHeader('content-language', $custom_locale);
         $I->seeResponseContains(trans('welcome::messages.welcome'));
     }
@@ -66,7 +67,7 @@ class LocalizationMiddlewareTestCest extends BaseCest
         $I->haveHttpHeader('accept-language', $unknown_locale);
         $I->sendGET('/');
 
-        $I->seeResponseCodeIs(412);
+        $I->seeResponseCodeIs(HttpCode::PRECONDITION_FAILED);
     }
 
 }

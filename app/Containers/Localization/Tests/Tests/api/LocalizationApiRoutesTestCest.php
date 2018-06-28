@@ -4,6 +4,7 @@ namespace App\Containers\Localization\Tests\Tests;
 
 use App\Containers\User\Models\User;
 use App\Ship\Parents\Tests\Cests\BaseCest;
+use Codeception\Util\HttpCode;
 use Illuminate\Support\Facades\Config;
 
 /**
@@ -38,7 +39,7 @@ class LocalizationApiRoutesTestCest extends BaseCest
 
         $I->sendGET('v1/localizations');
 
-        $I->seeResponseCodeIs(200);
+        $I->seeResponseCodeIs(HttpCode::OK);
         $I->canSeeResponseIsJson();
 
         $response = json_decode($I->grabResponse());

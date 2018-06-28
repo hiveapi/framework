@@ -3,6 +3,7 @@
 namespace App\Containers\Authentication\Tests\Tests;
 
 use App\Ship\Parents\Tests\Cests\BaseCest;
+use Codeception\Util\HttpCode;
 
 /**
  * @group   authentication
@@ -38,7 +39,7 @@ class ApiProxyLogoutTestCest extends BaseCest
         $I->haveHttpHeader('accept', 'application/json');
         $I->sendDELETE($endpoint);
 
-        $I->seeResponseCodeIs(204);
+        $I->seeResponseCodeIs(HttpCode::NO_CONTENT);
     }
 
 }

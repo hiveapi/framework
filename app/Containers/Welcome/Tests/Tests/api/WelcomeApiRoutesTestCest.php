@@ -4,6 +4,7 @@ namespace App\Containers\Welcome\Tests\Tests;
 
 use App\Ship\Parents\Tests\Cests\BaseCest;
 use Codeception\Example;
+use Codeception\Util\HttpCode;
 use Illuminate\Support\Str;
 
 /**
@@ -30,7 +31,7 @@ class WelcomeApiRoutesTestCest extends BaseCest
         $I->haveHttpHeader('accept', 'application/json');
         $I->sendGET('/');
 
-        $I->seeResponseCodeIs(200);
+        $I->seeResponseCodeIs(HttpCode::OK);
         $I->seeResponseContains(trans('welcome::messages.welcome'));
     }
 
@@ -48,7 +49,7 @@ class WelcomeApiRoutesTestCest extends BaseCest
         $I->haveHttpHeader('accept', 'application/json');
         $I->sendGET('/' . $example['version']);
 
-        $I->seeResponseCodeIs(200);
+        $I->seeResponseCodeIs(HttpCode::OK);
         $I->seeResponseContains(trans('welcome::messages.welcome'));
         $I->seeResponseContains(Str::upper($example["version"]));
     }
@@ -65,7 +66,7 @@ class WelcomeApiRoutesTestCest extends BaseCest
         $I->haveHttpHeader('accept', 'application/json');
         $I->sendGET('/' . 'non-existing-version');
 
-        $I->seeResponseCodeIs(404);
+        $I->seeResponseCodeIs(HttpCode::NOT_FOUND);
     }
 
 }
