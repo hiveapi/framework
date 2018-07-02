@@ -9,7 +9,7 @@ use Codeception\Util\HttpCode;
  * @group   authentication
  * @group   api
  */
-class ApiProxyLogoutTestCest extends BaseCest
+class AuthenticationApiProxyLogoutTestCest extends BaseCest
 {
     public function _before()
     {

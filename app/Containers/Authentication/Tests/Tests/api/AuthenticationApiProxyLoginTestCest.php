@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\DB;
  * @group   authentication
  * @group   api
  */
-class ApiProxyLoginTestCest extends BaseCest
+class AuthenticationApiProxyLoginTestCest extends BaseCest
 {
     public function _before()
     {

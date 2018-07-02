@@ -28,8 +28,10 @@ class WelcomeApiRoutesTestCest extends BaseCest
      */
     public function test_if_api_has_welcome_page(ApiTester $I)
     {
+        $endpoint = '/';
+
         $I->haveHttpHeader('accept', 'application/json');
-        $I->sendGET('/');
+        $I->sendGET($endpoint);
 
         $I->seeResponseCodeIs(HttpCode::OK);
         $I->seeResponseContains(trans('welcome::messages.welcome'));
@@ -44,14 +46,16 @@ class WelcomeApiRoutesTestCest extends BaseCest
      */
     public function test_if_api_serves_welcome_page_for_version(ApiTester $I, Example $example)
     {
+        $endpoint = '/' . $example['version'];
+
         $I->amGoingTo('test the welcome page for API versions');
 
         $I->haveHttpHeader('accept', 'application/json');
-        $I->sendGET('/' . $example['version']);
+        $I->sendGET($endpoint);
 
         $I->seeResponseCodeIs(HttpCode::OK);
         $I->seeResponseContains(trans('welcome::messages.welcome'));
-        $I->seeResponseContains(Str::upper($example["version"]));
+        $I->seeResponseContains(Str::upper($example['version']));
     }
 
     /**
@@ -61,10 +65,12 @@ class WelcomeApiRoutesTestCest extends BaseCest
      */
     public function test_if_api_throws_error_on_wrong_api_version(ApiTester $I)
     {
+        $endpoint = '/non-existing-version';
+
         $I->amGoingTo('test the welcome page for a non-existing API version');
 
         $I->haveHttpHeader('accept', 'application/json');
-        $I->sendGET('/' . 'non-existing-version');
+        $I->sendGET($endpoint);
 
         $I->seeResponseCodeIs(HttpCode::NOT_FOUND);
     }

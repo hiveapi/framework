@@ -27,10 +27,12 @@ class LocalizationMiddlewareTestCest extends BaseCest
      */
     public function test_if_middleware_sets_default_language(ApiTester $I)
     {
+        $endpoint = '/';
+
         $default_locale = Config::get('app.locale');
 
         $I->haveHttpHeader('accept', 'application/json');
-        $I->sendGET('/');
+        $I->sendGET($endpoint);
 
         $I->seeResponseCodeIs(HttpCode::OK);
         $I->seeHttpHeader('content-language', $default_locale);
@@ -43,11 +45,13 @@ class LocalizationMiddlewareTestCest extends BaseCest
      */
     public function test_if_middleware_sets_custom_language(ApiTester $I)
     {
+        $endpoint = '/';
+
         $custom_locale = 'de';
 
         $I->haveHttpHeader('accept', 'application/json');
         $I->haveHttpHeader('accept-language', $custom_locale);
-        $I->sendGET('/');
+        $I->sendGET($endpoint);
 
         $I->seeResponseCodeIs(HttpCode::OK);
         $I->seeHttpHeader('content-language', $custom_locale);
@@ -61,11 +65,13 @@ class LocalizationMiddlewareTestCest extends BaseCest
      */
     public function test_if_middleware_throws_error_on_wrong_language(ApiTester $I)
     {
+        $endpoint = '/';
+
         $unknown_locale = 'xxx';
 
         $I->haveHttpHeader('accept', 'application/json');
         $I->haveHttpHeader('accept-language', $unknown_locale);
-        $I->sendGET('/');
+        $I->sendGET($endpoint);
 
         $I->seeResponseCodeIs(HttpCode::PRECONDITION_FAILED);
     }

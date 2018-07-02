@@ -4,7 +4,7 @@ modules:
         - Filesystem
         - Laravel5:
             root: ../../../../
-            url: 'http://api.hive.local'
+            url: http://api.testing.local
             part: ORM
             run_database_migrations: true
             run_database_seeder: true
@@ -16,5 +16,3 @@ modules:
     config:
         - Laravel5:
             part: ORM
-        - REST:
-            url: 'http://api.hive.local'
