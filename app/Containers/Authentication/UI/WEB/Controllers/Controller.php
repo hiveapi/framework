@@ -35,7 +35,7 @@ class Controller extends WebController
     {
         Hive::call(WebLogoutAction::class);
 
-        return redirect('login');
+        return redirect()->route('get_admin_login_page');
     }
 
     /**
@@ -48,10 +48,10 @@ class Controller extends WebController
         try {
             $result = Hive::call(WebAdminLoginAction::class, [new DataTransporter($request)]);
         } catch (Exception $e) {
-            return redirect('login')->with('status', $e->getMessage());
+            return redirect()->route('get_admin_login_page')->with('status', $e->getMessage());
         }
 
-        return is_array($result) ? redirect('login')->with($result) : redirect('dashboard');
+        return is_array($result) ? redirect()->route('get_admin_login_page')->with($result) : redirect()->route('get_admin_dashboard_page');
     }
 
     /**

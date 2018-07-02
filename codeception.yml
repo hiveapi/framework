@@ -13,9 +13,9 @@ paths:
 
 #actor_suffix: Tester          # Name (Suffix) for your testers (e.g., AcceptanceXXX, FunctionalXXX, ApiXXX, ...)
 
-#settings:
-#    colors: false
-#    memory_limit: 1024M
+settings:
+    colors: false
+    memory_limit: 1024M
 
 #coverage:
 #     enabled: true
@@ -35,4 +35,4 @@ paths:
 #      dsn: ''
 #      user: ''
 #      password: ''
-#dump: tests/_data/dump.sql
+#      dump: tests/_data/dump.sql
