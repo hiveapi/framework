@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Containers\User\Tests\Tests\Api;
+namespace App\Containers\User\Tests\Tests\Unit;
 
 use App\Containers\User\Actions\RegisterUserAction;
 use App\Containers\User\Models\User;
