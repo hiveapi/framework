@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Containers\Welcome\Tests\Tests;
+namespace App\Containers\Welcome\Tests\Tests\Acceptance;
 
+use App\Containers\Welcome\Tests\Tests\AcceptanceTester;
 use App\Ship\Parents\Tests\Cests\BaseCest;
 
 /**

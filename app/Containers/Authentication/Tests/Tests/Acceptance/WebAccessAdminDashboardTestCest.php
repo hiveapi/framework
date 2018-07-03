@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Containers\Authentication\Tests\Tests;
+namespace App\Containers\Authentication\Tests\Tests\Acceptance;
 
+use App\Containers\Authentication\Tests\Tests\AcceptanceTester;
 use App\Ship\Parents\Tests\Cests\BaseCest;
 
 /**
@@ -36,21 +37,27 @@ class WebAccessAdminDashboardTestCest extends BaseCest
      * @test
      *
      * @param \App\Containers\Authentication\Tests\Tests\AcceptanceTester $I
+     * @group js
      */
     public function test_if_login_works(AcceptanceTester $I)
     {
-        $endpoint = 'http://admin.hive.local';
+        $endpoint = 'login';
 
         $userdata = [
-            'email' => 'admin@admin.com',
+            'email' => 'admin@local.host',
+            'password' => 'testing'
         ];
 
-        $user = $this->getTestingUser($userdata);
+        $access = [
+            'roles' => ['admin'],
+        ];
 
-        $I->amOnPage($endpoint);
+        $user = $this->getTestingUser($userdata, $access);
 
-        $I->fillField('email', 'admin@admin.com');
-        $I->fillField('password', 'admin');
+        $I->amOnRoute('get_admin_login_page');
+
+        $I->fillField('email', $userdata['email']);
+        $I->fillField('password', $userdata['password']);
         $I->click('login');
 
         $I->see('Welcome Admin');

@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Containers\Welcome\Tests\Tests;
+namespace App\Containers\Welcome\Tests\Tests\Api;
 
+use App\Containers\Welcome\Tests\Tests\ApiTester;
 use App\Ship\Parents\Tests\Cests\BaseCest;
 use Codeception\Example;
 use Codeception\Util\HttpCode;

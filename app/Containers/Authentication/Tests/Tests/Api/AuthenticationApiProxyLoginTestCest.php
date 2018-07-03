@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Containers\Authentication\Tests\Tests;
+namespace App\Containers\Authentication\Tests\Tests\Api;
 
+use App\Containers\Authentication\Tests\Tests\ApiTester;
 use App\Ship\Parents\Tests\Cests\BaseCest;
 use Codeception\Util\HttpCode;
 use Illuminate\Support\Facades\Config;
