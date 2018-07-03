@@ -27,7 +27,7 @@ class LocalizationMiddlewareTestCest extends BaseCest
      */
     public function test_if_middleware_sets_default_language(ApiTester $I)
     {
-        $endpoint = '/';
+        $endpoint = route("api_v1_welcome_root");
 
         $default_locale = Config::get('app.locale');
 
@@ -45,7 +45,7 @@ class LocalizationMiddlewareTestCest extends BaseCest
      */
     public function test_if_middleware_sets_custom_language(ApiTester $I)
     {
-        $endpoint = '/';
+        $endpoint = route("api_v1_welcome_root");
 
         $custom_locale = 'de';
 
@@ -65,7 +65,7 @@ class LocalizationMiddlewareTestCest extends BaseCest
      */
     public function test_if_middleware_throws_error_on_wrong_language(ApiTester $I)
     {
-        $endpoint = '/';
+        $endpoint = route("api_v1_welcome_root");
 
         $unknown_locale = 'xxx';
 

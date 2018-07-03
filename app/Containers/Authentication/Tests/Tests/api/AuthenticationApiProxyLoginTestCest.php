@@ -43,7 +43,7 @@ class AuthenticationApiProxyLoginTestCest extends BaseCest
      */
     public function test_login_with_existing_user(ApiTester $I)
     {
-        $endpoint = 'v1/clients/web/admin/login';
+        $endpoint = route('api_v1_authentication_client_admin_web_app_login_proxy');
 
         $userdata = [
             'email' => 'confirmed@user.com',
@@ -70,7 +70,7 @@ class AuthenticationApiProxyLoginTestCest extends BaseCest
      */
     public function test_login_with_nonexisting_user(ApiTester $I)
     {
-        $endpoint = 'v1/clients/web/admin/login';
+        $endpoint = route('api_v1_authentication_client_admin_web_app_login_proxy');
 
         $data = [
             'email'     => 'unknown@user.com',
@@ -92,7 +92,7 @@ class AuthenticationApiProxyLoginTestCest extends BaseCest
      */
     public function test_login_with_incorrect_login_data(ApiTester $I)
     {
-        $endpoint = 'v1/clients/web/admin/login';
+        $endpoint = route('api_v1_authentication_client_admin_web_app_login_proxy');
 
         $userdata = [
             'email' => 'confirmed@user.com',
@@ -121,7 +121,7 @@ class AuthenticationApiProxyLoginTestCest extends BaseCest
      */
     public function test_login_with_unconfirmed_user(ApiTester $I)
     {
-        $endpoint = 'v1/clients/web/admin/login';
+        $endpoint = route('api_v1_authentication_client_admin_web_app_login_proxy');
 
         Config::set('authentication-container.require_email_confirmation', true);
 

@@ -27,7 +27,7 @@ class LocalizationApiRoutesTestCest extends BaseCest
      */
     public function test_if_api_returns_all_locales(ApiTester $I)
     {
-        $endpoint = 'v1/localizations';
+        $endpoint = route('api_v1_localization_get_all_localizations');
 
         $defined_locales = Config::get('localization-container.supported_languages', []);
 
@@ -68,7 +68,7 @@ class LocalizationApiRoutesTestCest extends BaseCest
      */
     public function test_if_api_does_not_return_unknown_locale(ApiTester $I)
     {
-        $endpoint = 'v1/localizations';
+        $endpoint = route('api_v1_localization_get_all_localizations');
 
         /** @var User $user */
         $user = $this->getTestingUser([

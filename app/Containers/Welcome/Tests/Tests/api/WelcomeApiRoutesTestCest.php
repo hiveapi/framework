@@ -28,7 +28,7 @@ class WelcomeApiRoutesTestCest extends BaseCest
      */
     public function test_if_api_has_welcome_page(ApiTester $I)
     {
-        $endpoint = '/';
+        $endpoint = route('api_v1_welcome_root');
 
         $I->haveHttpHeader('accept', 'application/json');
         $I->sendGET($endpoint);
@@ -46,7 +46,7 @@ class WelcomeApiRoutesTestCest extends BaseCest
      */
     public function test_if_api_serves_welcome_page_for_version(ApiTester $I, Example $example)
     {
-        $endpoint = '/' . $example['version'];
+        $endpoint = route("api_{$example['version']}_welcome_version");
 
         $I->amGoingTo('test the welcome page for API versions');
 
@@ -65,7 +65,7 @@ class WelcomeApiRoutesTestCest extends BaseCest
      */
     public function test_if_api_throws_error_on_wrong_api_version(ApiTester $I)
     {
-        $endpoint = '/non-existing-version';
+        $endpoint = route('api_v1_welcome_root') . '/vNonExistingVersion';
 
         $I->amGoingTo('test the welcome page for a non-existing API version');
 

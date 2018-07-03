@@ -26,7 +26,7 @@ class AuthenticationApiProxyLogoutTestCest extends BaseCest
      */
     public function test_logout(ApiTester $I)
     {
-        $endpoint = 'v1/logout';
+        $endpoint = route('api_v1_authentication_logout');
 
         $userdata = [
             'email' => 'testuser@example.com',
