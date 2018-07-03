@@ -4,7 +4,6 @@ modules:
         - Filesystem
         - Laravel5:
             root: ../../../../
-            url: http://api.testing.local
             part: ORM
             run_database_migrations: true
             run_database_seeder: true
