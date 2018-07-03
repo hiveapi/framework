@@ -21,7 +21,7 @@
  */
 
 $router->patch('user/paymentaccounts/{id}', [
-    'as' => 'api_payment_update_payment_account',
+    'as' => 'api_v1_payment_update_payment_account',
     'uses'  => 'Controller@updatePaymentAccount',
     'middleware' => [
       'auth:api',

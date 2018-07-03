@@ -12,7 +12,7 @@
  */
 
 $router->get('permissions/{id}', [
-    'as' => 'api_authorization_get_permission',
+    'as' => 'api_v1_authorization_get_permission',
     'uses'       => 'Controller@findPermission',
     'middleware' => [
         'auth:api',

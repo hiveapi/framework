@@ -20,7 +20,7 @@
  */
 
 $router->get('localizations', [
-    'as' => 'api_localization_get_all_localizations',
+    'as' => 'api_v1_localization_get_all_localizations',
     'uses'  => 'Controller@getAllLocalizations',
     'middleware' => [
       'auth:api',

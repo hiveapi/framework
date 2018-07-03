@@ -27,7 +27,7 @@
  */
 
 $router->post('/user/payments/accounts/stripe', [
-    'as' => 'api_stripe_create_stripe_account',
+    'as' => 'api_v1_stripe_create_stripe_account',
     'uses' => 'Controller@createStripeAccount',
     'middleware' => [
         'auth:api',

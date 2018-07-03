@@ -20,7 +20,7 @@
  */
 
 $router->get('user/paymentaccounts', [
-    'as' => 'api_payment_get_payment_accounts',
+    'as' => 'api_v1_payment_get_payment_accounts',
     'uses'  => 'Controller@getAllPaymentAccounts',
     'middleware' => [
       'auth:api',

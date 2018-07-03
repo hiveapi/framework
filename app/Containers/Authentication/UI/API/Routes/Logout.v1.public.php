@@ -15,7 +15,7 @@
 }
  */
 $router->delete('logout', [
-    'as' => 'api_authentication_logout',
+    'as' => 'api_v1_authentication_logout',
     'uses'  => 'Controller@logout',
     'middleware' => [
         'auth:api',

@@ -1,6 +1,6 @@
 <?php
 
 $router->get('/', [
-    'as'   => 'get_main_home_page',
+    'as'   => 'web_v1_welcome_get_main_home_page',
     'uses' => 'Controller@sayWelcome',
 ]);

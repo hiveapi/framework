@@ -13,7 +13,7 @@
  */
 
 $router->get('users/{id}', [
-    'as' => 'api_user_find_user',
+    'as' => 'api_v1_user_find_user',
     'uses'       => 'Controller@findUserById',
     'middleware' => [
         'auth:api',

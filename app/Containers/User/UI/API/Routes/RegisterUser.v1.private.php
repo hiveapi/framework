@@ -19,6 +19,6 @@
  */
 
 $router->post('/register', [
-    'as' => 'api_user_register_user',
+    'as' => 'api_v1_user_register_user',
     'uses'  => 'Controller@registerUser',
 ]);

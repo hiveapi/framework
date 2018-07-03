@@ -21,6 +21,6 @@
 }
  */
 $router->post('clients/web/admin/login', [
-    'as' => 'api_authentication_client_admin_web_app_login_proxy',
+    'as' => 'api_v1_authentication_client_admin_web_app_login_proxy',
     'uses'  => 'Controller@proxyLoginForAdminWebClient',
 ]);

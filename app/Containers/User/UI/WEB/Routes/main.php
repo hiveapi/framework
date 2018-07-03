@@ -1,6 +1,6 @@
 <?php
 
 $router->get('/user', [
-    'as'   => 'get_user_home_page',
+    'as'   => 'web_v1_user_get_user_home_page',
     'uses' => 'Controller@sayWelcome',
 ]);
