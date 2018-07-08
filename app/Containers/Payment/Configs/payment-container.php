@@ -21,9 +21,11 @@ return [
             'charge_task' => App\Containers\Stripe\Tasks\ChargeWithStripeTask::class,
         ],
 
+        /*
         'paypal' => [
             // ...
         ],
+        */
 
         // ...
     ],
