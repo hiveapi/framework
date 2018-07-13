@@ -4,6 +4,9 @@ namespace App\Containers\Payment\Models;
 
 use App\Ship\Parents\Models\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use JohannesSchobel\ShoppingCart\Traits\FormatsMoneyTrait;
+use Money\Currency;
+use Money\Money;
 
 /**
  * Class PaymentTransaction
@@ -13,6 +16,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class PaymentTransaction extends Model
 {
     use SoftDeletes;
+    use FormatsMoneyTrait;
 
     protected $fillable = [
         'user_id',
@@ -53,4 +57,15 @@ class PaymentTransaction extends Model
      * A resource key to be used by the the JSON API Serializer responses.
      */
     protected $resourceKey = 'paymenttransactions';
+
+    /**
+     * @param string $field_price
+     * @param string $field_currency
+     *
+     * @return Money
+     */
+    public function getMoneyFromFields($field_price, $field_currency)
+    {
+        return new Money($this->{$field_price}, new Currency($this->{$field_currency}));
+    }
 }
